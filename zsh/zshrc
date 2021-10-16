@@ -1,0 +1,17 @@
+autoload -U colors
+colors
+
+export DOTFILES="${HOME}/.dotfiles"
+
+source $DOTFILES/shell/default_rc
+source $DOTFILES/zsh/completion.zsh
+source $DOTFILES/zsh/prompt.zsh
+# source $DOTFILES/zsh/vimode.zsh
+source $DOTFILES/zsh/emacsmode.zsh
+
+HISTFILE=$HOME/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt autocd extendedglob nomatch notify
+unsetopt beep
+

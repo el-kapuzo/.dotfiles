@@ -1,0 +1,1 @@
+packadd! vim-indent-object

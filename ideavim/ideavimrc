@@ -1,0 +1,31 @@
+noremap <space> <Nop>
+let mapleader=" "
+set showmode
+
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+
+set ideajoin
+set idearefactormode="keep"
+
+set surround
+set easymotion
+set commentary
+set highlightedyank
+let g:highlightedyank_highlight_color = "rgba(160, 160, 160, 155)"
+
+
+source ~/.dotfiles/ideavim/intellimacs/mapping/pycharm.vim
+source ~/.dotfiles/ideavim/intellimacs/mapping/normal.vim
+source ~/.dotfiles/ideavim/intellimacs/mapping/visual.vim
+source ~/.dotfiles/ideavim/intellimacs/git.vim
+source ~/.dotfiles/ideavim/intellimacs/terminal.vim
+source ~/.dotfiles/ideavim/intellimacs/refactor.vim
+source ~/.dotfiles/ideavim/intellimacs/buffers.vim
+source ~/.dotfiles/ideavim/intellimacs/files.vim
+source ~/.dotfiles/ideavim/intellimacs/windows.vim
+source ~/.dotfiles/ideavim/intellimacs/debug.vim
+source ~/.dotfiles/ideavim/intellimacs/project.vim
+source ~/.dotfiles/ideavim/intellimacs/tools.vim

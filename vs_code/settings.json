@@ -1,0 +1,819 @@
+{
+    // window settings
+    "window.menuBarVisibility": "hidden",
+    // stuff for files
+    "files.associations": {
+        "*.config": "toml"
+    },
+    "files.exclude": {
+        ".idea/": true,
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/*.pyc": true,
+        "**/__pycache__": true
+    },
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    // editor settings
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": true,
+    "editor.fontSize": 14,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.guides.bracketPairs": true,
+    "editor.guides.indentation": true,
+    "editor.guides.highlightActiveIndentation": true,
+    "editor.lineHeight": 19,
+    "editor.lineNumbers": "relative",
+    "editor.minimap.enabled": false,
+    "editor.minimap.renderCharacters": false,
+    "editor.renderWhitespace": "all",
+    "editor.suggestSelection": "first",
+    // explorer settings
+    "explorer.confirmDelete": true,
+    "explorer.confirmDragAndDrop": true,
+    "explorer.sortOrder": "type",
+    // workbench settings
+    "workbench.startupEditor": "welcomePage",
+    "workbench.colorTheme": "GitHub Light Monochrome",
+    "workbench.editor.highlightModifiedTabs": true,
+    "workbench.editor.showTabs": false,
+    "workbench.iconTheme": "easy-icons",
+    "workbench.preferredDarkColorTheme": "GitHub Dark",
+    "workbench.preferredLightColorTheme": "GitHub Light Monochrome",
+    "workbench.colorCustomizations": {
+        "[GitHub Light*]": {
+            "editor.background": "#fffff0",
+            "sideBar.background": "#fffff0",
+            "breadcrumb.background": "#fffff0",
+            "terminal.background": "#fffff0",
+            "welcomePage.background": "#fffff0",
+            "list.focusBackground": "#d1d187"
+        },
+        "[Verdandi]": {
+            "editor.background": "#fffff0",
+            "editorGroupHeader.noTabsBackground": "#fffff0",
+            "sideBar.background": "#fffff0",
+            "breadcrumb.background": "#fffff0",
+            "terminal.background": "#fffff0",
+            "welcomePage.background": "#fffff0",
+            "list.focusBackground": "#d1d187"
+        }
+    },
+    // terminal
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "terminal.integrated.tabs.enabled": false,
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
+        },
+        "zsh": {
+            "path": "zsh"
+        },
+        "fish": null,
+        "tmux": {
+            "path": "tmux",
+            "icon": "terminal-tmux"
+        },
+        "pwsh": null
+    },
+    "terminal.integrated.profiles.windows": {
+        "PowerShell": null,
+        "Command Prompt": null,
+        "Git Bash": {
+            "source": "Git Bash",
+            "args": [
+                "--login",
+                "-i"
+            ]
+        }
+    },
+    // python settings
+    "[python]": {
+        "editor.tabSize": 4,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": false
+        }
+    },
+    "python.analysis.logLevel": "Trace",
+    "python.languageServer": "Pylance",
+    "python.linting.enabled": true,
+    "python.linting.lintOnSave": true,
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Args": [
+        "--max-line-length=88"
+    ],
+    "python.formatting.provider": "black",
+    "python.sortImports.args": [
+        "--line-width",
+        "88"
+    ],
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestEnabled": false,
+    "python.testing.nosetestsEnabled": false,
+    "python.testing.pytestArgs": [
+        "tests",
+        "-v",
+        "--tb=no"
+    ],
+    "python.testing.autoTestDiscoverOnSaveEnabled": true,
+    // pylance --------------------------------------------------
+    "python.analysis.diagnosticMode": "workspace",
+    "python.analysis.autoSearchPaths": true,
+    // python doc-strings ---------------------------------------
+    "autoDocstring.docstringFormat": "numpy",
+    "autoDocstring.startOnNewLine": true,
+    // markdown -------------------------------------------------
+    "[markdown]": {
+        "editor.tabSize": 2,
+        "editor.formatOnSave": true
+    },
+    // yaml -----------------------------------------------------
+    "[yaml]": {
+        "editor.tabSize": 2,
+        "editor.formatOnSave": true
+    },
+    // telemetry -------------------------------------------------
+    "telemetry.enableCrashReporter": false,
+    // vim
+    "vim.leader": "<space>",
+    "vim.hlsearch": true,
+    "vim.ignorecase": true,
+    "vim.smartcase": true,
+    "vim.changeWordIncludesWhitespace": true,
+    "vim.autoindent": true,
+    "vim.highlightedyank.enable": true,
+    "vim.useSystemClipboard": false,
+    "vim.textwidth": 88,
+    "vim.easymotion": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        // VIM REMAPPINGS -------------------------------------------------------------------------------------
+        {
+            "before": [
+                "Y"
+            ],
+            "after": [
+                "y",
+                "$"
+            ]
+        },
+        {
+            "before": [
+                "<C-h>"
+            ],
+            "after": [
+                "<C-w>",
+                "h"
+            ]
+        },
+        {
+            "before": [
+                "<C-j>"
+            ],
+            "after": [
+                "<C-w>",
+                "j"
+            ]
+        },
+        {
+            "before": [
+                "<C-k>"
+            ],
+            "after": [
+                "<C-w>",
+                "k"
+            ]
+        },
+        {
+            "before": [
+                "<C-l>"
+            ],
+            "after": [
+                "<C-w>",
+                "l"
+            ]
+        },
+        // LEADER MAPPINGS -------------------------------------------------------------------------------------
+        {
+            "before": [
+                "<leader>",
+                "<leader>",
+                "<space>"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.showCommands",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "t"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.terminal.focus",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "'"
+            ],
+            "after": [],
+            "commands": [
+                {
+                    "command": "workbench.action.terminal.focus",
+                    "args": []
+                }
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "*"
+            ],
+            "commands": [
+                "references-view.find"
+            ]
+        },
+        // REFACOTRING  -----------------------------------------------------------------------------------
+        {
+            "before": [
+                "<leader>",
+                "r",
+                "r"
+            ],
+            "commands": [
+                "editor.action.rename"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "r",
+                "e",
+                "m"
+            ],
+            "commands": [
+                "python.refactorExtractMethod"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "r",
+                "e",
+                "s"
+            ],
+            "commands": [
+                "python.refactorExtractVariable"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "r",
+                "o"
+            ],
+            "commands": [
+                "python.sortImports"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "r",
+                "f"
+            ],
+            "commands": [
+                "editor.action.quickFix"
+            ],
+        },
+        // FILES ---------------------------------------------------------------------------------
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "f"
+            ],
+            "commands": [
+                "workbench.action.quickOpen"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "n"
+            ],
+            "commands": [
+                "explorer.newFile"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "N"
+            ],
+            "commands": [
+                "explorer.newFolder"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "r"
+            ],
+            "commands": [
+                "workbench.action.openRecent"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "s"
+            ],
+            "commands": [
+                "workbench.action.files.save"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "S"
+            ],
+            "commands": [
+                "workbench.action.files.saveAll"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "t"
+            ],
+            "commands": [
+                "workbench.view.explorer"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "T"
+            ],
+            "commands": [
+                "workbench.files.action.showActiveFileInExplorer"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "y"
+            ],
+            "commands": [
+                "workbench.action.files.copyPathOfActiveFile"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "f",
+                "e"
+            ],
+            "commands": [
+                "workbench.action.openSettingsJson",
+            ]
+        },
+        // GIT ------------------------------------------------------------------------------------------------
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "c"
+            ],
+            "commands": [
+                "git.commit"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "b"
+            ],
+            "commands": [
+                "git.branch"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "f"
+            ],
+            "commands": [
+                "git.fetch"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "m"
+            ],
+            "commands": [
+                "git.merge"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "p"
+            ],
+            "commands": [
+                "git.publish"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "S"
+            ],
+            "commands": [
+                "git.stage"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "g",
+                "U"
+            ],
+            "commands": [
+                "git.unstage"
+            ]
+        },
+        // BUFFERS ------------------------------------------------------------------------------------------
+        {
+            "before": [
+                "<leader>",
+                "b",
+                "b"
+            ],
+            "commands": [
+                "workbench.action.showAllEditors"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "b",
+                "d"
+            ],
+            "commands": [
+                "workbench.action.closeActiveEditor"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "b",
+                "D"
+            ],
+            "commands": [
+                "workbench.action.closeOtherEditors"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "b",
+                "<C-d>"
+            ],
+            "commands": [
+                "workbench.action.closeOtherEditors"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "b",
+                "n"
+            ],
+            "commands": [
+                "workbench.action.nextEditor"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "b",
+                "p"
+            ],
+            "commands": [
+                "workbench.action.previousEditor"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "b",
+                "s"
+            ],
+            "commands": [
+                "workbench.action.files.newUntitledFile"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "b",
+                "u"
+            ],
+            "commands": [
+                "workbench.action.reopenClosedEditor"
+            ]
+        },
+        // WINDOWS -------------------------------------------------
+        {
+            "before": [
+                "<leader>",
+                "w",
+                "v"
+            ],
+            "commands": [
+                "workbench.action.splitEditorRight"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "w",
+                "s"
+            ],
+            "commands": [
+                "workbench.action.splitEditorDown"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "w",
+                "d"
+            ],
+            "commands": [
+                "workbench.action.closeEditorsInGroup"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "w",
+                "D"
+            ],
+            "commands": [
+                "workbench.action.closeEditorsInOtherGroups"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "w",
+                "<C-d>"
+            ],
+            "commands": [
+                "workbench.action.closeEditorsInOtherGroups"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "w",
+                "n"
+            ],
+            "commands": [
+                "workbench.action.moveEditorToNextGroup"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "w",
+                "p"
+            ],
+            "commands": [
+                "workbench.action.moveEditorToPreviousGroup"
+            ]
+        },
+        // PROJECT ----------------------------------------------------
+        {
+            "before": [
+                "<leader>",
+                "p",
+                "o"
+            ],
+            "commands": [
+                "workbench.action.files.openFolder"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "p",
+                "d"
+            ],
+            "commands": [
+                "workbench.action.closeWindow"
+            ]
+        },
+        // DEBUG ------------------------------------------------------
+        {
+            "before": [
+                "<leader>",
+                "d",
+                "B"
+            ],
+            "commands": [
+                "workbench.debug.action.focusBreakpointsView"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "d",
+                "b"
+            ],
+            "commands": [
+                "editor.debug.action.toggleBreakpoint"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "d",
+                "C"
+            ],
+            "commands": [
+                "workbench.debug.viewlet.action.removeAllBreakpoints"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "d",
+                "c"
+            ],
+            "commands": [
+                "workbench.action.debug.continue"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "d",
+                "n"
+            ],
+            "commands": [
+                "workbench.action.debug.stepOver"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "d",
+                "o"
+            ],
+            "commands": [
+                "workbench.action.debug.stepOut"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "d",
+                "s"
+            ],
+            "commands": [
+                "workbench.action.debug.stepInto"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "d",
+                "D"
+            ],
+            "commands": [
+                "python.debugTestNode"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "d",
+                "d"
+            ],
+            "commands": [
+                "python.debugtests"
+            ]
+        },
+        // ADD ONS
+        {
+            "before": [
+                "<leader>",
+                "a",
+                "t"
+            ],
+            "commands": [
+                "todo-tree-view.focus"
+            ]
+        }
+    ],
+    // VISUAL MODE MAPPINGS ------------------------------
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                "editor.action.indentLines"
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                "editor.action.outdentLines"
+            ]
+        },
+        // REFACTOR -------------------------------------
+        {
+            "before": [
+                "<leader>",
+                "r",
+                "e",
+                "m"
+            ],
+            "commands": [
+                "python.refactorExtractMethod"
+            ]
+        },
+        {
+            "before": [
+                "<leader>",
+                "r",
+                "e",
+                "s"
+            ],
+            "commands": [
+                "python.refactorExtractVariable"
+            ]
+        }
+    ],
+    // ---- LIVE SHARE ---------------------------------------------------
+    "liveshare.joinDebugSessionOption": "Automatic",
+    "liveshare.allowGuestDebugControl": true,
+    // ---- CSPELL ------------------------------------------------------
+    "cSpell.userWords": [
+        "pytest",
+        "xfail"
+    ],
+    "liveshare.authenticationProvider": "Microsoft",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    // ---- TODO tree ----------------------------------------------------
+    "todo-tree.tree.showScanModeButton": false,
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "WARN",
+        "[ ]",
+        "[x]"
+    ],
+    "todo-tree.regex.regex": "(//|#|<!--|;|/\\*|^|^\\s*(-|\\d+.))\\s*($TAGS)"
+}

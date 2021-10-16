@@ -1,0 +1,62 @@
+[submodule "vim-surround"]
+	path = vim/rtp/pack/bundle/opt/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "vim-commentary"]
+	path = vim/rtp/pack/bundle/opt/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
+[submodule "auto-pairs"]
+	path = vim/rtp/pack/bundle/opt/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs.git
+    ignore = dirty
+[submodule "ale"]
+	path = vim/rtp/pack/bundle/opt/ale
+	url = https://github.com/dense-analysis/ale.git
+[submodule "nvim-lspconfig"]
+	path = vim/rtp/pack/bundle/opt/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig.git
+    ignore = dirty
+[submodule "ultisnips"]
+	path = vim/rtp/pack/bundle/opt/ultisnips
+	url = https://github.com/sirver/ultisnips.git
+[submodule "vim-rooter"]
+	path = vim/rtp/pack/bundle/opt/vim-rooter
+	url = https://github.com/airblade/vim-rooter
+[submodule "fzf.vim"]
+	path = vim/rtp/pack/bundle/opt/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
+[submodule "vim-signify"]
+	path = vim/rtp/pack/bundle/opt/vim-signify
+	url = https://github.com/mhinz/vim-signify.git
+[submodule "vim-fugitive"]
+	path = vim/rtp/pack/bundle/opt/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "gv.vim"]
+	path = vim/rtp/pack/bundle/opt/gv.vim
+	url = https://github.com/junegunn/gv.vim
+[submodule "lightline"]
+	path = vim/rtp/pack/bundle/opt/lightline.vim
+	url = https://github.com/itchyny/lightline.vim.git
+[submodule "nvim-colorizer"]
+	path = vim/rtp/pack/bundle/opt/nvim-colorizer.lua
+	url = https://github.com/norcalli/nvim-colorizer.lua.git
+    ignore = dirty
+[submodule "fzf"]
+	path = vim/rtp/pack/bundle/opt/fzf
+	url = https://github.com/junegunn/fzf.git
+[submodule "rust.vim"]
+	path = vim/rtp/pack/bundle/opt/rust.vim
+	url = https://github.com/rust-lang/rust.vim
+[submodule "vim-indent"]
+	path = vim/rtp/pack/bundle/opt/vim-indent-object
+	url = https://github.com/michaeljsmith/vim-indent-object
+[submodule "vim-just"]
+	path = vim/rtp/pack/bundle/opt/vim-just
+	url = https://github.com/NoahTheDuke/vim-just.git
+[submodule "nvim-compe"]
+	path = vim/rtp/pack/bundle/opt/nvim-compe
+	url = https://github.com/hrsh7th/nvim-compe
+    ignore = dirty
+[submodule "python-syntax"]
+	path = vim/rtp/pack/bundle/start/python-syntax
+	url = https://github.com/vim-python/python-syntax
+    ignore = dirty

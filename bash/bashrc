@@ -1,0 +1,10 @@
+export DOTFILES="${HOME}/.dotfiles"
+
+source $DOTFILES/shell/default_rc
+source $DOTFILES/bash/aliases.sh
+source $DOTFILES/bash/prompt.sh
+
+if [[ $(uname -s) == MINGW* ]];
+then
+    export PATH=$PATH:$HOME/.bin/bin
+fi

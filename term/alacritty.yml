@@ -1,0 +1,82 @@
+window:
+  padding:
+    x: 2
+    y: 2
+  decorations: none
+  startup_mode: Windowed
+  scrolling:
+    history: 0
+    multiplier: 3
+  font:
+    normal:
+      family: RobotoMono
+    bold:
+      family: RobotoMono
+    italic:
+      family: RobotoMono
+    size: 12.0
+
+cursor:
+  sytle: Block
+  unfocused_hollow: true
+
+bell:
+  animation: EaseOutExpo
+  color: '#ffffff'
+  duratin: 0
+
+
+colors:
+# Colors (Srcery)
+  primary:
+    background: '#1c1b19'
+    foreground: '#fce8c3'
+
+  normal:
+    black:   '#1c1b19'
+    red:     '#ef2f27'
+    green:   '#519f50'
+    yellow:  '#fbb829'
+    blue:    '#2c78bf'
+    magenta: '#e02c6d'
+    cyan:    '#0aaeb3'
+    white:   '#d0bfa1'
+
+  bright:
+    black:   '#918175'
+    red:     '#f75341'
+    green:   '#98bc37'
+    yellow:  '#fed06e'
+    blue:    '#68a8e4'
+    magenta: '#ff5c8f'
+    cyan:    '#53fde9'
+    white:   '#fce8c3'
+
+  # Colors (light)
+  # primary:
+  #   background: '#fffff0'
+  #   foreground: '#2b2b29'
+
+  # normal:
+  #   black:   '#fffff0'
+  #   red:     '#ef2f27'
+  #   green:   '#219e21'
+  #   yellow:  '#fbb829'
+  #   blue:    '#2c78bf'
+  #   magenta: '#d46a84'
+  #   cyan:    '#1b9e9e'
+  #   white:   '#2b2b29'
+
+  # bright:
+  #   black:   '#fffff0'
+  #   red:     '#f75341'
+  #   green:   '#98bc37'
+  #   yellow:  '#fed06e'
+  #   blue:    '#68a8e4'
+  #   magenta: '#458a8a'
+  #   cyan:    '#53fde9'
+  #   white:   '#2b2b29'
+
+shell:
+  program: /bin/zsh
+

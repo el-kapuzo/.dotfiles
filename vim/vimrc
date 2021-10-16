@@ -1,0 +1,61 @@
+let s:dotfile_path = expand('<sfile>:p:h:h')
+let s:vimrc_path = s:dotfile_path . '/vim'
+
+let &rtp =  s:vimrc_path . ',' . &rtp . ',' . s:vimrc_path . '/after'
+let &packpath = &packpath . ',' . s:vimrc_path
+
+if isdirectory(s:dotfile_path . '/.venv')
+    if has('win32')
+        let g:py_binary_path = s:dotfile_path . '/.venv/Scripts'
+        let g:python3_host_prog= g:py_binary_path . '/python.exe'
+    else
+        let g:py_binary_path = s:dotfile_path . '/.venv/bin'
+        let g:python3_host_prog= g:py_binary_path . '/python'
+    endif
+else
+    let g:py_binary_path = "/usr/local/bin"
+    let g:python3_host_prog= g:py_binary_path . '/python3'
+endif
+
+" --- MAPPING --------------------
+" mappings must be definde here, for maleader=<space>
+" execute 'source ' . s:vimrc_path . '/mappings.vim'
+
+" --- GENERAL PRODUCTIVITY -------------
+" execute 'source ' . s:vimrc_path . '/autopairs.vim'
+" execute 'source ' . s:vimrc_path . '/commentary.vim'
+" execute 'source ' . s:vimrc_path . '/surround.vim'
+" execute 'source ' . s:vimrc_path . '/indent.vim'
+" execute 'source ' . s:vimrc_path . '/fzf.vim'
+" 
+" if has('nvim')
+"     execute 'source ' . s:vimrc_path . '/ultisnips.vim'
+" endif
+" 
+" 
+" " --- LSP, COMPLETION, LINTING ---------
+" execute 'source ' . s:vimrc_path . '/ale.vim'
+" if has('nvim')
+"     execute 'source ' . s:vimrc_path . '/lsp.vim'
+"     " source $DOTFILES/vim/cmp.vim
+"     execute 'source ' . s:vimrc_path . '/completion.vim'
+" endif
+" 
+" " --- GIT STUFF -----------------------
+" execute 'source ' . s:vimrc_path . '/fugitive.vim'
+" execute 'source ' . s:vimrc_path . '/rooter.vim'
+" execute 'source ' . s:vimrc_path . '/signify.vim'
+" execute 'source ' . s:vimrc_path . '/gv.vim'
+" 
+" " --- MAKE IT LOOK NICE ---------------
+" execute 'source ' . s:vimrc_path . '/appearance.vim'
+" execute 'source ' . s:vimrc_path . '/lightline.vim'
+" if has('nvim')
+"     execute 'source ' . s:vimrc_path . '/colorizer.vim'
+"     " source $DOTFILES/vim/treesitter.vim " Wait until nvim 0.5 stable is released
+" endif
+" 
+" " --- MY SETTINGS ---------------------
+" " load the settings after adding packages
+" execute 'source ' . s:vimrc_path . '/settings.vim'
+" 

@@ -1,0 +1,9 @@
+build_remote_docker.sh
+Dockerfile
+.venv/
+.vscode/
+**/*.log
+**/*.py[oc]
+.pytest_cache/
+test.sh
+another_test.sh

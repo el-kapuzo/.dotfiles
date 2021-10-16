@@ -1,0 +1,23 @@
+[init]
+	defaultBranch = main
+[core]
+	autocrlf = input
+
+[user]
+	name = EL Kapuzo
+	email = el.kapuzo@mailbox.org
+
+[diff]
+	tool = nvimdiff
+
+[difftool]
+	prompt = false
+
+[difftool "nvimdiff"]
+	cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+
+[alias]
+	dt = difftool
+
+[credential "https://github.com"]
+	helper ="!pass show dev/github_api_token"
