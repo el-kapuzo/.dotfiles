@@ -41,5 +41,6 @@ Not sure about those:
 + [x] nvim-lint (or similar) for linting -> stay with ALE for now, or use nvim-ls
 
 # Futre Organization
-+ [ ] reinitialize this repo (local and remote)
-+ [ ] use ./vim as runtimepath instead of ./vim/rtp
++ [x] reinitialize this repo (local and remote)
+	+ [x] reinitialize the submodules as needed
++ [x] use ./vim as runtimepath instead of ./vim/rtp

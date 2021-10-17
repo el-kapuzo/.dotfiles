@@ -1,14 +1,9 @@
-packadd! auto-pairs
+packadd! nvim-autopairs
 
-let g:AutoPairs = {'(':')',
-    \ '[':']',
-    \ '{':'}',
-    \ "'":"'",
-    \ '"':'"',
-    \ "`":"`",
-    \ '```':'```',
-    \ '"""':'"""',
-    \ "'''":"'''",
-    \ '\w\zs<':'>'}
+lua <<EOF
+local autopairs = require('nvim-autopairs')
+local rule = require('nvim-autopairs.rule')
 
-let g:AutoPairsMapSpace = 0
+autopairs.setup{}
+autopairs.add_rule(rule("<", ">", "rust"))
+EOF

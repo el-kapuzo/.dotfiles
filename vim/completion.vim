@@ -25,6 +25,4 @@ require'compe'.setup {
 }
 EOF
 
-imap <expr> <Tab> pumvisible() ?
-    \compe#confirm()
-    \ : "\<Tab>"
+imap <expr> <Tab> compe#confirm('<Tab>')

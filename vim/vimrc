@@ -22,10 +22,10 @@ endif
 execute 'source ' . s:vimrc_path . '/mappings.vim'
 
 " --- GENERAL PRODUCTIVITY -------------
- " execute 'source ' . s:vimrc_path . '/autopairs.vim'
  " execute 'source ' . s:vimrc_path . '/fzf.vim'
  
 if has('nvim')
+    execute 'source ' . s:vimrc_path . '/autopairs.vim'
     execute 'source ' . s:vimrc_path . '/ultisnips.vim'
 endif
 " 
