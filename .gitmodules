@@ -1,0 +1,45 @@
+[submodule "vim-surround"]
+	path = vim/pack/bundle/start/vim-surround
+	url = https://github.com/tpope/vim-surround
+[submodule "vim-commentary"]
+	path = vim/pack/bundle/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
+[submodule "vim-signify"]
+	path = vim/pack/bundle/start/vim-signify
+	url = https://github.com/mhinz/vim-signify.git
+[submodule "lightline.vim"]
+	path = vim/pack/bundle/start/lightline.vim
+	url = https://github.com/itchyny/lightline.vim.git
+[submodule "vim-rooter"]
+	path = vim/pack/bundle/start/vim-rooter
+	url = https://github.com/airblade/vim-rooter.git
+[submodule "vim-just"]
+	path = vim/pack/bundle/start/vim-just
+	url = https://github.com/NoahTheDuke/vim-just.git
+[submodule "python-syntax"]
+	path = vim/pack/bundle/start/python-syntax
+	url = https://github.com/vim-python/python-syntax.git
+[submodule "rust.vim"]
+	path = vim/pack/bundle/start/rust.vim
+	url = https://github.com/rust-lang/rust.vim.git
+[submodule "vim-fugitive"]
+	path = vim/pack/bundle/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "gv.vim"]
+	path = vim/pack/bundle/start/gv.vim
+	url = https://github.com/junegunn/gv.vim.git
+[submodule "nvim-compe"]
+	path = vim/pack/bundle/opt/nvim-compe
+	url = https://github.com/hrsh7th/nvim-compe.git
+[submodule "vim-indent-object"]
+	path = vim/pack/bundle/start/vim-indent-object
+	url = https://github.com/michaeljsmith/vim-indent-object
+[submodule "ultisnips"]
+	path = vim/pack/bundle/opt/ultisnips
+	url = https://github.com/sirver/ultisnips.git
+[submodule "nvim-lspconfig"]
+	path = vim/pack/bundle/opt/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig.git
+[submodule "nvim-colorizer.lua"]
+	path = vim/pack/bundle/opt/nvim-colorizer.lua
+	url = https://github.com/norcalli/nvim-colorizer.lua.git
