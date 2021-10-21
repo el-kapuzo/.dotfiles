@@ -1,10 +1,3 @@
-[submodule "auto-pairs"] -> use the nvim version
-	path = vim/rtp/pack/bundle/opt/auto-pairs
-	url = https://github.com/jiangmiao/auto-pairs.git
-    ignore = dirty
-[submodule "ale"] -> use null-ls
-	path = vim/rtp/pack/bundle/opt/ale
-	url = https://github.com/dense-analysis/ale.git
 [submodule "fzf.vim"] 
 	path = vim/rtp/pack/bundle/opt/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git

@@ -30,15 +30,15 @@
 
 ## Nvim plugins to try
 + [ ] NERDTree
-+ [ ] null-ls -> maybe replace ALE with this? can use json.tools for json formatting (python based)
++ [x] null-ls -> maybe replace ALE with this? can use json.tools for json formatting (python based)
 + [ ] nvim-fzf -> can use fzf or skim :-), does not work on windows :-(
-+ [ ] vim-python-syntax (now the rtp should be fixed)
++ [x] vim-python-syntax (now the rtp should be fixed)
 Not sure about those:
 + [ ] lsputils -> currently not necessary
 + [-] switch back to completion-nvim? -> not well maintained
-+ [x] telescope.nvim -> stay with fzf / skim for now
-+ [ ] nvim-autopairs
-+ [x] nvim-lint (or similar) for linting -> stay with ALE for now, or use nvim-ls
++ [-] telescope.nvim -> stay with fzf / skim for now
++ [x] nvim-autopairs
++ [-] nvim-lint (or similar) for linting -> stay with ALE for now, or use nvim-ls
 
 # Futre Organization
 + [x] reinitialize this repo (local and remote)
