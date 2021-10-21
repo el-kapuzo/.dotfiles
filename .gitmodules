@@ -62,3 +62,9 @@
 	path = vim/pack/bundle/opt/nvim-autopairs
 	url = https://github.com/windwp/nvim-autopairs.git
     ignore = dirty
+[submodule "plenary.nvim"]
+	path = vim/pack/bundle/opt/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim.git
+[submodule "null-ls.nvim"]
+	path = vim/pack/bundle/opt/null-ls.nvim
+	url = https://github.com/jose-elias-alvarez/null-ls.nvim.git
