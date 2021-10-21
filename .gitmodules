@@ -68,3 +68,9 @@
 [submodule "null-ls.nvim"]
 	path = vim/pack/bundle/opt/null-ls.nvim
 	url = https://github.com/jose-elias-alvarez/null-ls.nvim.git
+[submodule "fzf.vim"]
+	path = vim/pack/bundle/opt/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
+[submodule "fzf"]
+	path = vim/pack/bundle/opt/fzf
+	url = https://github.com/junegunn/fzf.git

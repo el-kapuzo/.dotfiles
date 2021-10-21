@@ -22,7 +22,7 @@ endif
 execute 'source ' . s:vimrc_path . '/mappings.vim'
 
 " --- GENERAL PRODUCTIVITY -------------
- " execute 'source ' . s:vimrc_path . '/fzf.vim'
+ execute 'source ' . s:vimrc_path . '/fzf.vim'
  
 if has('nvim')
     execute 'source ' . s:vimrc_path . '/autopairs.vim'
@@ -31,6 +31,7 @@ endif
 " 
 " 
 " " --- LSP, COMPLETION, LINTING ---------
+" currently linting/formatting is menaged by null-ls
 " execute 'source ' . s:vimrc_path . '/ale.vim'
 if has('nvim')
     execute 'source ' . s:vimrc_path . '/lsp.vim'
