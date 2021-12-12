@@ -7,14 +7,15 @@
     + [ ] install FiraCode font
   + [x] add recipe for rust-analyzer
 + [x] add recipe and config file for wezterm
-+ [ ]  add podman recipe
++ [ ] add podman recipe
 + [ ] add console email client (neomutt)
   + [ ] config
   + [ ] just recipe
-  + [ ] setup password-manager (pass)
+  + [x] setup password-manager (pass)
 + [ ] (partly) migrate nvim-config to lua
 + [ ] make it work on MacOS (with brew)
 + [x] setup git to use `pass`
++ [ ] add _toggle background_ command to vim
 
 # Things to Try
 ## Cli-Tools

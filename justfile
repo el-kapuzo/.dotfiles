@@ -27,7 +27,7 @@ git_autcrf_option := if os_family() == "unix" { "input" } else { "true" }
 # ---------------------------------------------------------------------------------------------------------------------------
 
 # ------ DOTFILES ---------------------------------------
-add_vim_plugin url dir="opt":
+packadd url dir="opt":
     git submodule add --name {{file_stem(url)}} -- {{url}} ./vim/pack/bundle/{{dir}}/{{file_stem(url)}}
 
 # PACKAGE MANAGER -----------------------------------------------------------------------------------------------------------
@@ -76,7 +76,7 @@ _nvim_pyenv:
     fi
 
 
-_build_nvim branch="release-0.5": _build_dir (install "git") (install nvim_build_deps) && _rm_nvim_build_dir
+_build_nvim branch="stable": _build_dir (install "git") (install nvim_build_deps) && _rm_nvim_build_dir
     #!/usr/bin/env sh
     git clone --branch={{branch}} --single-branch --depth 1 https://github.com/neovim/neovim {{build_directory}}/neovim
     cd {{build_directory}}/neovim
@@ -86,8 +86,8 @@ _build_nvim branch="release-0.5": _build_dir (install "git") (install nvim_build
 
 
 # Build and install neovim from the specified branch
-install_nvim branch="release-0.5": (maybe_install_python) (_build_nvim branch) && _nvim_pyenv
-    echo "source $DOTFILES/vim/vimrc" >> $HOME/.config/nvim/init.vim
+install_nvim branch="stable": (maybe_install_python) (_build_nvim branch) && _nvim_pyenv
+    echo "source $DOTFILES/vim/vimrc" > $HOME/.config/nvim/init.vim
 
 # BUILD PYTHON --------------------------------------------------------------------------------------------------------------
 _rm_python_build_dir:
@@ -180,6 +180,7 @@ _install_wezterm:
     fi
 
 install_wezterm: _install_wezterm
+    rm -rf {{home}}/.config/wezterm/wezterm.lua
     ln -s {{justfile_directory()}}/term/wezterm.lua {{home}}/.config/wezterm/wezterm.lua
 
 # DEV-DOCKER ---------------------------------------------------------------------------------------------
