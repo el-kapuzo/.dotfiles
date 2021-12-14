@@ -134,10 +134,9 @@ install_bash:
 
 # SETUP GIT ----------------------------------------------------------------------------
 # Install git, and setup the global config file
-install_git: (install "git")
-    rm -rf $HOME/.gitconfig
-    ln -s {{justfile_directory()}}/git/gitconfig $HOME/.gitconfig
-    git config --global init.defaultBranch main
+install_git: (install "git") (install "pass")
+    echo "[include]" > $HOME/.gitconfig
+    echo "path = {{justfile_directory()}}/git/gitconfig" >> $HOME/.gitconfig
     git config --global core.autocrlf {{git_autcrf_option}}
     read -p "Enter git user name: " git_user && git config --global user.name "$git_user"
     read -p "Enter git email: " git_email && git config --global user.email "$git_email"
@@ -226,4 +225,4 @@ _install_fonts: _build_dir (install "git")
 
 install_neomutt: (install "pass")
 
-install_private: install_rust install_rust_analyser install_git install_bash install_zsh maybe_install_python install_nvim  (install "fzf") (cargo_install "ripgrep") install_neomutt _fritz_nas _install_fonts && _rm_build_dir _no_sudo_shutdown
+install_private: install_rust install_rust_analyser install_git install_bash install_zsh maybe_install_python install_nvim  (install "fzf") (cargo_install "ripgrep") (install "pass") install_neomutt _fritz_nas _install_fonts && _rm_build_dir _no_sudo_shutdown

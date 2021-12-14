@@ -39,7 +39,7 @@ Not sure about those:
 + [-] switch back to completion-nvim? -> not well maintained
 + [-] telescope.nvim -> stay with fzf / skim for now
 + [x] nvim-autopairs
-+ [-] nvim-lint (or similar) for linting -> stay with ALE for now, or use nvim-ls
++ [ ] lualine
 
 # Futre Organization
 + [x] reinitialize this repo (local and remote)
