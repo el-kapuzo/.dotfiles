@@ -43,6 +43,7 @@ execute 'source' . s:vimrc_path . '/git.vim'
 " 
 " " --- MAKE IT LOOK NICE ---------------
 execute 'source ' . s:vimrc_path . '/appearance.vim'
+
 if has('nvim')
     execute 'source ' . s:vimrc_path . '/colorizer.vim'
     " source $DOTFILES/vim/treesitter.vim " Wait until nvim 0.6 stable is released
