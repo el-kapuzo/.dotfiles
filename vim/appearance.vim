@@ -38,12 +38,12 @@ endfunction
 
 " set statusline=
 " set statusline+=%(%{Mode()}%)
-" " set statusline+=%#StatusLineLeft_0#
+" set statusline+=%#StatusLineLeft_0#
 " set statusline+=\|
 " set statusline+=%(\ %{MyBranch()}\ %)
-" " set statusline+=%#StatusLineMiddle#
+" set statusline+=%#StatusLineMiddle#
 " set statusline+=\|
-" set statusline+=%(%t\ %)
+" set statusline+=%(\ %t\ %)
 " set statusline+=\|
 " set statusline+=%(\ %m\ %)
 " set statusline+=%=
@@ -51,10 +51,10 @@ endfunction
 " set statusline+=\|
 " set statusline+=%(\ %{&fileencoding?&fenc:&enc}\ %)
 " set statusline+=\|
-" " set statusline+=%(\ %f\ %)
-" " set statusline+=%#StatusLineRight_0#
+" set statusline+=%(\ %f\ %)
+" set statusline+=%#StatusLineRight#
 " set statusline+=%(\ %3p%%\ %)
 " set statusline+=\|
-" " " set statusline+=%#StatusLineRight_1#
+" set statusline+=%#StatusLineFarRight#
 " set statusline+=%(\ %3l:%-2c\ %)
 

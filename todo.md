@@ -27,19 +27,15 @@
 + [x] Try wezterm -> use this for a while, seems fun
   + [x] track config
 + [x] Track config for windows terminal
-+ [ ] Add tmux and small config -> if switching back to alacritty
++ [ ] Kitty?
 
 ## Nvim plugins to try
 + [ ] NERDTree
-+ [x] null-ls -> maybe replace ALE with this? can use json.tools for json formatting (python based)
 + [ ] nvim-fzf -> can use fzf or skim :-), does not work on windows :-(
-+ [x] vim-python-syntax (now the rtp should be fixed)
 Not sure about those:
-+ [ ] lsputils -> currently not necessary
-+ [-] switch back to completion-nvim? -> not well maintained
 + [-] telescope.nvim -> stay with fzf / skim for now
 + [x] nvim-autopairs
-+ [ ] lualine
++ [ ] lualine -> maybe build own statusline
 
 # Futre Organization
 + [x] reinitialize this repo (local and remote)
