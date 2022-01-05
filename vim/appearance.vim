@@ -32,29 +32,43 @@ function! MyBranch()
 endfunction
 
 function! Mode()
-    let branch = fugitive#head()
-    return "MODE"
+    let mode_map = {
+      \ 'n': 'NORMAL',
+      \ 'i': 'INSERT',
+      \ 'R': 'REPLACE',
+      \ 'v': 'VISUAL',
+      \ 'V': 'V-LINE',
+      \ "\<C-v>": 'V-BLOCK',
+      \ 'c': 'COMMAND',
+      \ 's': 'SELECT',
+      \ 'S': 'S-LINE',
+      \ "\<C-s>": 'S-BLOCK',
+      \ 't': 'TERMINAL'
+      \   }
+    return get(mode_map, mode(), '')
 endfunction
 
 " set statusline=
-" set statusline+=%(%{Mode()}%)
-" set statusline+=%#StatusLineLeft_0#
-" set statusline+=\|
+" set statusline+=%#StatusLineNormal#%{(g:currentmode[mode()]=='n')?'\ \ normal\ ':''}
+" set statusline+=%#StatusLineInsert#%{(g:currentmode[mode()]=='i')?'\ \ insert\ ':''}
+" set statusline+=%#StatusLine#%{(g:currentmode[mode()]=='i')?'\ \ insert\ ':''}
+" set statusline+=%#StatusLineInsert#%{(g:currentmode[mode()]=='i')?'\ \ insert\ ':''}
+" set statusline+=%#StatusLineInsert#%{(g:currentmode[mode()]=='i')?'\ \ insert\ ':''}
+" set statusline+=%(\ %{Mode()}\ %)
+" set statusline+=%#StatusLineLeft#
 " set statusline+=%(\ %{MyBranch()}\ %)
 " set statusline+=%#StatusLineMiddle#
-" set statusline+=\|
 " set statusline+=%(\ %t\ %)
-" set statusline+=\|
+" set statusline+=\│
 " set statusline+=%(\ %m\ %)
 " set statusline+=%=
 " set statusline+=%(\ %{&fileformat}\ %)
-" set statusline+=\|
+" set statusline+=\│
 " set statusline+=%(\ %{&fileencoding?&fenc:&enc}\ %)
-" set statusline+=\|
-" set statusline+=%(\ %f\ %)
+" set statusline+=\│
+" set statusline+=%(\ %y\ %)
 " set statusline+=%#StatusLineRight#
 " set statusline+=%(\ %3p%%\ %)
-" set statusline+=\|
 " set statusline+=%#StatusLineFarRight#
 " set statusline+=%(\ %3l:%-2c\ %)
 
