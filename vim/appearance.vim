@@ -49,11 +49,7 @@ function! Mode()
 endfunction
 
 " set statusline=
-" set statusline+=%#StatusLineNormal#%{(g:currentmode[mode()]=='n')?'\ \ normal\ ':''}
-" set statusline+=%#StatusLineInsert#%{(g:currentmode[mode()]=='i')?'\ \ insert\ ':''}
-" set statusline+=%#StatusLine#%{(g:currentmode[mode()]=='i')?'\ \ insert\ ':''}
-" set statusline+=%#StatusLineInsert#%{(g:currentmode[mode()]=='i')?'\ \ insert\ ':''}
-" set statusline+=%#StatusLineInsert#%{(g:currentmode[mode()]=='i')?'\ \ insert\ ':''}
+" set statusline+=%#StatusLineMode#
 " set statusline+=%(\ %{Mode()}\ %)
 " set statusline+=%#StatusLineLeft#
 " set statusline+=%(\ %{MyBranch()}\ %)
@@ -71,4 +67,4 @@ endfunction
 " set statusline+=%(\ %3p%%\ %)
 " set statusline+=%#StatusLineFarRight#
 " set statusline+=%(\ %3l:%-2c\ %)
-
+"
