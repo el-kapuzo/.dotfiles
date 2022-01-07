@@ -26,7 +26,6 @@
 ## Terminal Emulator
 + [x] Try wezterm -> use this for a while, seems fun
   + [x] track config
-+ [x] Track config for windows terminal
 + [ ] Kitty?
 
 ## Nvim plugins to try
@@ -34,8 +33,6 @@
 + [ ] nvim-fzf -> can use fzf or skim :-), does not work on windows :-(
 Not sure about those:
 + [-] telescope.nvim -> stay with fzf / skim for now
-+ [x] nvim-autopairs
-+ [ ] lualine -> maybe build own statusline
 
 # Futre Organization
 + [x] reinitialize this repo (local and remote)

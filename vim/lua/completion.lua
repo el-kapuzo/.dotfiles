@@ -1,6 +1,5 @@
-packadd! nvim-compe
+vim.cmd("packadd! nvim-compe")
 
-lua <<EOF
 require'compe'.setup {
     enabled=true;
     autocomplete=true;
@@ -23,6 +22,6 @@ require'compe'.setup {
         ultisnips = true;
     };
 }
-EOF
 
-imap <expr> <Tab> compe#confirm('<Tab>')
+vim.api.nvim_set_keymap("i", "<Tab>", "compe#confirm('<Tab>')", {expr = true})
+
