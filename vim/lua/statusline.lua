@@ -1,4 +1,5 @@
 local seperator = '│'
+local git_branch_symbol = "⌥"
 
 local mode_display = {
     n = "NORMAL",
@@ -78,7 +79,22 @@ end
 
 function git_branch()
     local branch = vim.fn["fugitive#head"]()
-    return branch
+    local res = ""
+    if #branch > 0 then
+        res = git_branch_symbol .. " " .. branch
+    end
+    return res
+end
+
+function modified()
+    if vim.o.modified then
+        return seperator .. " [+]"
+    end
+    if not vim.o.ma then
+        return seperator .. " [-]"
+    end
+    return ""
+        -- "%( %m %)",
 end
 
 function status_line_active()
@@ -89,8 +105,7 @@ function status_line_active()
         git(),
         "%#StatusLineMiddle#",
         "%( %t %)",
-        seperator,
-        "%( %m %)",
+        "%( %{luaeval('modified()')} %)",
         "%=",
         "%( %{&fileformat} %)",
         seperator,
