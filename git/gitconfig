@@ -16,6 +16,3 @@
 [credential "https://github.com"]
 	helper ="!pass show dev/github_api_token"
 
-[credential "delphi"]
-	helper ="!pass show network/delhpi"
-    
