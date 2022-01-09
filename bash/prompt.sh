@@ -19,7 +19,7 @@ __host() {
       me="\u"
     fi
     if [[ -n $me ]]; then
-      echo "$GREEN[$me]$COLOR_RESET"
+      echo "$GREEN[$me] $COLOR_RESET"
     fi
 }
 
@@ -40,7 +40,7 @@ __git_branch () {
     local current_branch=$(git symbolic-ref --short HEAD 2>/dev/null)
     if [[ -n $current_branch ]];
     then
-        echo " $PURPLE[$current_branch]$COLOR_RESET"
+        echo " $PURPLE [$current_branch]$COLOR_RESET"
     fi
 }
 
