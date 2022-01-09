@@ -22,22 +22,16 @@ endif
 execute 'source ' . s:vimrc_path . '/mappings.vim'
 
 " --- GENERAL PRODUCTIVITY -------------
- execute 'source ' . s:vimrc_path . '/fzf.vim'
+execute 'source ' . s:vimrc_path . '/fzf.vim'
 execute 'source ' . s:vimrc_path . '/ultisnips.vim'
+
 if has('nvim')
 lua <<EOF
     require'autopairs'
     require'lsp'
     require'completion'
+    require'colorizer-config'
 EOF
-endif
-" 
-" " --- LSP, COMPLETION, LINTING ---------
-" currently linting/formatting is menaged by null-ls
-" execute 'source ' . s:vimrc_path . '/ale.vim'
-if has('nvim')
-    " execute 'source ' . s:vimrc_path . '/lsp.vim'
-    " execute 'source ' . s:vimrc_path . '/completion.vim'
 endif
 " 
 " " --- GIT INTEGRATION -----------------------
@@ -46,11 +40,6 @@ execute 'source' . s:vimrc_path . '/git.vim'
 " " --- MAKE IT LOOK NICE ---------------
 execute 'source ' . s:vimrc_path . '/appearance.vim'
 
-if has('nvim')
-    execute 'source ' . s:vimrc_path . '/colorizer.vim'
-    " source $DOTFILES/vim/treesitter.vim " Wait until nvim 0.6 stable is released
-endif
-" 
 " --- MY SETTINGS ---------------------
 " load the settings after adding packages
 execute 'source ' . s:vimrc_path . '/settings.vim'
