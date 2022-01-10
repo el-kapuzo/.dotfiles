@@ -6,5 +6,4 @@ export DOTFILES="$HOME/.dotfiles"
 . $DOTFILES/shell/aliases.sh
 . $DOTFILES/shell/exports.sh
 . $DOTFILES/docker/shell_config.sh
-. $DOTFILES/git/shell_config.sh
 . $DOTFILES/python/shell_config.sh

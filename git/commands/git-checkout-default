@@ -1,0 +1,23 @@
+#! /bin/bash
+
+TRUE="true"
+FAlSE="false"
+
+__has_branch() {
+    git rev-parse --verify $1 &> /dev/null; 
+}
+
+__has_branch develop
+
+if __has_branch develop;
+then
+    git checkout develop
+elif __has_branch master;
+then
+    git checkout master
+else
+    git checkout main
+fi
+
+
+

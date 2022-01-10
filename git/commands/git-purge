@@ -1,0 +1,7 @@
+#! /bin/sh
+
+git checkout-default
+git branch | grep -v "master\|develop\|main" | xargs git branch -D
+git sync
+git gc
+
