@@ -73,3 +73,5 @@
 [submodule "lightline"]
 	path = vim/pack/bundle/opt/lightline
 	url = https://github.com/itchyny/lightline.vim
+[submodule "vim/pack/bundle/opt/null-ls.nvim"]
+	branch = main
