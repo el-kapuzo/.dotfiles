@@ -8,7 +8,7 @@ local null_ls = require'null-ls'
 local flake8_executable = vim.g.py_binary_path .. '/flake8'
 local black_executable = vim.g.py_binary_path .. '/black'
 
-null_ls.config({
+null_ls.setup({
     sources = {
         null_ls.builtins.diagnostics.flake8.with({
             command =  flake8_executable,
@@ -21,9 +21,9 @@ null_ls.config({
     }
 })
 
-nvim_lsp["null-ls"].setup({
-    -- capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-})
+-- nvim_lsp["null-ls"].setup({
+--     -- capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- })
 
 nvim_lsp.jedi_language_server.setup{
     cmd = { vim.g.py_binary_path .. "/jedi-language-server" },
@@ -38,8 +38,8 @@ vim.api.nvim_set_keymap('n', 'gd', 'v:lua.lsp.buf.definition()<CR>', {silent=tru
 vim.api.nvim_set_keymap('n', 'gD', 'v:lua.lsp.buf.declaration()<CR>', {silent=true,noremap=true})
 vim.api.nvim_set_keymap('n', 'K', 'v:lua.lsp.buf.hover()<CR>', {silent=true,noremap=true})
 vim.api.nvim_set_keymap('n', 'gr', 'v:lua.lsp.buf.references()<CR>', {silent=true,noremap=true})
-vim.api.nvim_set_keymap('n', 'rr', 'v:lua.lsp.buf.rename()<CR>', {silent=true,noremap=true})
-vim.api.nvim_set_keymap('n', 'rf', 'v:lua.lsp.buf.code_action()<CR>', {silent=true,noremap=true})
+vim.api.nvim_set_keymap('n', '<leader>rr', 'v:lua.lsp.buf.rename()<CR>', {silent=true,noremap=true})
+vim.api.nvim_set_keymap('n', '<leader>rf', 'v:lua.lsp.buf.code_action()<CR>', {silent=true,noremap=true})
 vim.api.nvim_set_keymap('n', '<C-n>', 'v:lua.lsp.buf.goto_next()<CR>', {silent=true,noremap=true})
 vim.api.nvim_set_keymap('n', '<C-p>', 'v:lua.lsp.buf.goto_next()<CR>', {silent=true,noremap=true})
 
