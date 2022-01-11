@@ -3,12 +3,10 @@ vim.cmd("packadd! plenary.nvim")
 vim.cmd("packadd! null-ls.nvim")
 
 
-vim.cmd("au BufWritePre *.rs,*.py lua vim.lsp.buf.formatting_sync()")
-
 local nvim_lsp = require'lspconfig'
 local null_ls = require'null-ls'
 local flake8_executable = vim.g.py_binary_path .. '/flake8'
-local black_executable = vim.g.py_binary_path .. '/flake8'
+local black_executable = vim.g.py_binary_path .. '/black'
 
 null_ls.config({
     sources = {
@@ -52,3 +50,4 @@ vim.cmd('sign define LspDiagnosticsSignHint text=-- texthl=LspDiagnisticsDefault
 
 vim.api.nvim_set_var("diagnostic_show_sign", 1)
 
+vim.cmd("au BufWritePre *.rs,*.py lua vim.lsp.buf.formatting_sync()")
