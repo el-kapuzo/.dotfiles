@@ -7,3 +7,5 @@ export DOTFILES="$HOME/.dotfiles"
 . $DOTFILES/shell/exports.sh
 . $DOTFILES/docker/shell_config.sh
 . $DOTFILES/python/shell_config.sh
+
+[ -n "$WEZTERM_PANE" ] && export NVIM_LISTEN_ADDRESS="/tmp/nvim_wezterm_$WEZTERM_PANE"

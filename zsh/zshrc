@@ -6,6 +6,7 @@ export DOTFILES="${HOME}/.dotfiles"
 source $DOTFILES/shell/default_rc
 source $DOTFILES/zsh/completion.zsh
 source $DOTFILES/zsh/prompt.zsh
+source $DOTFILES/zsh/aliases.zsh
 # source $DOTFILES/zsh/vimode.zsh
 source $DOTFILES/zsh/emacsmode.zsh
 
