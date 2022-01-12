@@ -4,7 +4,7 @@ local os = require'os'
 function send_to_nvim(window, pane, direction) 
     local dofile_path = os.getenv("HOME") .. "/.dotfiles"
     local py_path = dofile_path .. "/.venv/bin/python"
-    local py_script_path = dofile_path .. "/term/wezterm_navigator.py"
+    local py_script_path = dofile_path .. "/term/nvim_wezterm_navigator.py"
     local nvim_address = "/tmp/nvim_wezterm_" .. pane:pane_id()
     local result = os.execute(py_path .. " " .. py_script_path .. " --socket " .. nvim_address .. " --direction " .. direction)
     if result then
