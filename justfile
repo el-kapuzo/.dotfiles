@@ -27,8 +27,13 @@ git_autcrf_option := if os_family() == "unix" { "input" } else { "true" }
 # ---------------------------------------------------------------------------------------------------------------------------
 
 # ------ DOTFILES ---------------------------------------
+# Add a (n)vim package as git submodule
 packadd url dir="opt":
     git submodule add --name {{file_stem(url)}} -- {{url}} ./vim/pack/bundle/{{dir}}/{{file_stem(url)}}
+
+# Update all git submodules
+packupdate:
+    git submodule update --remote --depth=1
 
 # PACKAGE MANAGER -----------------------------------------------------------------------------------------------------------
 # Update the package manager repositroy.
