@@ -129,11 +129,22 @@ function status_line_inactive()
     }
 end
 
+function status_line_tree()
+    return table.concat{
+        "%#StatusLineInactive#",
+        " Files",
+        "%=",
+        '%( %3l:%-2c %)'
+    }
+end
+
 vim.cmd [[
    augroup statusline
      au!
      au winenter,bufenter * setlocal statusline=%!v:lua.status_line_active()
      au winleave,bufleave * setlocal statusline=%!v:lua.status_line_inactive()
+     au winenter,bufenter NvimTree setlocal statusline=%!v:lua.status_line_tree()
+     au winleave,bufleave NvimTree setlocal statusline=%!v:lua.status_line_tree()
      augroup end
 ]]
 
