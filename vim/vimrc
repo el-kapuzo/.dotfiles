@@ -31,6 +31,7 @@ lua <<EOF
     require'lsp'
     require'completion'
     require'colorizer-config'
+    require'dir-tree'
 EOF
 endif
 " 

@@ -77,3 +77,6 @@
 	path = vim/pack/bundle/opt/null-ls.nvim
 	url = https://github.com/jose-elias-alvarez/null-ls.nvim.git
 	branch = main
+[submodule "nvim-tree"]
+	path = vim/pack/bundle/opt/nvim-tree
+	url = https://github.com/kyazdani42/nvim-tree.lua
