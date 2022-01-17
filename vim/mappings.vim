@@ -33,10 +33,10 @@ nnoremap <leader>wd :q<CR>
 nnoremap <leader>wD :on<CR>
 
 " ----- resizing windows
-nnoremap <silent> <C-Up> :resize -2<CR>
-nnoremap <silent> <C-Down> :resize +2<CR>
-nnoremap <silent> <C-Left> :vertical resize -2<CR>
-nnoremap <silent> <C-Right> :vertical resize +2<CR>
+nnoremap <silent> <C-Up> :resize -3<CR>
+nnoremap <silent> <C-Down> :resize +3<CR>
+nnoremap <silent> <C-Left> :vertical resize -3<CR>
+nnoremap <silent> <C-Right> :vertical resize +3<CR>
 
 " ----- saving
 nnoremap <leader>fs :w<CR>
@@ -47,6 +47,7 @@ nnoremap <leader>fe :split $DOTFILES/vim/vimrc<CR>
 nnoremap <leader>fE :source $DOTFILES/vim/vimrc<CR>
 
 " ---- enter ntree
+"  currently using nvim-tree
 " nnoremap <leader>ft :Vex<CR>
 
 " ----- alternative for esc
