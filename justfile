@@ -15,12 +15,8 @@ nvim_build_deps := "ninja-build gettext libtool libtool-bin autoconf automake cm
 python_build_deps := "build-essential gdb lcov libbz2-dev libffi-dev libgdbm-dev liblzma-dev libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev lzma lzma-dev tk-dev uuid-dev zlib1g-dev"
 rust_build_deps := "curl build-essential"
 
-# Python packages, which are needed in the nvim python env
-nvim_python_packages := "black flake8 flake8-bandit flake8-bugbear isort jedi-language-server pynvim rope"
-
 # Git option which should be different on windows and unix like systems
 git_autcrf_option := if os_family() == "unix" { "input" } else { "true" }
-
 
 # ---------------------------------------------------------------------------------------------------------------------------
 # -----------------------      RECIPIES     ---------------------------------------------------------------------------------
@@ -66,33 +62,13 @@ _rm_build_dir:
     rm -rf {{build_directory}}
 
 # BUILD NEOVIM --------------------------------------------------------------------------------------------------------------
-_rm_nvim_build_dir:
-    rm -rf {{build_directory}}/neovim
-
-_nvim_pyenv:
-    #!/usr/bin/env sh
-    if [ {{user_id}} != "0" ]; then
-        python3 -m venv {{justfile_directory()}}/.venv;
-        {{justfile_directory()}}/.venv/bin/python3 -m pip install --upgrade pip setuptools
-        {{justfile_directory()}}/.venv/bin/pip install {{nvim_python_packages}}
-    else
-        python3 -m pip install --upgrade pip setuptools
-        python3 -m pip install {{nvim_python_packages}}
-    fi
-
-
-_build_nvim branch="stable": _build_dir (install "git") (install nvim_build_deps) && _rm_nvim_build_dir
-    #!/usr/bin/env sh
-    git clone --branch={{branch}} --single-branch --depth 1 https://github.com/neovim/neovim {{build_directory}}/neovim
-    cd {{build_directory}}/neovim
-    chmod -R a+rwx .
-    make CMAKE_BUILD_TYPE=Release
-    {{maybe_sudo}} make install
-
 
 # Build and install neovim from the specified branch
-install_nvim branch="stable": (maybe_install_python) (_build_nvim branch) && _nvim_pyenv
+install_nvim branch="stable": (maybe_install_python) && _nvim_pyenv
+    {{maybe_sudo}} chmod +x {{justfile_directory()}}/scripts/nvim.sh
+    {{justfile_directory()}}/scripts/nvim.sh {{branch}} {{build_directory}} {{maybe_sudo}} {{justfile_directory()}}/.venv {{user_id}}
     echo "source $DOTFILES/vim/vimrc" > $HOME/.config/nvim/init.vim
+    rm -rf {{build_directory}}/neovim
 
 # BUILD PYTHON --------------------------------------------------------------------------------------------------------------
 _rm_python_build_dir:
