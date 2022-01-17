@@ -64,32 +64,23 @@ _rm_build_dir:
 # BUILD NEOVIM --------------------------------------------------------------------------------------------------------------
 
 # Build and install neovim from the specified branch
-install_nvim branch="stable": _build_dir maybe_install_python (install nvim_build_deps) && _rm_build_dir
+install_nvim branch="stable": _build_dir install_python (install nvim_build_deps)
     {{maybe_sudo}} chmod +x {{justfile_directory()}}/scripts/nvim.sh
     {{justfile_directory()}}/scripts/nvim.sh {{branch}} {{build_directory}} {{maybe_sudo}} {{justfile_directory()}}/.venv {{user_id}}
     echo "source $DOTFILES/vim/vimrc" > $HOME/.config/nvim/init.vim
     rm -rf {{build_directory}}/neovim
 
 # BUILD PYTHON --------------------------------------------------------------------------------------------------------------
+
 # Maybe install python 3 from source with specified version. But only if no python3 binary is found.
-maybe_install_python version="3.8":
-    #!/usr/bin/env sh
-    if [ -x "$(command -v python3)" ];
-    then
-        echo "python3 is already installed"
-    else
-        just install_python {{version}}
-    fi
-
-
-# Build and install the specified python version
-install_python version="3.8": (install python_build_deps) _build_dir && _rm_build_dir
+install_python version="3.8": (install python_build_deps) _build_dir
     {{maybe_sudo}} chmod +x {{justfile_directory()}}/scripts/python.sh
-    {{justfile_directory()}}/scripts/python.sh {{version}} {{build_directory}} {{maybe_sudo}} install
+    {{justfile_directory()}}/scripts/python.sh {{version}} {{build_directory}} {{maybe_sudo}} install true
 
-altinstall_python version="3.8": (install python_build_deps) _build_dir && _rm_build_dir
+# Install python version alongside existing python versions
+altinstall_python version="3.8": (install python_build_deps) _build_dir
     {{maybe_sudo}} chmod +x {{justfile_directory()}}/scripts/python.sh
-    {{justfile_directory()}}/scripts/python.sh {{version}} {{build_directory}} {{maybe_sudo}} altinstall
+    {{justfile_directory()}}/scripts/python.sh {{version}} {{build_directory}} {{maybe_sudo}} altinstall false
 
 # SETUP SHELL ----------------------------------------------------------------------------
 # Install zsh, and setup the zshrc file
@@ -181,16 +172,14 @@ _fritz_nas: (install "samba cifs-utils")
 _no_sudo_shutdown:
     {{maybe_sudo}} echo "%sudo ALL=(ALL) NOPASSWD: /sbin/poweroff, /sbin/shutdown, /sbin/reboot"
 
-_install_fonts: _build_dir (install "git")
+_install_fonts: _build_dir (install "git") && _rm_build_dir
     cd {{build_directory}} && git clone --depth=1 https://github.com/googlefonts/RobotoMono
     mkdir -p ~/.local/share/fonts/robotomono
     rm {{build_directory}}/RobotMono/fonts/ttf/*Light*
     rm {{build_directory}}/RobotMono/fonts/ttf/*Medium*
     rm {{build_directory}}/RobotMono/fonts/ttf/*Thin*
     cp -f {{build_directory}}/RobotoMono/fonts/ttf/*.ttf ~/.local/share/fonts/truetype/robotomono
-    rm -rf {{build_directory}}/RobotoMono
     fc-cache -f -v
-
 
 install_neomutt: (install "pass")
 

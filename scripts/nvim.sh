@@ -25,3 +25,4 @@ else
 fi
 
 cd $PWD
+rm -rf $BUILD_DIR
