@@ -64,26 +64,13 @@ _rm_build_dir:
 # BUILD NEOVIM --------------------------------------------------------------------------------------------------------------
 
 # Build and install neovim from the specified branch
-install_nvim branch="stable": (maybe_install_python) && _nvim_pyenv
+install_nvim branch="stable": _build_dir maybe_install_python (install nvim_build_deps) && _rm_build_dir
     {{maybe_sudo}} chmod +x {{justfile_directory()}}/scripts/nvim.sh
     {{justfile_directory()}}/scripts/nvim.sh {{branch}} {{build_directory}} {{maybe_sudo}} {{justfile_directory()}}/.venv {{user_id}}
     echo "source $DOTFILES/vim/vimrc" > $HOME/.config/nvim/init.vim
     rm -rf {{build_directory}}/neovim
 
 # BUILD PYTHON --------------------------------------------------------------------------------------------------------------
-_rm_python_build_dir:
-    rm -rf {{build_directory}}/python
-
-_build_python version make_command: _build_dir (install "git") (install python_build_deps) && _rm_python_build_dir
-    #!/usr/bin/env sh
-    git clone --branch={{version}} --single-branch --depth 1 https://github.com/python/cpython {{build_directory}}/python
-    cd {{build_directory}}/python
-    ./configure --with-ensurepip=install --disable-test-modules
-    make -j $(nproc)
-    {{maybe_sudo}} make {{make_command}}
-    python{{version}} -m pip install --upgrade pip setuptools
-
-
 # Maybe install python 3 from source with specified version. But only if no python3 binary is found.
 maybe_install_python version="3.8":
     #!/usr/bin/env sh
@@ -96,11 +83,13 @@ maybe_install_python version="3.8":
 
 
 # Build and install the specified python version
-install_python version="3.8": (_build_python version "install")
+install_python version="3.8": (install python_build_deps) _build_dir && _rm_build_dir
+    {{maybe_sudo}} chmod +x {{justfile_directory()}}/scripts/python.sh
+    {{justfile_directory()}}/scripts/python.sh {{version}} {{build_directory}} {{maybe_sudo}} install
 
-# Build and alt-install the specified python version
-altinstall_python version="3.8": (_build_python version "altinstall")
-
+altinstall_python version="3.8": (install python_build_deps) _build_dir && _rm_build_dir
+    {{maybe_sudo}} chmod +x {{justfile_directory()}}/scripts/python.sh
+    {{justfile_directory()}}/scripts/python.sh {{version}} {{build_directory}} {{maybe_sudo}} altinstall
 
 # SETUP SHELL ----------------------------------------------------------------------------
 # Install zsh, and setup the zshrc file
@@ -147,7 +136,7 @@ cargo_install programm:
 # Wezterm -------------------------------------------------------------
 wezterm_url := "https://github.com/wez/wezterm/releases/download/nightly/wezterm-nightly.Ubuntu20.04.deb"
 
-_install_wezterm:
+_install_wezterm: _build_dir && _rm_build_dir
     #!/usr/bin/env sh
     if [ {{os}} == "macos" ]; then
         brew tab wez/wezterm
@@ -156,7 +145,6 @@ _install_wezterm:
         curl -L -o {{build_directory}}/wezterm.deb {{wezterm_url}}
         sudo apt-get install -y {{build_directory}}/wezterm.deb
         mkdir -p {{home}}/.config/wezterm
-        rm {{build_directory}}/wezterm.deb
     fi
 
 install_wezterm: _install_wezterm
