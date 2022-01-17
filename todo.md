@@ -1,12 +1,12 @@
 # Next Feature
 + [-] migrate to just
-  + [ ] move complex recipes into small scripts, and call the scripts from just
+  + [-] move complex recipes into small scripts, and call the scripts from just
 + [ ] add podman recipe
 + [ ] add console email client (neomutt)
   + [ ] config
   + [ ] just recipe
 + [ ] (partly) migrate nvim-config to lua
-+ [ ] make it work on MacOS (with brew)
++ [ ] make it work on MacOS (with brew)?
 + [ ] add _toggle background_ command to vim
 
 # Things to Try
@@ -19,7 +19,6 @@
 + [ ] Kitty?
 
 ## Nvim plugins to try
-+ [x] NERDTree or lua-tree.nvim
 + [ ] nvim-fzf -> can use fzf or skim :-), does not work on windows :-(
 Not sure about those:
 + [-] telescope.nvim -> stay with fzf / skim for now
