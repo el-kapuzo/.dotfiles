@@ -41,7 +41,7 @@ wezterm.on("resize-up", function(window, pane) resize(window, pane, "Up") end)
 
 return {
     font_size = 10.5,
-    -- font = wezterm.font_with_fallback({"Roboto Mono", "Fira Code"}),
+    font = wezterm.font_with_fallback({"Roboto Mono", "Fira Code"}),
     color_scheme = "kapuzo_dark",
     enable_tab_bar = false,
     hide_tab_bar_if_only_one_tab = true,
