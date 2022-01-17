@@ -47,7 +47,7 @@ nnoremap <leader>fe :split $DOTFILES/vim/vimrc<CR>
 nnoremap <leader>fE :source $DOTFILES/vim/vimrc<CR>
 
 " ---- enter ntree
-nnoremap <leader>ft :Vex<CR>
+" nnoremap <leader>ft :Vex<CR>
 
 " ----- alternative for esc
 nnoremap <silent> <C-c> :nohl<CR><esc>
