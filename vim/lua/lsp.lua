@@ -34,14 +34,14 @@ nvim_lsp.rust_analyzer.setup{
     -- capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
 
-vim.api.nvim_set_keymap('n', 'gd', 'v:lua.lsp.buf.definition()<CR>', {silent=true,noremap=true})
-vim.api.nvim_set_keymap('n', 'gD', 'v:lua.lsp.buf.declaration()<CR>', {silent=true,noremap=true})
-vim.api.nvim_set_keymap('n', 'K', 'v:lua.lsp.buf.hover()<CR>', {silent=true,noremap=true})
-vim.api.nvim_set_keymap('n', 'gr', 'v:lua.lsp.buf.references()<CR>', {silent=true,noremap=true})
-vim.api.nvim_set_keymap('n', '<leader>rr', 'v:lua.lsp.buf.rename()<CR>', {silent=true,noremap=true})
-vim.api.nvim_set_keymap('n', '<leader>rf', 'v:lua.lsp.buf.code_action()<CR>', {silent=true,noremap=true})
-vim.api.nvim_set_keymap('n', '<C-n>', 'v:lua.lsp.buf.goto_next()<CR>', {silent=true,noremap=true})
-vim.api.nvim_set_keymap('n', '<C-p>', 'v:lua.lsp.buf.goto_next()<CR>', {silent=true,noremap=true})
+vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', {silent=true,noremap=true})
+vim.api.nvim_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', {silent=true,noremap=true})
+vim.api.nvim_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', {silent=true,noremap=true})
+vim.api.nvim_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', {silent=true,noremap=true})
+vim.api.nvim_set_keymap('n', '<leader>rr', '<cmd>lua vim.lsp.buf.rename()<CR>', {silent=true,noremap=true})
+vim.api.nvim_set_keymap('n', '<leader>rf', '<cmd>lua vim.lsp.buf.code_action()<CR>', {silent=true,noremap=true})
+vim.api.nvim_set_keymap('n', '<C-n>', '<cmd>lua vim.lsp.buf.goto_next()<CR>', {silent=true,noremap=true})
+vim.api.nvim_set_keymap('n', '<C-p>', '<cmd>lua vim.lsp.buf.goto_next()<CR>', {silent=true,noremap=true})
 
 vim.cmd('sign define LspDiagnosticsSignError text=>> texthl=LspDiagnisticsDefaultError linehl=')
 vim.cmd('sign define LspDiagnosticsSignWarning text=-- texthl=LspDiagnisticsDefaultWarning linehl=')
