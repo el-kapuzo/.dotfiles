@@ -41,7 +41,7 @@ upgrade: update
     {{maybe_sudo}} apt-get upgrade -y
 
 # Install a programm via package manager. Use sudo if necessary.
-install +programms:
+install +programms: update
     {{maybe_sudo}} apt-get install -y {{programms}}
 
 # Uninstall a prgoramm via package manager. Use sudo if necessary.
@@ -51,7 +51,7 @@ uninstall +programms:
 
 clean:
     {{maybe_sudo}} apt-get autoremove -y --purge
-    {{maybe_sudo}} apt-get clean -y --purge
+    {{maybe_sudo}} apt-get clean --purge
 
 # BUILD DIRECTORY --------------------------------------------------------------------------------------------------------------
 _build_dir:
@@ -64,18 +64,18 @@ _rm_build_dir:
 # BUILD NEOVIM --------------------------------------------------------------------------------------------------------------
 
 # Build and install neovim from the specified branch
-install_nvim branch="stable": _build_dir install_python (install nvim_build_deps)
+install_nvim branch="stable": _build_dir install_python (install "git") (install nvim_build_deps)
     {{maybe_sudo}} chmod +x {{justfile_directory()}}/scripts/nvim.sh
-    {{justfile_directory()}}/scripts/nvim.sh {{branch}} {{build_directory}} {{maybe_sudo}} {{justfile_directory()}}/.venv {{user_id}}
-    echo "source $DOTFILES/vim/vimrc" > $HOME/.config/nvim/init.vim
-    rm -rf {{build_directory}}/neovim
+    {{justfile_directory()}}/scripts/nvim.sh {{branch}} {{build_directory}} {{justfile_directory()}}/.venv {{user_id}} {{maybe_sudo}}
+    mkdir -p $HOME/.config/nvim
+    echo "source {{justfile_directory()}}/vim/vimrc" > $HOME/.config/nvim/init.vim
 
 # BUILD PYTHON --------------------------------------------------------------------------------------------------------------
 
 # Maybe install python 3 from source with specified version. But only if no python3 binary is found.
-install_python version="3.8": (install python_build_deps) _build_dir
+install_python version="3.8": (install python_build_deps) _build_dir (install "git")
     {{maybe_sudo}} chmod +x {{justfile_directory()}}/scripts/python.sh
-    {{justfile_directory()}}/scripts/python.sh {{version}} {{build_directory}} {{maybe_sudo}} install true
+    {{justfile_directory()}}/scripts/python.sh {{version}} {{build_directory}} install true {{maybe_sudo}}
 
 # Install python version alongside existing python versions
 altinstall_python version="3.8": (install python_build_deps) _build_dir
@@ -86,7 +86,7 @@ altinstall_python version="3.8": (install python_build_deps) _build_dir
 # Install zsh, and setup the zshrc file
 install_zsh: (install "zsh")
     chsh -s /bin/zsh
-    echo "source {{justfile_directory()}}/zsh/zshrc > $HOME/.zshrc
+    echo "source {{justfile_directory()}}/zsh/zshrc" > $HOME/.zshrc
 
 # Setup the bashrc file.
 install_bash:
@@ -122,6 +122,7 @@ install_rust_analyser:
 cargo_args := if user_id == "0" {"--root /usr/local"} else { "" }
 
 cargo_install programm:
+    echo $PATH
     cargo install {{programm}} {{cargo_args}}
 
 # Wezterm -------------------------------------------------------------
@@ -146,18 +147,10 @@ install_wezterm: _install_wezterm
 _docker_cleanup: _rm_build_dir (uninstall nvim_build_deps) (uninstall rust_build_deps) (uninstall python_build_deps) (uninstall "git") clean
     rm -rf /var/lib/apt/lists/*
 
-# install the basic binaries needed for developing in docker
-docker_base_py username: _build_nvim install_rust (install "zsh") (install "sudo") (cargo_install "ripgrep") (cargo_install "skim") && _docker_cleanup
-    useradd {{username}} --shell /usr/bin/zsh -G sudo
-    echo "{{username}}:password" | chpasswd
-
 # install the python version in docker
-docker_py version: (install_python version) _nvim_pyenv && _docker_cleanup
-    python3 -m pip install pdbpp
 
-install_py_docker username: (install_python  "3.9") (altinstall_python "3.6") install_nvim install_rust (install "zsh") (install "sudo") (install "fzf") (cargo_install "ripgrep") && _docker_cleanup
+install_py_docker username: update (install_python  "3.9") (altinstall_python "3.6") install_nvim install_rust install_zsh (install "sudo") (install "fzf") (cargo_install "ripgrep") && _docker_cleanup
     useradd {{username}} --shell /usr/bin/zsh -G sudo
-    echo "source /home/{{username}}/.dotfiles/zsh/zshrc" > /home/username/.zshrc
     echo "{{username}}:password" | chpasswd
 
 # PRIVATE ------------------------------------------------------------------------------------------------
@@ -182,5 +175,3 @@ _install_fonts: _build_dir (install "git") && _rm_build_dir
     fc-cache -f -v
 
 install_neomutt: (install "pass")
-
-install_private: install_rust install_rust_analyser install_git install_bash install_zsh maybe_install_python install_nvim  (install "fzf") (cargo_install "ripgrep") (install "pass") install_neomutt _fritz_nas _install_fonts && _rm_build_dir _no_sudo_shutdown

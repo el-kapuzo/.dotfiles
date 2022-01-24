@@ -2,5 +2,4 @@
 
 CARGO_HOME=/build/cargo
 RUSTUP_HOME=/build/rustup
-PATH=$PATH:/build/cargo/bin
 DEBIAN_FRONTEND=noninteractive

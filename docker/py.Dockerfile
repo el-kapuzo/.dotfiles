@@ -14,19 +14,20 @@ RUN mkdir -p /tmp \
     && apt-get remove --purge -y curl \
     && rm -rf /var/lib/apt/lists/*
 
-COPY justfile /justfile
-COPY docker/.build_env /.env
-
-RUN just install_py_docker $USER
-
-ENV PYTHONBUFFERED=1 \
-    PYTHONDONTWRITEBYTECODE=1 \
-    PATH=$PATH:/home/py-remote/.local/bin
 
 COPY . $HOME/.dotfiles/
 
-RUN chown -R $USER $HOME
 
+ENV PYTHONBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PATH=$PATH:/home/py-remote/.local/bin:/build/cargo/bin
+
+RUN cd $HOME/.dotfiles \
+    && cp ${HOME}/.dotfiles/docker/.build_env ./.env \
+    && just install_py_docker $USER \
+    && rm ./.env
+
+RUN chown -R $USER $HOME
 USER $USER
 
 CMD "/usr/bin/zsh"
