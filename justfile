@@ -51,7 +51,7 @@ uninstall +programms:
 
 clean:
     {{maybe_sudo}} apt-get autoremove -y --purge
-    {{maybe_sudo}} apt-get clean --purge
+    {{maybe_sudo}} apt-get clean
 
 # BUILD DIRECTORY --------------------------------------------------------------------------------------------------------------
 _build_dir:
@@ -122,7 +122,6 @@ install_rust_analyser:
 cargo_args := if user_id == "0" {"--root /usr/local"} else { "" }
 
 cargo_install programm:
-    echo $PATH
     cargo install {{programm}} {{cargo_args}}
 
 # Wezterm -------------------------------------------------------------
@@ -149,7 +148,7 @@ _docker_cleanup: _rm_build_dir (uninstall nvim_build_deps) (uninstall rust_build
 
 # install the python version in docker
 
-install_py_docker username: update (install_python  "3.9") (altinstall_python "3.6") install_nvim install_rust install_zsh (install "sudo") (install "fzf") (cargo_install "ripgrep") && _docker_cleanup
+install_py_docker username: update (install_python  "3.9") install_nvim install_rust install_zsh (install "sudo") (install "fzf") (cargo_install "ripgrep") && _docker_cleanup
     useradd {{username}} --shell /usr/bin/zsh -G sudo
     echo "{{username}}:password" | chpasswd
 
