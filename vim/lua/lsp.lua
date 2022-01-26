@@ -7,6 +7,7 @@ local nvim_lsp = require'lspconfig'
 local null_ls = require'null-ls'
 local flake8_executable = vim.g.py_binary_path .. '/flake8'
 local black_executable = vim.g.py_binary_path .. '/black'
+local python_executable = vim.g.py_binary_path .. '/python'
 
 null_ls.setup({
     sources = {
@@ -17,7 +18,9 @@ null_ls.setup({
         null_ls.builtins.formatting.black.with({
             command = black_executable
         }),
-        null_ls.builtins.formatting.json_tool,
+        null_ls.builtins.formatting.json_tool.with({
+            command = python_executable
+        }),
     }
 })
 
