@@ -1,5 +1,6 @@
 noremap <space> <Nop>
 let mapleader=" "
+
 set showmode
 
 set incsearch
@@ -11,11 +12,11 @@ set ideajoin
 set idearefactormode="keep"
 
 set surround
-set easymotion
 set commentary
 set highlightedyank
-let g:highlightedyank_highlight_color = "rgba(160, 160, 160, 155)"
+set NERDTree
 
+let g:highlightedyank_highlight_color = "rgba(160, 160, 160, 155)"
 
 source ~/.dotfiles/ideavim/intellimacs/mapping/pycharm.vim
 source ~/.dotfiles/ideavim/intellimacs/mapping/normal.vim
@@ -29,3 +30,4 @@ source ~/.dotfiles/ideavim/intellimacs/windows.vim
 source ~/.dotfiles/ideavim/intellimacs/debug.vim
 source ~/.dotfiles/ideavim/intellimacs/project.vim
 source ~/.dotfiles/ideavim/intellimacs/tools.vim
+source ~/.dotfiles/ideavim/intellimacs/nerdtree.vim

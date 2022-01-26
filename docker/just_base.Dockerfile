@@ -12,3 +12,4 @@ RUN mkdir -p /tmp \
 
 
 COPY justfile /justfile
+COPY scripts/ /scripts/

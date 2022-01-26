@@ -1,12 +1,12 @@
 #! /bin/sh
 
 PY_VERSION=$1
-BUILD_DIR={$2}/python
-SUDO=$3
-MAKE_COMMAND=$4
-CHECK=$5
+BUILD_DIR=$2/python
+MAKE_COMMAND=$3
+CHECK=$4
+SUDO=$5
 
-if [ "$CHECK" = "true" ] then;
+if [ "$CHECK" = "true" ]; then
     if [ -x "$(command -v python3)" ];
     then
         echo "Python 3 is already installed"
