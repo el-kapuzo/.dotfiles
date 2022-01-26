@@ -5,8 +5,6 @@
     "disableAnimations": true,
     "initialCols": 160,
     "initialRows": 40,
-    // Add any keybinding overrides to this array.
-    // To unbind a default keybinding, set the command to "unbound"
     "keybindings": [
         {
             "command": {
@@ -369,6 +367,52 @@
             "selectionBackground": "#FFFFFF",
             "white": "#C0C0C0",
             "yellow": "#808000"
+        },
+        {
+            "name": "el_dark",
+            "cusrorColor": "#1c1b19",
+            "selectionBackground": "#444444",
+            "background": "#1c1b19",
+            "foreground": "#fce8c3",
+            "black": "#1c1b19",
+            "blue": "#2c78bf",
+            "cyan": "#0aaeb3",
+            "green": "#519f50",
+            "purple": "#e02c6d",
+            "red": "#ef2f27",
+            "white": "#baa67f",
+            "yellow": "#fbb829",
+            "brightBlack": "#918175",
+            "brightBlue": "#68a8e4",
+            "brightCyan": "#2be4d0",
+            "brightGreen": "#98bc37",
+            "brightPurple": "#ff5c8f",
+            "brightRed": "#f75341",
+            "brightWhite": "#fce8c3",
+            "brightYellow": "#fed06e"
+        },
+        {
+            "name": "el_light",
+            "cusrorColor": null,
+            "selectionBackground": "#d5c4a1",
+            "background": "#fff9d7",
+            "foreground": "#121212",
+            "black": "#121212",
+            "blue": "#1665b5",
+            "cyan": "#00875f",
+            "green": "#07962a",
+            "purple": "#5f0087",
+            "red": "#af0000",
+            "white": "#f7f4e0",
+            "yellow": "#dfa000",
+            "brightBlack": "#303030",
+            "brightBlue": "#d7e7e9",
+            "brightCyan": "#1cfafe",
+            "brightGreen": "#d1d187",
+            "brightPurple": "#8787d8",
+            "brightRed": "#ffb090",
+            "brightWhite": "#fff9d7",
+            "brightYellow": "#ffeec7"
         }
     ],
     "showTabsInTitlebar": false,
