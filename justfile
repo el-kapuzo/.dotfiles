@@ -80,7 +80,7 @@ install_python version="3.8": (install python_build_deps) _build_dir (install "g
 # Install python version alongside existing python versions
 altinstall_python version="3.8": (install python_build_deps) _build_dir
     {{maybe_sudo}} chmod +x {{justfile_directory()}}/scripts/python.sh
-    {{justfile_directory()}}/scripts/python.sh {{version}} {{build_directory}} {{maybe_sudo}} altinstall false
+    {{justfile_directory()}}/scripts/python.sh {{version}} {{build_directory}} {{maybe_sudo}} altinstall false {{maybe_sudo}}
 
 # SETUP SHELL ----------------------------------------------------------------------------
 # Install zsh, and setup the zshrc file
