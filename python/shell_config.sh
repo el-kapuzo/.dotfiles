@@ -13,7 +13,7 @@ python () {
     else
         if [[ $(uname -s) == MINGW* ]];
         then
-            winpty -Xallow-non-tty $HOME/AppData/Local/Programs/Python/Python37/python.exe "$@"
+            winpty -Xallow-non-tty $HOME/AppData/Local/Microsoft/WindowsApps/python3.9.exe
         else
             python3 "$@"
         fi
