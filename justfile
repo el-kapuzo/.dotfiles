@@ -59,7 +59,7 @@ _build_dir:
     {{maybe_sudo}} chmod -R a+rwx {{build_directory}}
 
 _rm_build_dir:
-    rm -rf {{build_directory}}
+    {{maybe_sudo}} rm -rf {{build_directory}}
 
 # BUILD NEOVIM --------------------------------------------------------------------------------------------------------------
 
@@ -80,7 +80,7 @@ install_python version="3.8": (install python_build_deps) _build_dir (install "g
 # Install python version alongside existing python versions
 altinstall_python version="3.8": (install python_build_deps) _build_dir
     {{maybe_sudo}} chmod +x {{justfile_directory()}}/scripts/python.sh
-    {{justfile_directory()}}/scripts/python.sh {{version}} {{build_directory}} {{maybe_sudo}} altinstall false {{maybe_sudo}}
+    {{justfile_directory()}}/scripts/python.sh {{version}} {{build_directory}} altinstall false {{maybe_sudo}}
 
 # SETUP SHELL ----------------------------------------------------------------------------
 # Install zsh, and setup the zshrc file
