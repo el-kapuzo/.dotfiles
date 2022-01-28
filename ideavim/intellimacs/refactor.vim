@@ -1,4 +1,4 @@
-nnoremap <leader>rf    :action ReformatCode<CR>
+nnoremap <leader>rf    :action ProblemsView.QuickFixes<CR>
 
 nnoremap <leader>rC      :action CodeCleanup<CR>
 
