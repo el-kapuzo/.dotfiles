@@ -9,10 +9,10 @@ set ignorecase
 set smartcase
 
 set ideajoin
-set idearefactormode="keep"
 
 set surround
 set commentary
+set textobj-indent
 set highlightedyank
 set NERDTree
 

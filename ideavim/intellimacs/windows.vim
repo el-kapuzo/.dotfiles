@@ -9,4 +9,4 @@ nnoremap <C-l> <C-w>l
 nnoremap <leader>ws :sp<CR>
 nnoremap <leader>wv :vs<CR>
 nnoremap <leader>wd <C-w>c
-nnoremap <leader>w<C-d> <C-w>o
+nnoremap <leader>wD :on<CR>
