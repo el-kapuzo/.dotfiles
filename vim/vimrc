@@ -5,7 +5,7 @@ let &rtp =  s:vimrc_path . ',' . &rtp . ',' . s:vimrc_path . '/after'
 let &packpath =  s:vimrc_path . ',' . &packpath
 
 if isdirectory(s:dotfile_path . '/.venv')
-    if has('win32')
+    if has('win32') || has('win64')
         let g:py_binary_path = s:dotfile_path . '/.venv/Scripts'
         let g:python3_host_prog= g:py_binary_path . '/python.exe'
     else
@@ -15,6 +15,10 @@ if isdirectory(s:dotfile_path . '/.venv')
 else
     let g:py_binary_path = "/usr/local/bin"
     let g:python3_host_prog= g:py_binary_path . '/python3'
+endif
+
+if has('win32') || has('win64')
+    set shell=powershell
 endif
 
 " --- MAPPING --------------------
