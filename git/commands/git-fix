@@ -1,0 +1,5 @@
+#! /bin/bash
+
+git checkout-default
+git pull
+git checkout -b fix/dpohl/$1

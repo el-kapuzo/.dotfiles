@@ -12,9 +12,6 @@
 
 [alias]
 	dt = difftool
-    sync = "!git checkout-default && git pull && git fetch --all -Pp"
-    feat = "!git checkout-default && git pull && git checkout -b feat/dpohl/$1; }"
-    fix = "!git checkout-default && git pull && git checkout -b fix/dpohl/$1; }"
     root = "!cd $(git rev-parse --show-toplevel)"
 
 [credential "https://github.com"]
