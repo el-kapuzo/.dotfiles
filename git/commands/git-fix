@@ -1,5 +1,7 @@
 #! /bin/bash
 
+__branch_name="fix/dpohl/$1"
 git checkout-default
 git pull
-git checkout -b fix/dpohl/$1
+git checkout -b $__branch_name
+git push -set-upstream origin $__branch_name
