@@ -1,4 +1,4 @@
-nnoremap <leader>rf    :action ProblemsView.QuickFixes<CR>
+nnoremap <leader>rf    :action ShowIntentionActions<CR>
 
 nnoremap <leader>rC      :action CodeCleanup<CR>
 
@@ -7,8 +7,8 @@ nnoremap <leader>rc      :action GenerateConstructor<CR>
 nnoremap <leader>rem    :action ExtractMethod<CR>
 vnoremap <leader>rem    :action ExtractMethod<CR>
 
-nnoremap <leader>res    :action IntroduceVariable<CR>
-vnoremap <leader>res    :action IntroduceVariable<CR>
+nnoremap <leader>rev    :action IntroduceVariable<CR>
+vnoremap <leader>rev    :action IntroduceVariable<CR>
 
 nnoremap <leader>rec    :action ExtractClass<CR>
 vnoremap <leader>rec    :action ExtractClass<CR>
