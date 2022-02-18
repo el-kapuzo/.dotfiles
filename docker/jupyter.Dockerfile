@@ -1,4 +1,4 @@
-ARG PY_VERSION=3.8
+ARG PY_VERSION=3.9
 
 FROM python:${PY_VERSION}-slim
 
@@ -15,6 +15,7 @@ EXPOSE 8888
 
 ENV JUPYTER_TOKEN=''
 ENV PATH=$PATH:$HOME/.local/bin
+ENV PYTHONPATH=$PYTHONPATH:$HOME/.local/lib/python$PY_VERSION/site-packages
 
 USER ${USER}
 

@@ -13,12 +13,13 @@ pgadmin () {
 }
 
 jupyter () {
-    __COUNT_OF_IMAGES=$(docker images | grep "jupyter" | awk "{print $2}" | grep "$1" | wc -l)
+    PYVERSION=${1:-"3.9"}
+    __COUNT_OF_IMAGES=$(docker images | grep "jupyter" | awk "{print $2}" | grep "$PYVERSION" | wc -l)
     if [ $__COUNT_OF_IMAGES -eq 0 ];
     then
-        __build_jupyter_image $1
+        __build_jupyter_image $PYVERSION
     fi
-    docker run -d -p 8888:8888 jupyter:$1
+    docker run -d -p 8888:8888 jupyter:$PYVERSION
     sleep 10
     xdg-open localhost8888:8888
 }
