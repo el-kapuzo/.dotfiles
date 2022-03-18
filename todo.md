@@ -2,6 +2,7 @@
 + [-] migrate to just
   + [-] move complex recipes into small scripts, and call the scripts from just
 + [ ] add podman recipe
++ [ ] add latex (texlive + lsp) recipe
 + [ ] add console email client (neomutt)
   + [ ] config
   + [ ] just recipe
@@ -22,3 +23,4 @@
 + [ ] nvim-fzf -> can use fzf or skim :-), does not work on windows :-(
 Not sure about those:
 + [-] telescope.nvim -> stay with fzf / skim for now
+
