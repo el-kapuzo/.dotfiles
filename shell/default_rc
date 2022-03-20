@@ -4,7 +4,8 @@ export DOTFILES="$HOME/.dotfiles"
 . $DOTFILES/shell/editor.sh
 . $DOTFILES/shell/system.sh
 . $DOTFILES/shell/aliases.sh
-. $DOTFILES/shell/exports.sh
+. $DOTFILES/shell/env.sh
+. $DOTFILES/shell/path.sh
 . $DOTFILES/docker/shell_config.sh
 . $DOTFILES/python/shell_config.sh
 
