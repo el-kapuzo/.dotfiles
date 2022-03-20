@@ -1,4 +1,5 @@
 export EDITOR="nvim"
+export MANPAGER='nvim +Man!'
 export PASSWORD_STORE_GENERATED_LENGTH=32
 
 export FZF_DEFAULT_COMMAND='rg --files'

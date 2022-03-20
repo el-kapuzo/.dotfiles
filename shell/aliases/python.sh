@@ -1,6 +1,6 @@
 if ! [[ $(uname -s) == MINGW* ]];
 then
-    export PYTHONSTARTUP=$DOTFILES/python/pythonrc.py
+    export PYTHONSTARTUP=$DOTFILES/pythonrc.py
 fi
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 

@@ -1,11 +1,6 @@
-alias gs='git status'
-alias ga='git add'
-alias gaa='git add .'
-alias gcm='git commit -m'
-alias gcam='git commit -a -m'
-alias gc='git commit'
-alias gcamend='git commit --amend --no-edit'
-alias gp='git push'
+. $DOTFILES/shell/aliases/docker.sh
+. $DOTFILES/shell/aliases/git.sh
+. $DOTFILES/shell/aliases/python.sh
 
 alias ls='ls --color'
 alias la='ls -la --color'
