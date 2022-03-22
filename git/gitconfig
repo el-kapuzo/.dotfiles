@@ -1,19 +1,26 @@
 [init]
-	defaultBranch = main
+    defaultBranch = main
 
 [diff]
-	tool = nvimdiff
+    tool = nvimdiff
 
 [difftool]
-	prompt = false
+    prompt = false
 
 [difftool "nvimdiff"]
-	cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 
 [alias]
-	dt = difftool
+    aa = add --all
+    p = push
+    f = fetch
+    l = pull
+    c = commit
+    cm = commit -m
+    camend = commit --amend --no-edit
+    dt = difftool
     root = "!cd $(git rev-parse --show-toplevel)"
 
 [credential "https://github.com"]
-	helper ="!pass show dev/github_api_token"
+    helper ="!pass show dev/github_api_token"
 

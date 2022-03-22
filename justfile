@@ -64,7 +64,7 @@ _rm_build_dir:
 # BUILD NEOVIM --------------------------------------------------------------------------------------------------------------
 
 # Build and install neovim from the specified branch
-install_nvim branch="stable": _build_dir install_python (install "git") (install nvim_build_deps)
+nvim branch="stable": _build_dir python (install "git") (install nvim_build_deps)
     {{maybe_sudo}} chmod +x {{justfile_directory()}}/scripts/nvim.sh
     {{justfile_directory()}}/scripts/nvim.sh {{branch}} {{build_directory}} {{justfile_directory()}}/.venv {{user_id}} {{maybe_sudo}}
     mkdir -p $HOME/.config/nvim
@@ -73,7 +73,7 @@ install_nvim branch="stable": _build_dir install_python (install "git") (install
 # BUILD PYTHON --------------------------------------------------------------------------------------------------------------
 
 # Maybe install python 3 from source with specified version. But only if no python3 binary is found.
-install_python version="3.8": (install python_build_deps) _build_dir (install "git")
+python version="3.8": (install python_build_deps) _build_dir (install "git")
     {{maybe_sudo}} chmod +x {{justfile_directory()}}/scripts/python.sh
     {{justfile_directory()}}/scripts/python.sh {{version}} {{build_directory}} install true {{maybe_sudo}}
 
@@ -84,18 +84,18 @@ altinstall_python version="3.8": (install python_build_deps) _build_dir
 
 # SETUP SHELL ----------------------------------------------------------------------------
 # Install zsh, and setup the zshrc file
-install_zsh: (install "zsh")
+zsh: (install "zsh")
     chsh -s /bin/zsh
     echo "source {{justfile_directory()}}/zsh/zshrc" > $HOME/.zshrc
 
 # Setup the bashrc file.
-install_bash:
+bash:
     rm -rf $HOME/.bashrc
     echo "source {{justfile_directory()}}/bash/bashrc > $HOME/.bashrc
 
 # SETUP GIT ----------------------------------------------------------------------------
 # Install git, and setup the global config file
-install_git: (install "git") (install "pass")
+git: (install "git") (install "pass")
     echo "[include]" > $HOME/.gitconfig
     echo "path = {{justfile_directory()}}/git/gitconfig" >> $HOME/.gitconfig
     git config --global core.autocrlf {{git_autcrf_option}}
@@ -104,7 +104,7 @@ install_git: (install "git") (install "pass")
 
 # RUST TOOLCHAIN --------------------------------------------------------------------------------------
 # Install the specified rust-toolchain.
-install_rust profile="default": (install rust_build_deps)
+rust profile="default": (install rust_build_deps)
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path --profile {{profile}}
 
 rust_analyzer_target := if os() == "linux" {
@@ -113,7 +113,7 @@ rust_analyzer_target := if os() == "linux" {
 "pc-windows-msvc"
 } else { "apple-darwin"}
 
-install_rust_analyser:
+rust_analyzer:
     rustup component add rust-src
     curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-{{arch()}}-{{rust_analyzer_target}}.gz |gzip -c - > ~/.local/bin/rust-analyzer
     chmod +x ~/.local/bin/rust-analyzer
@@ -127,7 +127,7 @@ cargo_install programm:
 # Wezterm -------------------------------------------------------------
 wezterm_url := "https://github.com/wez/wezterm/releases/download/nightly/wezterm-nightly.Ubuntu20.04.deb"
 
-_install_wezterm: _build_dir && _rm_build_dir
+wezterm: _install_wezterm
     #!/usr/bin/env sh
     if [ {{os}} == "macos" ]; then
         brew tab wez/wezterm
@@ -136,11 +136,27 @@ _install_wezterm: _build_dir && _rm_build_dir
         curl -L -o {{build_directory}}/wezterm.deb {{wezterm_url}}
         sudo apt-get install -y {{build_directory}}/wezterm.deb
         mkdir -p {{home}}/.config/wezterm
+        rm {{build_directory}}/wezterm.deb
     fi
-
-install_wezterm: _install_wezterm
     rm -rf {{home}}/.config/wezterm/wezterm.lua
     ln -s {{justfile_directory()}}/term/wezterm.lua {{home}}/.config/wezterm/wezterm.lua
+
+
+# TEX-LIVE ---------------------------------------------------
+
+texlive_dir := build_directory + "/texlive"
+
+texlive: _build_dir rust 
+    mkdir {{texlive_dir}}
+    curl -L -o {{texlive_dir}}/install.tar.gz https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+    tar -xvzf {{texlive_dir}}/install.tar.gz -C {{texlive_dir}}
+    perl {{texlive_dir}}/install-tl*/install-tl
+    rm -rf {{texlive_dir}}
+
+texlab: rust
+    cargo install --git https://github.com/latex-lsp/texlab.git --locked
+
+tex: texlive texlab
 
 # DEV-DOCKER ---------------------------------------------------------------------------------------------
 _docker_cleanup: _rm_build_dir (uninstall nvim_build_deps) (uninstall rust_build_deps) (uninstall python_build_deps) (uninstall "git") clean
@@ -162,7 +178,7 @@ _fritz_nas: (install "samba cifs-utils")
     {{maybe_sudo}} sh -c 'echo "//192.168.42.1/FRITZ.NAS/TOSHIBA-ExternalUSB3-0-01/⋅{{home}}/nas cifs noserverino,credentials={{home}}/.smbcredentials,vers=3.0,uid={{user_id}},gid={{user_guid}},x-systemd.automount,x-systemd.requires=network-online.target 0 0" >> /etc/fstab'
 
 _no_sudo_shutdown:
-    {{maybe_sudo}} echo "%sudo ALL=(ALL) NOPASSWD: /sbin/poweroff, /sbin/shutdown, /sbin/reboot"
+    {{maybe_sudo}} echo "%sudo ALL=(ALL) NOPASSWD: /sbin/poweroff, /sbin/shutdown, /sbin/reboot" >> /etc/sudoers
 
 _install_fonts: _build_dir (install "git") && _rm_build_dir
     cd {{build_directory}} && git clone --depth=1 https://github.com/googlefonts/RobotoMono

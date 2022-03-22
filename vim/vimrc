@@ -36,6 +36,7 @@ lua <<EOF
     require'completion'
     require'colorizer-config'
     require'dir-tree'
+    require'statusline'
 EOF
 endif
 " 

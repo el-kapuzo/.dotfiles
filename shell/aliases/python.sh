@@ -1,22 +1,18 @@
-if ! [[ $(uname -s) == MINGW* ]];
-then
-    export PYTHONSTARTUP=$DOTFILES/python/pythonrc.py
-fi
-export VIRTUAL_ENV_DISABLE_PROMPT=1
-
-alias py="python"
-
-python () {
+py () {
     if [ "${VIRTUAL_ENV+x}" = "x" ];
     then
         command python "$@"
+    elif [ -d './.venv/Scripts' ];
+    then
+        ./.venv/Scripts/python3.exe "$@"
+    elif [ -d './.venv/bin' ];
+    then
+        ./.venv/bin/python3 "$@"
+    elif [[ $(uname -s) == MINGW* ]];
+    then
+        winpty·-Xallow-non-tty·$HOME/AppData/Local/Microsoft/WindowsApps/python3.9.exe·"$@"
     else
-        if [[ $(uname -s) == MINGW* ]];
-        then
-            winpty -Xallow-non-tty $HOME/AppData/Local/Microsoft/WindowsApps/python3.9.exe "$@"
-        else
-            python3 "$@"
-        fi
+        python3 "$@"
     fi
 }
 

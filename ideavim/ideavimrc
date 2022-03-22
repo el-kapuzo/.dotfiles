@@ -18,16 +18,16 @@ set NERDTree
 
 let g:highlightedyank_highlight_color = "rgba(160, 160, 160, 155)"
 
-source ~/.dotfiles/ideavim/intellimacs/mapping/pycharm.vim
-source ~/.dotfiles/ideavim/intellimacs/mapping/normal.vim
-source ~/.dotfiles/ideavim/intellimacs/mapping/visual.vim
-source ~/.dotfiles/ideavim/intellimacs/git.vim
-source ~/.dotfiles/ideavim/intellimacs/terminal.vim
-source ~/.dotfiles/ideavim/intellimacs/refactor.vim
-source ~/.dotfiles/ideavim/intellimacs/buffers.vim
-source ~/.dotfiles/ideavim/intellimacs/files.vim
-source ~/.dotfiles/ideavim/intellimacs/windows.vim
-source ~/.dotfiles/ideavim/intellimacs/debug.vim
-source ~/.dotfiles/ideavim/intellimacs/project.vim
-source ~/.dotfiles/ideavim/intellimacs/tools.vim
-source ~/.dotfiles/ideavim/intellimacs/nerdtree.vim
+source ~/.dotfiles/ideavim/pycharm.vim
+source ~/.dotfiles/ideavim/normal.vim
+source ~/.dotfiles/ideavim/visual.vim
+source ~/.dotfiles/ideavim/git.vim
+source ~/.dotfiles/ideavim/terminal.vim
+source ~/.dotfiles/ideavim/refactor.vim
+source ~/.dotfiles/ideavim/buffers.vim
+source ~/.dotfiles/ideavim/files.vim
+source ~/.dotfiles/ideavim/windows.vim
+source ~/.dotfiles/ideavim/debug.vim
+source ~/.dotfiles/ideavim/project.vim
+source ~/.dotfiles/ideavim/tools.vim
+source ~/.dotfiles/ideavim/nerdtree.vim
