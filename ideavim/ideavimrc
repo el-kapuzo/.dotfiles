@@ -16,7 +16,7 @@ set textobj-indent
 set highlightedyank
 set NERDTree
 
-let g:highlightedyank_highlight_color = "rgba(160, 160, 160, 155)"
+let g:highlightedyank_highlight_color = "rgba(213, 196, 161, 155)"
 
 source ~/.dotfiles/ideavim/pycharm.vim
 source ~/.dotfiles/ideavim/normal.vim

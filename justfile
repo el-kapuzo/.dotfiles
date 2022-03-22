@@ -127,7 +127,7 @@ cargo_install programm:
 # Wezterm -------------------------------------------------------------
 wezterm_url := "https://github.com/wez/wezterm/releases/download/nightly/wezterm-nightly.Ubuntu20.04.deb"
 
-wezterm: _install_wezterm
+wezterm: 
     #!/usr/bin/env sh
     if [ {{os}} == "macos" ]; then
         brew tab wez/wezterm
@@ -164,9 +164,9 @@ _docker_cleanup: _rm_build_dir (uninstall nvim_build_deps) (uninstall rust_build
 
 # install the python version in docker
 
-install_py_docker username: update (install_python  "3.9") install_nvim install_rust install_zsh (install "sudo") (install "fzf") (cargo_install "ripgrep") && _docker_cleanup
-    useradd {{username}} --shell /usr/bin/zsh -G sudo
-    echo "{{username}}:password" | chpasswd
+#install_py_docker username: update (install_python  "3.9") install_nvim install_rust install_zsh (install "sudo") (install "fzf") (cargo_install "ripgrep") && _docker_cleanup
+#    useradd {{username}} --shell /usr/bin/zsh -G sudo
+#    echo "{{username}}:password" | chpasswd
 
 # PRIVATE ------------------------------------------------------------------------------------------------
 # setup the machine for private use
