@@ -32,8 +32,8 @@ execute 'source ' . s:vimrc_path . '/ultisnips.vim'
 if has('nvim')
 lua <<EOF
     require'autopairs'
-    require'lsp'
     require'completion'
+    require'lsp'
     require'colorizer-config'
     require'dir-tree'
     require'statusline'

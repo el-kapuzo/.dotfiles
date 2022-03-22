@@ -1,6 +1,7 @@
 vim.cmd("packadd! nvim-lspconfig")
 vim.cmd("packadd! plenary.nvim")
 vim.cmd("packadd! null-ls.nvim")
+vim.cmd("packadd! nvim-cmp")
 
 
 local nvim_lsp = require'lspconfig'
@@ -30,14 +31,16 @@ null_ls.setup({
 
 nvim_lsp.jedi_language_server.setup{
     cmd = { vim.g.py_binary_path .. "/jedi-language-server" },
-    -- capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
 
 nvim_lsp.rust_analyzer.setup{
-    -- capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
 
-nvim_lsp.texlab.setup{}
+nvim_lsp.texlab.setup{
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
 
 vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', {silent=true,noremap=true})
 vim.api.nvim_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', {silent=true,noremap=true})
