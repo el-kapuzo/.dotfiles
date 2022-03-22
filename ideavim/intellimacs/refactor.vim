@@ -1,7 +1,7 @@
-nnoremap <leader>rf    :action ShowIntentionActions<CR>
+nnoremap <leader>ra    :action ShowIntentionActions<CR>
+nnoremap <leader>rf   :action ReformatCode<CR>
 
 nnoremap <leader>rC      :action CodeCleanup<CR>
-
 nnoremap <leader>rc      :action GenerateConstructor<CR>
 
 nnoremap <leader>rem    :action ExtractMethod<CR>

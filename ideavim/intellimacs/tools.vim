@@ -1,9 +1,14 @@
-nnoremap <leader>aP     :action ActivateProjectToolWindow<CR>
+nnoremap <leader>tP     :action ActivateProjectToolWindow<CR>
+vnoremap <leader>tP     :action ActivateProjectToolWindow<CR>
 
-nnoremap <leader>at     :action ActivateTODOToolWindow<CR>
+nnoremap <leader>tT     :action ActivateTODOToolWindow<CR>
+vnoremap <leader>tT     :action ActivateTODOToolWindow<CR>
 
-nnoremap <leader>aj     :action ActivateJIRAToolWindow<CR>
+nnoremap <leader>tt    :action ActivateTerminalToolWindow<CR>
+vnoremap <leader>tt    :action ActivateTerminalToolWindow<CR>
 
-nnoremap <leader>ap     :aciton ActivatePythonConsoleToolWindow<CR>
+nnoremap <leader>tp     :aciton ActivatePythonConsoleToolWindow<CR>
+vnoremap <leader>tp     :aciton ActivatePythonConsoleToolWindow<CR>
 
-nnoremap <leader>ad     :action ActivateDockerToolWindow<CR>
+nnoremap <leader>td     :action ActivateDatabaseToolWindow<CR>
+vnoremap <leader>td     :action ActivateDatabaseToolWindow<CR>

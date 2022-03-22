@@ -42,7 +42,8 @@ vim.api.nvim_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', {si
 vim.api.nvim_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', {silent=true,noremap=true})
 vim.api.nvim_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', {silent=true,noremap=true})
 vim.api.nvim_set_keymap('n', '<leader>rr', '<cmd>lua vim.lsp.buf.rename()<CR>', {silent=true,noremap=true})
-vim.api.nvim_set_keymap('n', '<leader>rf', '<cmd>lua vim.lsp.buf.code_action()<CR>', {silent=true,noremap=true})
+vim.api.nvim_set_keymap('n', '<leader>ra', '<cmd>lua vim.lsp.buf.code_action()<CR>', {silent=true,noremap=true})
+vim.api.nvim_set_keymap('n', '<leader>rf', '<cmd>lua vim.lsp.buf.formatting()<CR>', {silent=true,noremap=true})
 vim.api.nvim_set_keymap('n', '<C-n>', '<cmd>lua vim.lsp.buf.goto_next()<CR>', {silent=true,noremap=true})
 vim.api.nvim_set_keymap('n', '<C-p>', '<cmd>lua vim.lsp.buf.goto_next()<CR>', {silent=true,noremap=true})
 

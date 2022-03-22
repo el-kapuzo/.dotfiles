@@ -1,3 +1,4 @@
+nnoremap <leader>gg :action Vcs.QuickListPopupAction<CR>
 nnoremap <leader>gc :action CheckinProject<CR> 
 
 nnoremap <leader>gp :action Vcs.Push<CR>

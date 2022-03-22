@@ -7,8 +7,10 @@ nnoremap <leader>pt    :action RerunTests<CR>
 nnoremap <leader>pT    :action GotoTest<CR>
 
 nnoremap <leader>pr    :action Run<CR>
- 
-nnoremap <leader>pR    :action ChooseRunConfiguration<CR>
+nnoremap <leader>pR    :action RunClass<CR>
+nnoremap <leader>pc    :action ChooseRunConfiguration<CR>
+
+nnoremap <leader>ps    :action Stop<CR>
 
 nnoremap <leader>po    :action WelcomeScreen.OpenProject<CR>
 
