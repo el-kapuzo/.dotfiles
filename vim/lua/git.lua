@@ -7,6 +7,10 @@ require('gitsigns').setup{
     }
 }
 
+vim.cmd("hi link GitSignsAdd DiffAdd")
+vim.cmd("hi link GitSignsChange DiffChange")
+vim.cmd("hi link GitSignsDelete DiffDelete")
+
 vim.api.nvim_set_keymap('n', '<leader>gc', ':G commit<CR>', {silent=true,noremap=true})
 vim.api.nvim_set_keymap('n', '<leader>gp', ':G push<CR>', {silent=true,noremap=true})
 vim.api.nvim_set_keymap('n', '<leader>gl', ':G pull<CR>', {silent=true,noremap=true})
