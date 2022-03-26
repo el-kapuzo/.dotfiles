@@ -23,5 +23,4 @@
 + [ ] nvim-fzf -> can use fzf or skim :-), does not work on windows :-(
 Not sure about those:
 + [-] telescope.nvim -> stay with fzf / skim for now
-+ [ ] gitsigns.nvim (instead of signify)
 + [ ] treesiter
