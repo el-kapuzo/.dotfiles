@@ -103,3 +103,4 @@
 [submodule "gitsigns.nvim"]
 	path = vim/pack/bundle/opt/gitsigns.nvim
 	url = https://github.com/lewis6991/gitsigns.nvim.git
+	branch = main
