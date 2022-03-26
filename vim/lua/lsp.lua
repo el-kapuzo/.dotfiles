@@ -1,7 +1,7 @@
 vim.cmd("packadd! nvim-lspconfig")
 vim.cmd("packadd! plenary.nvim")
 vim.cmd("packadd! null-ls.nvim")
-vim.cmd("packadd! nvim-cmp")
+vim.cmd("packadd! cmp-nvim-lsp")
 
 
 local nvim_lsp = require'lspconfig'
@@ -24,10 +24,6 @@ null_ls.setup({
         }),
     }
 })
-
--- nvim_lsp["null-ls"].setup({
---     -- capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
--- })
 
 nvim_lsp.jedi_language_server.setup{
     cmd = { vim.g.py_binary_path .. "/jedi-language-server" },
