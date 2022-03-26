@@ -8,6 +8,7 @@
 + [ ] (partly) migrate nvim-config to lua
 + [ ] make it work on MacOS (with brew)?
 + [ ] add _toggle background_ command to vim
++ [ ] make _nvim-tree_ and _ideavim nerdtree_ behave as similar as possible
 
 # Things to Try
 ## Cli-Tools
@@ -16,11 +17,12 @@
 + [ ] broot
 
 ## Terminal Emulator
-+ [ ] Kitty?
++ [ ] Kitty? 
 
 ## Nvim plugins to try
 + [ ] nvim-fzf -> can use fzf or skim :-), does not work on windows :-(
 Not sure about those:
 + [-] telescope.nvim -> stay with fzf / skim for now
 + [ ] gitsigns.nvim (instead of signify)
-
++ [ ] treesiter
++ [ ] nvim-cmp
