@@ -25,4 +25,3 @@ Not sure about those:
 + [-] telescope.nvim -> stay with fzf / skim for now
 + [ ] gitsigns.nvim (instead of signify)
 + [ ] treesiter
-+ [ ] nvim-cmp
