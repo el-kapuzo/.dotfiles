@@ -10,7 +10,7 @@ py () {
         ./.venv/bin/python3 "$@"
     elif [[ $(uname -s) == MINGW* ]];
     then
-        winpty·-Xallow-non-tty·$HOME/AppData/Local/Microsoft/WindowsApps/python3.9.exe·"$@"
+        winpty -Xallow-non-tty $HOME/AppData/Local/Microsoft/WindowsApps/python3.10.exe "$@"
     else
         python3 "$@"
     fi
@@ -21,7 +21,7 @@ pyenv () {
     then
         __activate_env
     else
-        python -m venv ./.venv
+        py -m venv ./.venv
         if [ -d "./.venv/bin/" ];
         then
             ./.venv/bin/python -m pip install --upgrade pip setuptools
