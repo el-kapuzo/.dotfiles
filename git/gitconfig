@@ -12,6 +12,7 @@
 
 [alias]
     aa = add --all
+    s = status
     p = push
     f = fetch
     l = pull
@@ -19,7 +20,7 @@
     cm = commit -m
     camend = commit --amend --no-edit
     dt = difftool
-    root = "!cd $(git rev-parse --show-toplevel)"
+    root = rev-parse --show-toplevel
 
 [credential "https://github.com"]
     helper ="!pass show dev/github_api_token"

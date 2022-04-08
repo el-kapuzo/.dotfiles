@@ -1,0 +1,10 @@
+#! /bin/bash
+
+file_type=${1:-python}
+
+if [ "$file_type" = "py" ]; then
+    file_type="python"
+fi
+
+cp $DOTFILES/git/hooks/commit-msg $(pwd)/.git/hooks/commit-msg
+cp $DOTFILES/git/hooks/pre-commit-$file_type $(pwd)/.git/hooks/pre-commit
