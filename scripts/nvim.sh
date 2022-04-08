@@ -7,7 +7,7 @@ USER_ID=$4
 SUDO=$5
 
 PWD=$(pwd)
-NVIM_PY_PACKAGES="black flake8 flake8-bandit flake8-bugbear isort jedi-language-server pynvim rope"
+NVIM_PY_PACKAGES="black flake8 flake8-bandit flake8-bugbear flake8-implicite-str-concat flake8-eradicate flake8-debugger falke8-commas flake8-broken-line isort jedi-language-server pynvim rope"
 
 git clone --branch=$BRANCH --single-branch --depth 1 https://github.com/neovim/neovim $BUILD_DIR
 cd $BUILD_DIR
