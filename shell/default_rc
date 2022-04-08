@@ -2,7 +2,6 @@ export DOTFILES="$HOME/.dotfiles"
 
 . $DOTFILES/shell/aliases.sh
 . $DOTFILES/shell/system.sh
-. $DOTFILES/shell/aliases.sh
 . $DOTFILES/shell/env.sh
 . $DOTFILES/shell/path.sh
 
