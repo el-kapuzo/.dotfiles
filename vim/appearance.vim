@@ -8,7 +8,7 @@ if (has('termguicolors'))
 endif
 
 " ---- COLORSCHEMES --------------------------
-colorscheme el_dark
+colorscheme el_light
 
 if !has('nvim')
     packadd! lightline
