@@ -1,0 +1,19 @@
+#!/bin/bash
+
+commit_message=$(head -1 $1)
+
+if (( ${#commit_message} < 10 )); then
+    echo "Youre commit message is too short. Please use at least 10 characters"
+    exit 1
+fi
+
+conventional_regex='^(feat|fix|docs|style|refactor|test|chore)(\(.*\))?: .*'
+
+if [[ "$commit_message" =~ $conventional_regex ]]; then
+    exit 0
+else
+    echo "Please use a commit message which complies with the conventional commit style"
+    exit 1
+fi
+
+
