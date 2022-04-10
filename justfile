@@ -64,7 +64,7 @@ _rm_build_dir:
 # BUILD NEOVIM --------------------------------------------------------------------------------------------------------------
 
 # Build and install neovim from the specified branch
-nvim branch="stable": _build_dir python (install "git") (install nvim_build_deps)
+nvim branch="stable": _build_dir (python "3.8") (install "git") (install nvim_build_deps)
     {{maybe_sudo}} chmod +x {{justfile_directory()}}/scripts/nvim.sh
     {{justfile_directory()}}/scripts/nvim.sh {{branch}} {{build_directory}} {{justfile_directory()}}/.venv {{user_id}} {{maybe_sudo}}
     mkdir -p $HOME/.config/nvim
@@ -104,7 +104,7 @@ git: (install "git") (install "pass")
 
 # RUST TOOLCHAIN --------------------------------------------------------------------------------------
 # Install the specified rust-toolchain.
-rust profile="default": (install rust_build_deps)
+rustc profile="default": (install rust_build_deps)
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path --profile {{profile}}
 
 rust_analyzer_target := if os() == "linux" {
@@ -118,11 +118,15 @@ rust_analyzer:
     curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-{{arch()}}-{{rust_analyzer_target}}.gz |gzip -c - > ~/.local/bin/rust-analyzer
     chmod +x ~/.local/bin/rust-analyzer
 
+rust: rustc rust_analyzer
 # Cargo install a program. If run as root, install to /usr/local/bin
 cargo_args := if user_id == "0" {"--root /usr/local"} else { "" }
 
 cargo_install programm:
     cargo install {{programm}} {{cargo_args}}
+
+# Rust CLI-Tools
+cli_tools: (cargo_install "ripgrep") (cargo_install "skim") (cargo_install "bat")
 
 # Wezterm -------------------------------------------------------------
 wezterm_url := "https://github.com/wez/wezterm/releases/download/nightly/wezterm-nightly.Ubuntu20.04.deb"
@@ -153,7 +157,7 @@ texlive: _build_dir rust
     perl {{texlive_dir}}/install-tl*/install-tl
     rm -rf {{texlive_dir}}
 
-texlab: rust
+texlab: rustc
     cargo install --git https://github.com/latex-lsp/texlab.git --locked
 
 tex: texlive texlab
@@ -180,7 +184,7 @@ _fritz_nas: (install "samba cifs-utils")
 _no_sudo_shutdown:
     {{maybe_sudo}} echo "%sudo ALL=(ALL) NOPASSWD: /sbin/poweroff, /sbin/shutdown, /sbin/reboot" >> /etc/sudoers
 
-_install_fonts: _build_dir (install "git") && _rm_build_dir
+robotomono: _build_dir (install "git") && _rm_build_dir
     cd {{build_directory}} && git clone --depth=1 https://github.com/googlefonts/RobotoMono
     mkdir -p ~/.local/share/fonts/robotomono
     rm {{build_directory}}/RobotMono/fonts/ttf/*Light*
@@ -188,5 +192,9 @@ _install_fonts: _build_dir (install "git") && _rm_build_dir
     rm {{build_directory}}/RobotMono/fonts/ttf/*Thin*
     cp -f {{build_directory}}/RobotoMono/fonts/ttf/*.ttf ~/.local/share/fonts/truetype/robotomono
     fc-cache -f -v
+
+private: _fritz_nas _no_sudo_shutdown 
+
+install: git (python "3.8") nvim zsh bash wezterm tex rust robotomono private cli_tools
 
 install_neomutt: (install "pass")
