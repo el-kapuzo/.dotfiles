@@ -1,9 +1,11 @@
 #!/bin/bash
 
+
 if [[ $(uname -s) == MINGW* ]]; then
-    $DOTFILES/.venv/Scripts/black.exe
-    $DOTFILES /.venv/Scripts/flake8.exe
+    $DOTFILES/.venv/Scripts/black.exe $(pwd)
+    $DOTFILES /.venv/Scripts/flake8.exe $(pwd)
 else
-    $DOTFILES/.venv/bin/black
-    $DOTFILES/.venv/bin/flake8
+    $DOTFILES/.venv/bin/black $(pwd)
+    $DOTFILES/.venv/bin/flake8 $(pwd)
 fi
+
