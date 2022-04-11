@@ -195,6 +195,6 @@ robotomono: _build_dir (install "git") && _rm_build_dir
 
 private: _fritz_nas _no_sudo_shutdown 
 
-install: git (python "3.8") nvim zsh bash wezterm tex rust robotomono private cli_tools
+setup: git (python "3.8") nvim zsh bash wezterm tex rust robotomono private cli_tools
 
 install_neomutt: (install "pass")
