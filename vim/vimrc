@@ -47,6 +47,10 @@ endif
 " " --- MAKE IT LOOK NICE ---------------
 execute 'source ' . s:vimrc_path . '/appearance.vim'
 
+" Additional plugins
+packadd! vim-exchange
+
 " --- MY SETTINGS ---------------------
 " load the settings after adding packages
+
 execute 'source ' . s:vimrc_path . '/settings.vim'
