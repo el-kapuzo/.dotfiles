@@ -13,6 +13,7 @@ set ideajoin
 set surround
 set commentary
 set textobj-indent
+set exchange
 set highlightedyank
 set NERDTree
 
