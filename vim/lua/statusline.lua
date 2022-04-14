@@ -98,28 +98,33 @@ function modified()
 end
 
 function status_line_active()
-    return table.concat{
-        "%#StatusLineMode#",
-        "%( %{luaeval('mode()')} %)",
-        "%#StatusLineLeft#",
-        git(),
-        "%#StatusLineMiddle#",
-        "%( %t %)",
-        "%( %{luaeval('modified()')} %)",
-        "%=",
-        "%( %{&fileformat} %)",
-        seperator,
-        "%( %{&fileencoding?&fenc:&enc} %)",
-        seperator,
-        '%( %y %)',
-        '%#StatusLineRight#',
-        '%( %p%% %)',
-        '%#StatusLineFarRight#',
-        '%( %3l:%-2c %)'
-    }
+    if vim.bo.filetype == "NvimTree" then
+        return status_line_tree()
+    else
+        return table.concat{
+            "%#StatusLineMode#",
+            "%( %{luaeval('mode()')} %)",
+            "%#StatusLineLeft#",
+            git(),
+            "%#StatusLineMiddle#",
+            "%( %t %)",
+            "%( %{luaeval('modified()')} %)",
+            "%=",
+            "%( %{&fileformat} %)",
+            seperator,
+            "%( %{&fileencoding?&fenc:&enc} %)",
+            seperator,
+            '%( %y %)',
+            '%#StatusLineRight#',
+            '%( %p%% %)',
+            '%#StatusLineFarRight#',
+            '%( %3l:%-2c %)'
+        }
+    end
 end
 
 function status_line_inactive() 
+    print(vim.bo.filetype)
     return table.concat{
         "%#StatusLineInactive#",
         "%( %t %)",
@@ -143,8 +148,6 @@ vim.cmd [[
      au!
      au winenter,bufenter * setlocal statusline=%!v:lua.status_line_active()
      au winleave,bufleave * setlocal statusline=%!v:lua.status_line_inactive()
-     au winenter,bufenter NvimTree setlocal statusline=%!v:lua.status_line_tree()
-     au winleave,bufleave NvimTree setlocal statusline=%!v:lua.status_line_tree()
      augroup end
 ]]
 

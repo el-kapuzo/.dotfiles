@@ -1,8 +1,8 @@
 vim.cmd("packadd! nvim-tree")
 
-vim.g.nvim_tree_indent_markers = 1
 vim.g.nvim_tree_git_hl = 1
 vim.g.nvim_tree_highlight_opened_files = 1
+vim.g.nvim_tree_add_trailing=1
 vim.g.nvim_tree_icons = {
      default= " ",
      symlink= "~",
@@ -38,6 +38,14 @@ require"nvim-tree".setup{
             info = "I",
             warning = "W",
             error = "E",
+        }
+    },
+    view = {
+        width = 30,
+    },
+    renderer = {
+        indent_markers = {
+            enable = true
         }
     }
 }

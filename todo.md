@@ -6,7 +6,6 @@
   + [ ] config
   + [ ] just recipe
 + [ ] (partly) migrate nvim-config to lua
-+ [ ] make it work on MacOS (with brew)?
 + [ ] add _toggle background_ command to vim
 + [ ] make _nvim-tree_ and _ideavim nerdtree_ behave as similar as possible
 
