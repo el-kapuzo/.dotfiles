@@ -77,16 +77,12 @@ function mode()
 end
 
 local function git()
-    return "%( %{luaeval('git_branch()')} %)"
-end
-
-function git_branch()
-    local branch = vim.fn["fugitive#head"]()
-    local res = ""
-    if #branch > 0 then
-        res = git_branch_symbol .. " " .. branch
+    branch = vim.b.gitsigns_head
+    res = ''
+    if branch then
+        res = git_branch_symbol .. ' ' .. branch
     end
-    return res
+    return '%( ' .. res .. ' %)'
 end
 
 function modified()
@@ -97,7 +93,6 @@ function modified()
         return seperator .. " [-]"
     end
     return ""
-        -- "%( %m %)",
 end
 
 function status_line_active()
@@ -126,16 +121,6 @@ function status_line_active()
     end
 end
 
-function status_line_inactive() 
-    print(vim.bo.filetype)
-    return table.concat{
-        "%#StatusLineInactive#",
-        "%( %t %)",
-        "%=",
-        '%( %p%% %)',
-        '%( %3l:%-2c %)'
-    }
-end
 
 function status_line_tree()
     return table.concat{
@@ -146,11 +131,5 @@ function status_line_tree()
     }
 end
 
-vim.cmd [[
-   augroup statusline
-     au!
-     au winenter,bufenter * setlocal statusline=%!v:lua.status_line_active()
-     au winleave,bufleave * setlocal statusline=%!v:lua.status_line_inactive()
-     augroup end
-]]
+vim.o.statusline = "%!v:lua.status_line_active()"
 
