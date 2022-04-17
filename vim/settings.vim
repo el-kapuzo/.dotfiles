@@ -72,9 +72,6 @@ set cursorline
 set completeopt=menuone,noinsert,noselect
 set shortmess+=c
 
-" ---- STAUTS LINE ---------------------------------
-set laststatus=2
-set noshowmode
 
 " ----- WILDMENU ------------------------------------
 set wildmenu
