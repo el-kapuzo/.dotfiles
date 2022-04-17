@@ -8,6 +8,7 @@ local cmp = require'cmp'
 
 
 cmp.setup({
+    preselect = nil,
     snippet = {
         expand = function(args)
             vim.fn["UltiSnips#Anon"](args.body)
@@ -19,15 +20,21 @@ cmp.setup({
         { name = "path"},
         { name = "nvim_lua"},
         { name = "buffer"}
-    }
-    ),
+    }),
+    mapping = cmp.mapping.preset.insert({
+        ['<Tab>'] = cmp.mapping.confirm({select = true })
+    }),
+    -- window = {
+    --     completion = cmp.config.window.bordered(),
+    --     documentation = cmp.config.window.bordered()
+    -- },
     formatting = {
         format = function(entry, vim_item) 
             vim_item.kind = ""
             vim_item.menu = ({
-                buffer= "[Buffer]",
+                buffer= "[BUF]",
                 nvim_lsp = "[LSP]",
-                ultisnips = "[SNIPPET]",
+                ultisnips = "[SNIPS]",
                 nvim_lua = "[LUA]",
                 path = "[PATH]"
             })[entry.source.name]
