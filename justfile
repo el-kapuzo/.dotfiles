@@ -12,8 +12,12 @@ build_directory := if user_id == "0" { "/build" } else { "~/build"}
 
 # List of build dependencies, for the different recipes
 nvim_build_deps := "ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl"
+py_packages := "black flake8 flake8-bandit flake8-bugbear flake8-implicit-str-concat flake8-eradicate flake8-debugger flake8-commas flake8-broken-line isort jedi-language-server pynvim rope"
+
 python_build_deps := "build-essential gdb lcov libbz2-dev libffi-dev libgdbm-dev liblzma-dev libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev lzma lzma-dev tk-dev uuid-dev zlib1g-dev"
+
 rust_build_deps := "curl build-essential"
+
 
 # Git option which should be different on windows and unix like systems
 git_autcrf_option := if os_family() == "unix" { "input" } else { "true" }
@@ -64,7 +68,7 @@ _rm_build_dir:
 # BUILD NEOVIM --------------------------------------------------------------------------------------------------------------
 
 # Build and install neovim from the specified branch
-nvim branch="stable": _build_dir (python "3.8") (install "git") (install nvim_build_deps)
+nvim branch="stable": _build_dir (python "3.8") (install "git") (install nvim_build_deps) pyenv
     {{maybe_sudo}} chmod +x {{justfile_directory()}}/scripts/nvim.sh
     {{justfile_directory()}}/scripts/nvim.sh {{branch}} {{build_directory}} {{justfile_directory()}}/.venv {{user_id}} {{maybe_sudo}}
     mkdir -p $HOME/.config/nvim
@@ -77,6 +81,14 @@ python version="3.8": (install python_build_deps) _build_dir (install "git")
     {{maybe_sudo}} chmod +x {{justfile_directory()}}/scripts/python.sh
     {{justfile_directory()}}/scripts/python.sh {{version}} {{build_directory}} install true {{maybe_sudo}}
 
+
+relative_py_env_bin := if os_family() == "windows" { ".venv/Scripts/python.exe"} else { ".venv/bin/python" }
+py_env_bin := justfile_directory() + "/" + relative_py_env_bin
+
+pyenv:
+    python3 -m venv {{justfile_directory()}}/.venv
+    {{py_env_bin}} -m pip install --upgrade pip setuptools
+    {{py_env_bin}} -m pip install {{py_packages}}
 # Install python version alongside existing python versions
 altinstall_python version="3.8": (install python_build_deps) _build_dir
     {{maybe_sudo}} chmod +x {{justfile_directory()}}/scripts/python.sh
