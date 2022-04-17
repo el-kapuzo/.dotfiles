@@ -160,7 +160,7 @@ wezterm:
 
 # NEOMUTT ----------------------------------------------------
 
-neomutt banch="main": (install "pass")
+neomutt branch="main": (install "pass")
     {{maybe_sudo}} chmod +x {{justfile_directory()}}/scripts/neomutt.sh
     {{justfile_directory()}}/scripts/neomutt.sh {{branch}} {{build_directory}} {{maybe_sudo}}
 
