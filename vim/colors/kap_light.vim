@@ -4,7 +4,7 @@ if exists('syntax_on')
     syntax reset
 endif
 let g:colors_name='kap_light'
-hi Normal guifg=#121212 ctermfg=233 guibg=#fff9d7 ctermbg=230 gui=NONE cterm=NONE
+hi Normal guifg=#121212 ctermfg=233 guibg=#fffff0 ctermbg=231 gui=NONE cterm=NONE
 hi Visual guifg=#121212 ctermfg=233 guibg=#d5c4a1 ctermbg=187 gui=bold,underline cterm=bold,underline
 hi Underline guifg=#665c54 ctermfg=59 guibg=NONE ctermbg=NONE gui=underline cterm=underline
 hi Search guifg=NONE ctermfg=NONE guibg=#bdae93 ctermbg=144 gui=bold,italic cterm=bold,italic
@@ -17,10 +17,10 @@ hi markdownUrlDelimiter guifg=#303030 ctermfg=236 guibg=NONE ctermbg=NONE gui=NO
 hi markdownLinkDelimiter guifg=#303030 ctermfg=236 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi markdownLinkTextDelimiter guifg=#303030 ctermfg=236 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi markdownCodeDelimiter guifg=#303030 ctermfg=236 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi Folded guifg=#303030 ctermfg=236 guibg=#fff9d7 ctermbg=230 gui=italic cterm=italic
-hi FoldColumn guifg=#303030 ctermfg=236 guibg=#fff9d7 ctermbg=230 gui=italic cterm=italic
-hi SignColumn guifg=#303030 ctermfg=236 guibg=#fff9d7 ctermbg=230 gui=NONE cterm=NONE
-hi LineNr guifg=#303030 ctermfg=236 guibg=#fff9d7 ctermbg=230 gui=NONE cterm=NONE
+hi Folded guifg=#303030 ctermfg=236 guibg=#fffff0 ctermbg=231 gui=italic cterm=italic
+hi FoldColumn guifg=#303030 ctermfg=236 guibg=#fffff0 ctermbg=231 gui=italic cterm=italic
+hi SignColumn guifg=#303030 ctermfg=236 guibg=#fffff0 ctermbg=231 gui=NONE cterm=NONE
+hi LineNr guifg=#303030 ctermfg=236 guibg=#fffff0 ctermbg=231 gui=NONE cterm=NONE
 hi SignifySignAdd guifg=#07962a ctermfg=28 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi SignifyLineAdd guifg=#07962a ctermfg=28 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi SignifySignChange guifg=#3a94c5 ctermfg=68 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
@@ -141,22 +141,22 @@ hi markdownUrlTitleDelimiter guifg=#303030 ctermfg=236 guibg=NONE ctermbg=NONE g
 hi markdwonBlockquote guifg=#303030 ctermfg=236 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi markdownHeadingRule guifg=#303030 ctermfg=236 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
 hi markdownRule guifg=#303030 ctermfg=236 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi StatusLineRight guifg=#121212 ctermfg=233 guibg=#a89984 ctermbg=138 gui=NONE cterm=NONE
-hi StatusLineNormal guifg=#121212 ctermfg=233 guibg=#3a94c5 ctermbg=68 gui=bold cterm=bold
-hi StatusLineTerm guifg=#121212 ctermfg=233 guibg=#f57d26 ctermbg=208 gui=bold cterm=bold
-hi StatusLineVisual guifg=#121212 ctermfg=233 guibg=#35a77c ctermbg=72 gui=NONE cterm=NONE
-hi StatusLineMiddle guifg=#121212 ctermfg=233 guibg=#ebdbb2 ctermbg=223 gui=NONE cterm=NONE
-hi StatusLineFarRight guifg=#121212 ctermfg=233 guibg=#bdae93 ctermbg=144 gui=NONE cterm=NONE
 hi NonText guifg=#a89984 ctermfg=138 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi StatusLineInsert guifg=#121212 ctermfg=233 guibg=#07962a ctermbg=28 gui=bold cterm=bold
-hi StatusLineReplace guifg=#121212 ctermfg=233 guibg=#ffb090 ctermbg=216 gui=bold cterm=bold
-hi StatusLineLeft guifg=#121212 ctermfg=233 guibg=#a89984 ctermbg=138 gui=NONE cterm=NONE
-hi justBodyText guifg=#121212 ctermfg=233 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi VertSplit guifg=NONE ctermfg=NONE guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi VisualNOS guifg=NONE ctermfg=NONE guibg=#ebdbb2 ctermbg=223 gui=bold cterm=bold
-hi Title guifg=#000000 ctermfg=16 guibg=NONE ctermbg=NONE gui=bold cterm=bold
+hi StatusLineLeft guifg=#121212 ctermfg=233 guibg=#bdae93 ctermbg=144 gui=NONE cterm=NONE
 hi Directory guifg=#000000 ctermfg=16 guibg=NONE ctermbg=NONE gui=bold cterm=bold
-hi Conceal guifg=#928374 ctermfg=244 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
-hi StatusLineSelect guifg=#121212 ctermfg=233 guibg=#35a77c ctermbg=72 gui=bold cterm=bold
-hi StatusLineCommand guifg=#121212 ctermfg=233 guibg=#dfa000 ctermbg=178 gui=bold cterm=bold
 hi StatusLineInactive guifg=#121212 ctermfg=233 guibg=#bdae93 ctermbg=144 gui=NONE cterm=NONE
+hi Title guifg=#000000 ctermfg=16 guibg=NONE ctermbg=NONE gui=bold cterm=bold
+hi StatusLineInsert guifg=#121212 ctermfg=233 guibg=#07962a ctermbg=28 gui=bold cterm=bold
+hi StatusLineSelect guifg=#121212 ctermfg=233 guibg=#35a77c ctermbg=72 gui=bold cterm=bold
+hi StatusLineRight guifg=#121212 ctermfg=233 guibg=#bdae93 ctermbg=144 gui=NONE cterm=NONE
+hi StatusLineMiddle guifg=#121212 ctermfg=233 guibg=#ebdbb2 ctermbg=223 gui=NONE cterm=NONE
+hi StatusLineCommand guifg=#121212 ctermfg=233 guibg=#dfa000 ctermbg=178 gui=bold cterm=bold
+hi StatusLineTerm guifg=#121212 ctermfg=233 guibg=#f57d26 ctermbg=208 gui=bold cterm=bold
+hi VertSplit guifg=NONE ctermfg=NONE guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi StatusLineReplace guifg=#121212 ctermfg=233 guibg=#ffb090 ctermbg=216 gui=bold cterm=bold
+hi StatusLineFarRight guifg=#121212 ctermfg=233 guibg=#a89984 ctermbg=138 gui=NONE cterm=NONE
+hi StatusLineVisual guifg=#121212 ctermfg=233 guibg=#35a77c ctermbg=72 gui=NONE cterm=NONE
+hi Conceal guifg=#928374 ctermfg=244 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi justBodyText guifg=#121212 ctermfg=233 guibg=NONE ctermbg=NONE gui=NONE cterm=NONE
+hi StatusLineNormal guifg=#121212 ctermfg=233 guibg=#3a94c5 ctermbg=68 gui=bold cterm=bold
+hi VisualNOS guifg=NONE ctermfg=NONE guibg=#ebdbb2 ctermbg=223 gui=bold cterm=bold
