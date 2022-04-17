@@ -1,33 +1,33 @@
 [submodule "vim-surround"]
-	path = vim/pack/bundle/start/vim-surround
+	path = vim/pack/bundle/opt/vim-surround
 	url = https://github.com/tpope/vim-surround
     ignore = dirty
 [submodule "vim-commentary"]
-	path = vim/pack/bundle/start/vim-commentary
+	path = vim/pack/bundle/opt/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
     ignore = dirty
 [submodule "vim-rooter"]
-	path = vim/pack/bundle/start/vim-rooter
+	path = vim/pack/bundle/opt/vim-rooter
 	url = https://github.com/airblade/vim-rooter.git
     ignore = dirty
 [submodule "vim-just"]
-	path = vim/pack/bundle/start/vim-just
+	path = vim/pack/bundle/opt/vim-just
 	url = https://github.com/NoahTheDuke/vim-just.git
     ignore = dirty
 [submodule "python-syntax"]
-	path = vim/pack/bundle/start/python-syntax
+	path = vim/pack/bundle/opt/python-syntax
 	url = https://github.com/vim-python/python-syntax.git
     ignore = dirty
 [submodule "rust.vim"]
-	path = vim/pack/bundle/start/rust.vim
+	path = vim/pack/bundle/opt/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
     ignore = dirty
 [submodule "vim-fugitive"]
-	path = vim/pack/bundle/start/vim-fugitive
+	path = vim/pack/bundle/opt/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
     ignore = dirty
 [submodule "gv.vim"]
-	path = vim/pack/bundle/start/gv.vim
+	path = vim/pack/bundle/opt/gv.vim
 	url = https://github.com/junegunn/gv.vim.git
     ignore = dirty
 [submodule "nvim-compe"]
@@ -35,7 +35,7 @@
 	url = https://github.com/hrsh7th/nvim-compe.git
     ignore = dirty
 [submodule "vim-indent-object"]
-	path = vim/pack/bundle/start/vim-indent-object
+	path = vim/pack/bundle/opt/vim-indent-object
 	url = https://github.com/michaeljsmith/vim-indent-object
     ignore = dirty
 [submodule "ultisnips"]
