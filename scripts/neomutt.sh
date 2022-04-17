@@ -2,8 +2,7 @@
 
 BRANCH=$1
 BUILD_DIR=$2/neomutt
-USER_ID=$3
-SUDO=$4
+SUDO=$3
 
 PWD=$(pwd)
 

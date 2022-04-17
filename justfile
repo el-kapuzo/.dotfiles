@@ -70,7 +70,7 @@ _rm_build_dir:
 # Build and install neovim from the specified branch
 nvim branch="stable": _build_dir (python "3.8") (install "git") (install nvim_build_deps) pyenv
     {{maybe_sudo}} chmod +x {{justfile_directory()}}/scripts/nvim.sh
-    {{justfile_directory()}}/scripts/nvim.sh {{branch}} {{build_directory}} {{justfile_directory()}}/.venv {{user_id}} {{maybe_sudo}}
+    {{justfile_directory()}}/scripts/nvim.sh {{branch}} {{build_directory}} {{maybe_sudo}}
     mkdir -p $HOME/.config/nvim
     echo "source {{justfile_directory()}}/vim/vimrc" > $HOME/.config/nvim/init.vim
 
@@ -158,6 +158,13 @@ wezterm:
     ln -s {{justfile_directory()}}/term/wezterm.lua {{home}}/.config/wezterm/wezterm.lua
 
 
+# NEOMUTT ----------------------------------------------------
+
+neomutt: (install "pass")
+    {{maybe_sudo}} chmod +x {{justfile_directory()}}/scripts/neomutt.sh
+    {{justfile_directory()}}/scripts/neomutt.sh {{branch}} {{build_directory}} {{maybe_sudo}}
+
+
 # TEX-LIVE ---------------------------------------------------
 
 texlive_dir := build_directory + "/texlive"
@@ -207,6 +214,5 @@ robotomono: _build_dir (install "git") && _rm_build_dir
 
 private: _fritz_nas _no_sudo_shutdown 
 
-setup: git (python "3.8") nvim zsh bash wezterm tex rust robotomono private cli_tools
+setup: git (python "3.8") nvim zsh bash wezterm tex rust robotomono private cli_tools pyenv neomutt
 
-install_neomutt: (install "pass")

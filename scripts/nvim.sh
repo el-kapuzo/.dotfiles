@@ -2,8 +2,7 @@
 
 BRANCH=$1
 BUILD_DIR="$2/neovim"
-USER_ID=$3
-SUDO=$4
+SUDO=$3
 
 PWD=$(pwd)
 NVIM_PY_PACKAGES="black flake8 flake8-bandit flake8-bugbear flake8-implicit-str-concat flake8-eradicate flake8-debugger falke8-commas flake8-broken-line isort jedi-language-server pynvim rope"
