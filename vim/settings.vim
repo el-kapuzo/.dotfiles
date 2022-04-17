@@ -11,6 +11,10 @@ set backspace=indent,eol,start
 " ---- FASTER UPDATE TIMES
 set updatetime=300
 
+" ---- USE LUA FILETYPES ---------------
+let g:do_filetype_lua = 1
+let g:did_load_fileetypes = 0
+
 " --- SHOW WHITESPACES ------------------
 set list
 set listchars=tab:▷┅
