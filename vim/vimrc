@@ -41,14 +41,11 @@ lua <<EOF
 EOF
 endif
 " 
-" " --- GIT INTEGRATION -----------------------
-" execute 'source ' . s:vimrc_path . '/git.vim'
-" 
 " " --- MAKE IT LOOK NICE ---------------
 execute 'source ' . s:vimrc_path . '/appearance.vim'
 
 " Additional plugins
-packadd! vim-exchange
+execute 'source' . s:vimrc_path . '/plugins.vim'
 
 " --- MY SETTINGS ---------------------
 " load the settings after adding packages
