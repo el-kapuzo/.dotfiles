@@ -21,8 +21,7 @@ cd $BUILD_DIR
 
 ./configure --with-ensurepip=install --disable-test-modules
 
-make -j $(nproc)
-$SUDO make $MAKE_COMMAND
+$SUDO make -j $(nproc) $MAKE_COMMAND
 python$PY_VERSION -m pip install --upgrade pip setuptools
 
 cd $PWD
