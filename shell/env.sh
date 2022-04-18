@@ -7,8 +7,5 @@ export FZF_DEFAULT_COMMAND='rg --files'
 export SKIM_DEFAULT_COMMAND='rg --files'
 
 # ------------ PYTHON ---------------
-if ! [[ $(uname -s) == MINGW* ]];
-then
-    export PYTHONSTARTUP=$DOTFILES/python/pythonrc.py
-fi
+export PYTHONSTARTUP=$DOTFILES/python/pythonrc.py
 export VIRTUAL_ENV_DISABLE_PROMPT=1
