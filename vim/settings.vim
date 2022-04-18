@@ -19,7 +19,7 @@ let g:did_load_fileetypes = 0
 set list
 set listchars=tab:▷┅
 set listchars+=space:·
-set listchars+=trail:•
+set listchars+=trail:🞄
 set listchars+=extends:»
 set listchars+=precedes:«
 

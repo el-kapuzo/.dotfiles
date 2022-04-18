@@ -1,6 +1,5 @@
 local seperator = '│'
-local git_branch_symbol = "⌥"
-
+local git_branch_symbol = "" --- ⌥
 vim.o.laststatus = 3
 vim.o.showmode = false
 
