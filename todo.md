@@ -1,6 +1,4 @@
 # Next Feature
-+ [-] migrate to just
-  + [-] move complex recipes into small scripts, and call the scripts from just
 + [ ] add podman recipe
 + [ ] add console email client (neomutt)
   + [ ] config
@@ -8,6 +6,7 @@
 + [ ] (partly) migrate nvim-config to lua
 + [ ] add _toggle background_ command to vim
 + [ ] make _nvim-tree_ and _ideavim nerdtree_ behave as similar as possible
++ [ ] makefile (bootstrap and run just)
 
 # Things to Try
 ## Cli-Tools
@@ -19,8 +18,9 @@
 + [ ] Kitty? 
 
 ## Nvim plugins to try
-+ [ ] nvim-fzf -> can use fzf or skim :-), does not work on windows :-(
++ [ ] nvim-fzf (lua) -> can use fzf or skim :-), does not work on windows :-(
++ [ ] nvim-rooter (lua) -> instead of vim-rooter?
++ [ ] Comment.nvim
 Not sure about those:
 + [ ] treesiter
-+ [ ] vim exchange
 + [ ] matchit (buildin)
