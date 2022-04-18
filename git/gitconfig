@@ -18,9 +18,10 @@
     l = pull
     c = commit
     cm = commit -m
+    r = restore
     camend = commit --amend --no-edit
     dt = difftool
-    root = rev-parse --show-toplevel
+    root-dir = rev-parse --show-toplevel
 
 [credential "https://github.com"]
     helper ="!pass show dev/github_api_token"
