@@ -5,6 +5,7 @@ user_guid := `id -g`
 home := env_var("HOME")
 os := os()
 os_family := os_family()
+scipts_dir := justfile_directory() + "/scripts"
 
 # Some variables and options, which depend on running as root or not
 maybe_sudo := if user_id == "0" { "" } else { "sudo"}
@@ -70,7 +71,7 @@ _rm_build_dir:
 # Build and install neovim from the specified branch
 nvim branch="stable": _build_dir (python "3.8") (install "git") (install nvim_build_deps) pyenv
     {{maybe_sudo}} chmod +x {{justfile_directory()}}/scripts/nvim.sh
-    {{justfile_directory()}}/scripts/nvim.sh {{branch}} {{build_directory}} {{maybe_sudo}}
+    {{scipts_dir}}/nvim.sh {{branch}} {{build_directory}} {{maybe_sudo}}
     mkdir -p $HOME/.config/nvim
     echo "source {{justfile_directory()}}/vim/vimrc" > $HOME/.config/nvim/init.vim
 
@@ -79,8 +80,12 @@ nvim branch="stable": _build_dir (python "3.8") (install "git") (install nvim_bu
 # Maybe install python 3 from source with specified version. But only if no python3 binary is found.
 python version="3.8": (install python_build_deps) _build_dir (install "git")
     {{maybe_sudo}} chmod +x {{justfile_directory()}}/scripts/python.sh
-    {{justfile_directory()}}/scripts/python.sh {{version}} {{build_directory}} install true {{maybe_sudo}}
+    {{scipts_dir}}/python.sh {{version}} {{build_directory}} install true {{maybe_sudo}}
 
+# Install python version alongside existing python versions
+altinstall_python version="3.8": (install python_build_deps) _build_dir
+    {{maybe_sudo}} chmod +x {{justfile_directory()}}/scripts/python.sh
+    {{scipts_dir}}/python.sh {{version}} {{build_directory}} altinstall false {{maybe_sudo}}
 
 relative_py_env_bin := if os_family() == "windows" { ".venv/Scripts/python.exe"} else { ".venv/bin/python" }
 py_env_bin := justfile_directory() + "/" + relative_py_env_bin
@@ -89,10 +94,6 @@ pyenv:
     python3 -m venv {{justfile_directory()}}/.venv
     {{py_env_bin}} -m pip install --upgrade pip setuptools
     {{py_env_bin}} -m pip install {{py_packages}}
-# Install python version alongside existing python versions
-altinstall_python version="3.8": (install python_build_deps) _build_dir
-    {{maybe_sudo}} chmod +x {{justfile_directory()}}/scripts/python.sh
-    {{justfile_directory()}}/scripts/python.sh {{version}} {{build_directory}} altinstall false {{maybe_sudo}}
 
 # SETUP SHELL ----------------------------------------------------------------------------
 # Install zsh, and setup the zshrc file
@@ -157,16 +158,12 @@ wezterm:
     rm -rf {{home}}/.config/wezterm/wezterm.lua
     ln -s {{justfile_directory()}}/term/wezterm.lua {{home}}/.config/wezterm/wezterm.lua
 
-
 # NEOMUTT ----------------------------------------------------
-
 neomutt branch="main": (install "pass")
-    {{maybe_sudo}} chmod +x {{justfile_directory()}}/scripts/neomutt.sh
-    {{justfile_directory()}}/scripts/neomutt.sh {{branch}} {{build_directory}} {{maybe_sudo}}
-
+    {{maybe_sudo}} chmod +x {{scipts_dir}}/neomutt.sh
+    {{scipts_dir}}/neomutt.sh {{branch}} {{build_directory}} {{maybe_sudo}}
 
 # TEX-LIVE ---------------------------------------------------
-
 texlive_dir := build_directory + "/texlive"
 
 texlive: _build_dir rust 
@@ -191,6 +188,9 @@ _docker_cleanup: _rm_build_dir (uninstall nvim_build_deps) (uninstall rust_build
 #    useradd {{username}} --shell /usr/bin/zsh -G sudo
 #    echo "{{username}}:password" | chpasswd
 
+fzf:
+    chmod +x {justfile_directory}}/vim/pack/bundle/opt/fzf/install
+    
 # PRIVATE ------------------------------------------------------------------------------------------------
 # setup the machine for private use
 _fritz_nas: (install "samba cifs-utils")
@@ -204,16 +204,10 @@ _no_sudo_shutdown:
     {{maybe_sudo}} echo "%sudo ALL=(ALL) NOPASSWD: /sbin/poweroff, /sbin/shutdown, /sbin/reboot" >> /etc/sudoers
 
 robotomono: _build_dir (install "git")
-    cd {{build_directory}} && git clone --depth=1 https://github.com/googlefonts/RobotoMono
-    mkdir -p ~/.local/share/fonts/robotomono
-    rm {{build_directory}}/RobotMono/fonts/ttf/*Light*
-    rm {{build_directory}}/RobotMono/fonts/ttf/*Medium*
-    rm {{build_directory}}/RobotMono/fonts/ttf/*Thin*
-    cp -f {{build_directory}}/RobotoMono/fonts/ttf/*.ttf ~/.local/share/fonts/truetype/robotomono
-    fc-cache -f -v
-    rm -rf {{build_directory}}/RobotMono
+    chmod +x {{scipts_dir}}/robotomono.sh
+    {{maybe_sudo}} {{scipts_dir}}/robotomono.sh {{_build_dir}}
 
 private: _fritz_nas _no_sudo_shutdown 
 
-setup: git (python "3.8") nvim zsh bash wezterm tex rust robotomono private cli_tools pyenv neomutt && _rm_build_dir
+setup: git (python "3.8") nvim zsh bash wezterm tex rust robotomono private cli_tools pyenv neomutt && _rm_build_dir fzf
 
