@@ -203,7 +203,7 @@ _fritz_nas: (install "samba cifs-utils")
 _no_sudo_shutdown:
     {{maybe_sudo}} echo "%sudo ALL=(ALL) NOPASSWD: /sbin/poweroff, /sbin/shutdown, /sbin/reboot" >> /etc/sudoers
 
-robotomono: _build_dir (install "git") && _rm_build_dir
+robotomono: _build_dir (install "git")
     cd {{build_directory}} && git clone --depth=1 https://github.com/googlefonts/RobotoMono
     mkdir -p ~/.local/share/fonts/robotomono
     rm {{build_directory}}/RobotMono/fonts/ttf/*Light*
@@ -211,8 +211,9 @@ robotomono: _build_dir (install "git") && _rm_build_dir
     rm {{build_directory}}/RobotMono/fonts/ttf/*Thin*
     cp -f {{build_directory}}/RobotoMono/fonts/ttf/*.ttf ~/.local/share/fonts/truetype/robotomono
     fc-cache -f -v
+    rm -rf {{build_directory}}/RobotMono
 
 private: _fritz_nas _no_sudo_shutdown 
 
-setup: git (python "3.8") nvim zsh bash wezterm tex rust robotomono private cli_tools pyenv neomutt
+setup: git (python "3.8") nvim zsh bash wezterm tex rust robotomono private cli_tools pyenv neomutt && _rm_build_dir
 
