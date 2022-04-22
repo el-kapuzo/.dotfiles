@@ -36,6 +36,9 @@ packadd url dir="opt":
 packupdate:
     git submodule update --remote --depth=1
 
+packinit:
+    git submodule init
+
 # PACKAGE MANAGER -----------------------------------------------------------------------------------------------------------
 # Update the package manager repositroy.
 update:
@@ -210,5 +213,5 @@ robotomono: _build_dir (install "git")
 private: _fritz_nas _no_sudo_shutdown
 
 
-setup: git (python "3.8") nvim zsh bash wezterm tex rust robotomono private cli_tools pyenv neomutt && _rm_build_dir fzf
+setup: fzf packinit git (python "3.8") nvim zsh bash wezterm tex rust robotomono private cli_tools pyenv neomutt && _rm_build_dir packupdate
 
