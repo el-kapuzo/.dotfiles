@@ -1,4 +1,4 @@
-#! /usr/bin/sh
+#! /usr/bin/env sh
 
 BRANCH=$1
 BUILD_DIR=$2/neomutt

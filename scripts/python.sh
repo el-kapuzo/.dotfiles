@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /usr/bin/env sh
 
 PY_VERSION=$1
 BUILD_DIR=$2/python

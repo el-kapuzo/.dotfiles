@@ -1,4 +1,4 @@
-#! /usr/bin/sh
+#! /usr/bin/env sh
 
 BUILD_DIR=$1/RobotMono
 TARGET_DIR=$HOME/.local/share/fonts/truetype/robotomono

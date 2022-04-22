@@ -205,9 +205,10 @@ _no_sudo_shutdown:
 
 robotomono: _build_dir (install "git")
     chmod +x {{scipts_dir}}/robotomono.sh
-    {{maybe_sudo}} {{scipts_dir}}/robotomono.sh {{_build_dir}}
+    {{maybe_sudo}} {{scipts_dir}}/robotomono.sh {{build_directory}}
 
-private: _fritz_nas _no_sudo_shutdown 
+private: _fritz_nas _no_sudo_shutdown
+
 
 setup: git (python "3.8") nvim zsh bash wezterm tex rust robotomono private cli_tools pyenv neomutt && _rm_build_dir fzf
 
