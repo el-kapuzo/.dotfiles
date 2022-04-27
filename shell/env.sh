@@ -7,5 +7,5 @@ export FZF_DEFAULT_COMMAND='rg --files'
 export SKIM_DEFAULT_COMMAND='rg --files'
 
 # ------------ PYTHON ---------------
-export PYTHONSTARTUP=$DOTFILES/python/pythonrc.py
+export PYTHONSTARTUP=$DOTFILES/pythonrc.py
 export VIRTUAL_ENV_DISABLE_PROMPT=1
