@@ -3,7 +3,7 @@
 
 if [[ $(uname -s) == MINGW* ]]; then
     $DOTFILES/.venv/Scripts/black.exe --check $(pwd)
-    $DOTFILES /.venv/Scripts/flake8.exe $(pwd)
+    $DOTFILES/.venv/Scripts/flake8.exe $(pwd)
 else
     $DOTFILES/.venv/bin/black --check $(pwd)
     $DOTFILES/.venv/bin/flake8 $(pwd)
