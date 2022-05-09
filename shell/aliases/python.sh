@@ -1,6 +1,6 @@
 if [[ $(uname -s) == MINGW* ]]; then
     alias black="$DOTFILES/.venv/Scripts/black.exe"
-    alias flake8="$DOTFILES /.venv/Scripts/flake8.exe"
+    alias flake8="$DOTFILES/.venv/Scripts/flake8.exe"
 else
     alias black="$DOTFILES/.venv/bin/black"
     alias flake8="$DOTFILES/.venv/bin/flake8"
@@ -12,7 +12,7 @@ py () {
         command python "$@"
     elif [ -d './.venv/Scripts' ];
     then
-        ./.venv/Scripts/python3.exe "$@"
+        ./.venv/Scripts/python.exe "$@"
     elif [ -d './.venv/bin' ];
     then
         ./.venv/bin/python3 "$@"
