@@ -28,3 +28,5 @@ nnoremap <leader>rl      :action Refactorings.QuickListPopupAction<CR>
 vnoremap <leader>rl      :action Refactorings.QuickListPopupAction<CR>
 
 nnoremap <leader>rr      :action RenameElement<CR>
+
+nnoremap <leader>rm      :action Move<CR>
