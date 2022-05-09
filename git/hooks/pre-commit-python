@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 
 if [[ $(uname -s) == MINGW* ]]; then
     $DOTFILES/.venv/Scripts/black.exe --check $(pwd)
@@ -8,4 +10,3 @@ else
     $DOTFILES/.venv/bin/black --check $(pwd)
     $DOTFILES/.venv/bin/flake8 $(pwd)
 fi
-

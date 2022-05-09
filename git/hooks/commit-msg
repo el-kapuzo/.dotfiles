@@ -1,6 +1,8 @@
 #!/bin/bash
 
-commit_message=$(head -1 $1)
+set -e
+
+commit_message=$(head --lines 1 $1)
 
 if (( ${#commit_message} < 10 )); then
     echo "Youre commit message is too short. Please use at least 10 characters"
@@ -15,5 +17,3 @@ else
     echo "Please use a commit message which complies with the conventional commit style"
     exit 1
 fi
-
-
