@@ -1,10 +1,14 @@
 #! /bin/bash
 
 file_type=${1:-python}
+root_dir=$(git root-dir)
 
 if [ "$file_type" = "py" ]; then
     file_type="python"
 fi
 
-cp $DOTFILES/git/hooks/commit-msg $(pwd)/.git/hooks/commit-msg
-cp $DOTFILES/git/hooks/pre-commit-$file_type $(pwd)/.git/hooks/pre-commit
+cp $DOTFILES/git/hooks/commit-msg $root_dir/.git/hooks/commit-msg
+cp $DOTFILES/git/hooks/pre-commit-$file_type $root_dir/.git/hooks/pre-commit
+
+chmod +x $root_dir/.git/hooks/commit-msg
+chmod +x $root_dir/.git/hooks/pre-commit

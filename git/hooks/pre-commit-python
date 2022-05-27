@@ -2,11 +2,14 @@
 
 set -e
 
+root_dir=$(git root-dir)
+
 
 if [[ $(uname -s) == MINGW* ]]; then
-    $DOTFILES/.venv/Scripts/black.exe --check $(pwd)
-    $DOTFILES/.venv/Scripts/flake8.exe $(pwd)
+    venv_path=$DOTFILES/.venv/Scripts
 else
-    $DOTFILES/.venv/bin/black --check $(pwd)
-    $DOTFILES/.venv/bin/flake8 $(pwd)
+    venv_path=$DOTFILES/.venv/bin
 fi
+
+$venv_path/flake8 --extend-ignore=E203 --max-line-length=88 --exclude=.git,.venv,__pycache__ $root_dir
+$venv_path/black --check .
