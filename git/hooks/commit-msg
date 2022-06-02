@@ -5,16 +5,35 @@ set -e
 commit_message=$(head --lines 1 $1)
 
 
-conventional_regex='^(feat|fix|docs|style|refactor|test|chore)(\(.*\))?: (.*)'
+conventional_regex='^(feat|fix|docs|style|refactor|test|chore)(\(.*\))?: (.*)[^\.]$'
 
 if [[ "$commit_message" =~ $conventional_regex ]]; then
+    scope = ${BASH_REMATCH[2]}
     message=${BASH_REMATCH[3]}
-    if (( ${#message} < 10 )); then
-        echo "Youre commit message is too short. Please use at least 10 characters"
-        exit 1
-    fi
+    check_scope_length $scope
+    check_message_length $message
     exit 0
 else
     echo "Please use a commit message which complies with the conventional commit style"
     exit 1
 fi
+
+check_scope_length () {
+    scope=$1
+    if (( ${#scope} > 25 )); then
+        echo "The scope is too long. Please use at most 25 characters."
+        exit 1
+    fi
+}
+
+check_message_length () {
+    meesage=$1
+    if (( ${#message} < 10 )); then
+        echo "Youre commit message is too short. Please use at least 10 characters"
+        exit 1
+    fi
+    if (( ${#message} > 100 )); then
+        echo "Youre commit message is too long. Please use at most 100 characters"
+        exit 1
+    fi
+}
