@@ -41,12 +41,10 @@ lua <<EOF
     require'git'
     require'lsp'
     require'statusline'
+    require'plugins'
 EOF
 endif
 " 
-
-" Additional plugins
-execute 'source ' . s:vimrc_path . '/plugins.vim'
 
 " --- MY SETTINGS ---------------------
 " load the settings after adding packages
