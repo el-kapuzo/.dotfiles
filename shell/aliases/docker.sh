@@ -21,7 +21,12 @@ jupyter () {
     fi
     docker run -d -p 8888:8888 jupyter:$PYVERSION
     sleep 10
-    xdg-open localhost8888:8888
+    if [[ $(uname -s) == MINGW* ]];
+    then
+        start localhost:8888
+    else
+        xdg-open localhost:8888
+    fi
 }
 
 __build_jupyter_image () {
