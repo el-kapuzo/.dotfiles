@@ -7,16 +7,6 @@ commit_message=$(head --lines 1 $1)
 
 conventional_regex='^(feat|fix|docs|style|refactor|test|chore)(\(.*\))?: (.*)[^\.]$'
 
-if [[ "$commit_message" =~ $conventional_regex ]]; then
-    scope = ${BASH_REMATCH[2]}
-    message=${BASH_REMATCH[3]}
-    check_scope_length $scope
-    check_message_length $message
-    exit 0
-else
-    echo "Please use a commit message which complies with the conventional commit style"
-    exit 1
-fi
 
 check_scope_length () {
     scope=$1
@@ -37,3 +27,15 @@ check_message_length () {
         exit 1
     fi
 }
+
+
+if [[ "$commit_message" =~ $conventional_regex ]]; then
+    scope=${BASH_REMATCH[2]}
+    message=${BASH_REMATCH[3]}
+    check_scope_length $scope
+    check_message_length $message
+    exit 0
+else
+    echo "Please use a commit message which complies with the conventional commit style"
+    exit 1
+fi
