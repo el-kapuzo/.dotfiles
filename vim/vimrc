@@ -27,7 +27,6 @@ execute 'source ' . s:vimrc_path . '/mappings.vim'
 
 " --- GENERAL PRODUCTIVITY -------------
 execute 'source ' . s:vimrc_path . '/fzf.vim'
-execute 'source ' . s:vimrc_path . '/ultisnips.vim'
 
 " " --- MAKE IT LOOK NICE ---------------
 execute 'source ' . s:vimrc_path . '/appearance.vim'
@@ -40,6 +39,7 @@ lua <<EOF
     require'completion'
     require'git'
     require'lsp'
+    require'rooter'
     require'statusline'
     require'plugins'
 EOF

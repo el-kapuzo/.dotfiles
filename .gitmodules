@@ -38,10 +38,6 @@
 	path = vim/pack/bundle/opt/vim-indent-object
 	url = https://github.com/michaeljsmith/vim-indent-object
     ignore = dirty
-[submodule "ultisnips"]
-	path = vim/pack/bundle/opt/ultisnips
-	url = https://github.com/sirver/ultisnips.git
-    ignore = dirty
 [submodule "nvim-lspconfig"]
 	path = vim/pack/bundle/opt/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig.git
@@ -95,11 +91,6 @@
 	url = https://github.com/hrsh7th/cmp-buffer
 	branch = main
     ignore = dirty
-[submodule "cmp-nvim-ultisnips"]
-	path = vim/pack/bundle/opt/cmp-nvim-ultisnips
-	url = https://github.com/quangnguyen30192/cmp-nvim-ultisnips
-	branch = main
-    ignore = dirty
 [submodule "cmp-nvim-lua"]
 	path = vim/pack/bundle/opt/cmp-nvim-lua
 	url = https://github.com/hrsh7th/cmp-nvim-lua
@@ -114,3 +105,9 @@
 	path = vim/pack/bundle/opt/vim-exchange
 	url = https://github.com/tommcdo/vim-exchange.git
     ignore = dirty
+[submodule "LuaSnip"]
+	path = vim/pack/bundle/opt/LuaSnip
+	url = https://github.com/L3MON4D3/LuaSnip.git
+[submodule "cmp_luasnip"]
+	path = vim/pack/bundle/opt/cmp_luasnip
+	url = https://github.com/saadparwaiz1/cmp_luasnip.git

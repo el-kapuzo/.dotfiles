@@ -3,8 +3,8 @@ packadd = require'utils'.packadd
 packadd('nvim-cmp')
 packadd("cmp-path")
 packadd("cmp-buffer")
-packadd("cmp-nvim-ultisnips")
 packadd("cmp-nvim-lua")
+packadd("cmp_luasnip")
 
 local cmp = require'cmp'
 
