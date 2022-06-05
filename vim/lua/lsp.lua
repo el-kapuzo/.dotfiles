@@ -1,7 +1,8 @@
-vim.cmd("packadd! nvim-lspconfig")
-vim.cmd("packadd! plenary.nvim")
-vim.cmd("packadd! null-ls.nvim")
-vim.cmd("packadd! cmp-nvim-lsp")
+packadd = require'utils'.packadd
+packadd("nvim-lspconfig")
+packadd("plenary.nvim")
+packadd("null-ls.nvim")
+packadd("cmp-nvim-lsp")
 
 
 local nvim_lsp = require'lspconfig'

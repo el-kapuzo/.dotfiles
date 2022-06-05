@@ -1,8 +1,10 @@
-vim.cmd("packadd! nvim-cmp")
-vim.cmd("packadd! cmp-path")
-vim.cmd("packadd! cmp-buffer")
-vim.cmd("packadd! cmp-nvim-ultisnips")
-vim.cmd("packadd! cmp-nvim-lua")
+packadd = require'utils'.packadd
+
+packadd('nvim-cmp')
+packadd("cmp-path")
+packadd("cmp-buffer")
+packadd("cmp-nvim-ultisnips")
+packadd("cmp-nvim-lua")
 
 local cmp = require'cmp'
 

@@ -1,4 +1,4 @@
-vim.cmd("packadd! nvim-autopairs")
+require'utils'.packadd("nvim-autopairs")
 
 local autopairs = require('nvim-autopairs')
 local rule = require('nvim-autopairs.rule')

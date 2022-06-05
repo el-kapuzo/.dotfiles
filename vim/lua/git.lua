@@ -1,4 +1,4 @@
-vim.cmd("packadd! gitsigns.nvim")
+require'utils'packadd("gitsigns.nvim")
 
 require('gitsigns').setup{
     signs = {

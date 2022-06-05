@@ -1,6 +1,5 @@
-local function packadd(package)
-    vim.cmd("packadd! " .. package)
-end
+utils = require"utils"
+packadd = utils.packadd
 
 packadd("vim-exchange")
 packadd("vim-surround")
