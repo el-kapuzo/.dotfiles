@@ -19,7 +19,6 @@
 
 ## Nvim plugins to try
 + [ ] nvim-fzf (lua) -> can use fzf or skim :-), does not work on windows :-(
-+ [ ] nvim-rooter (lua) -> instead of vim-rooter?
 Not sure about those:
 + [ ] Comment.nvim
 + [ ] treesiter
