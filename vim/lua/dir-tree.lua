@@ -1,32 +1,5 @@
 require'utils'.packadd("nvim-tree")
 
-vim.g.nvim_tree_git_hl = 1
-vim.g.nvim_tree_highlight_opened_files = 1
-vim.g.nvim_tree_add_trailing=1
-vim.g.nvim_tree_icons = {
-     default= " ",
-     symlink= "~",
-     git= {
-        unstaged= "✗",
-        staged= "✓",
-        unmerged= "",
-        renamed= "➜",
-        untracked= "★",
-        deleted= "d",
-        ignored= "i"
-    },
-    folder= {
-        arrow_open= "▼",
-        arrow_closed= "▶",
-        default= "▶",
-        open= "▼",
-        empty= "▷",
-        empty_open= "▽",
-        symlink= "~",
-        symlink_open= "~"
-   }
- }
-
 vim.api.nvim_set_keymap('n', '<leader>ft', ':NvimTreeToggle<CR>', {silent=true,noremap=true})
 
 require"nvim-tree".setup{
@@ -46,6 +19,34 @@ require"nvim-tree".setup{
     renderer = {
         indent_markers = {
             enable = true
-        }
-    }
+        },
+        add_trailing = true,
+        highlight_git= true,
+        highlight_opened_files = "none",
+        icons = {
+            glyphs = {
+                default= " ",
+                symlink= "~",
+                git={
+                    unstaged='', --- "✗",
+                    staged= '', --- "✓",
+                    unmerged='', --- "",
+                    renamed='', --- "➜",
+                    untracked='', --- "★",
+                    deleted='', --- "d",
+                    ignored='', --- "i"
+                },
+                folder={
+                    arrow_open= "▼",
+                    arrow_closed= "▶",
+                    default= "▶",
+                    open= "▼",
+                    empty= "▷",
+                    empty_open= "▽",
+                    symlink= "~",
+                    symlink_open= "~"
+               }
+           }
+       }
+    },
 }
