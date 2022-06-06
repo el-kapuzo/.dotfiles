@@ -1,4 +1,7 @@
-require'utils'packadd("gitsigns.nvim")
+packadd = require'utils'.packadd
+
+packadd("plenary.nvim")
+packadd("gitsigns.nvim")
 
 require('gitsigns').setup{
     signs = {

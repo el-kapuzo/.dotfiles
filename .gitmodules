@@ -53,14 +53,6 @@
 [submodule "plenary.nvim"]
 	path = vim/pack/bundle/opt/plenary.nvim
 	url = https://github.com/nvim-lua/plenary.nvim.git
-[submodule "fzf.vim"]
-	path = vim/pack/bundle/opt/fzf.vim
-	url = https://github.com/junegunn/fzf.vim.git
-    ignore =dirty
-[submodule "fzf"]
-	path = vim/pack/bundle/opt/fzf
-	url = https://github.com/junegunn/fzf.git
-    ignore =dirty
 [submodule "lightline"]
 	path = vim/pack/bundle/opt/lightline
 	url = https://github.com/itchyny/lightline.vim
@@ -111,3 +103,6 @@
 [submodule "cmp_luasnip"]
 	path = vim/pack/bundle/opt/cmp_luasnip
 	url = https://github.com/saadparwaiz1/cmp_luasnip.git
+[submodule "telescope.nvim"]
+	path = vim/pack/bundle/opt/telescope.nvim
+	url = https://github.com/nvim-telescope/telescope.nvim.git

@@ -191,9 +191,6 @@ _docker_cleanup: _rm_build_dir (uninstall nvim_build_deps) (uninstall rust_build
 #    useradd {{username}} --shell /usr/bin/zsh -G sudo
 #    echo "{{username}}:password" | chpasswd
 
-fzf:
-    chmod +x {justfile_directory}}/vim/pack/bundle/opt/fzf/install
-    
 # PRIVATE ------------------------------------------------------------------------------------------------
 # setup the machine for private use
 _fritz_nas: (install "samba cifs-utils")
@@ -212,6 +209,5 @@ robotomono: _build_dir (install "git")
 
 private: _fritz_nas _no_sudo_shutdown
 
-
-setup: fzf packinit git (python "3.8") nvim zsh bash wezterm tex rust robotomono private cli_tools pyenv neomutt && _rm_build_dir packupdate
+setup: packinit git (python "3.8") nvim zsh bash wezterm tex rust robotomono private cli_tools pyenv neomutt && _rm_build_dir packupdate
 
