@@ -5,6 +5,7 @@ packadd("cmp-path")
 packadd("cmp-buffer")
 packadd("cmp-nvim-lua")
 packadd("cmp_luasnip")
+packadd("LuaSnip")
 
 local cmp = require'cmp'
 
@@ -12,13 +13,11 @@ local cmp = require'cmp'
 cmp.setup({
     preselect = nil,
     snippet = {
-        expand = function(args)
-            vim.fn["UltiSnips#Anon"](args.body)
-        end,
+        require'luasnip'.lsp_expand(args.body)
     },
     sources = cmp.config.sources({
         { name = "nvim_lsp"},
-        { name = "ultisnips"},
+        { name = "luasnip"},
         { name = "path"},
         { name = "nvim_lua"},
         { name = "buffer"}
