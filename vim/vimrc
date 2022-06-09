@@ -38,6 +38,7 @@ lua <<EOF
     require'git'
     require'lsp'
     require'rooter'
+    require'snippets'
     require'statusline'
     require'plugins'
     require'huble'
