@@ -13,7 +13,9 @@ local cmp = require'cmp'
 cmp.setup({
     preselect = nil,
     snippet = {
-        require'luasnip'.lsp_expand(args.body)
+        function(args)
+            require'luasnip'.lsp_expand(args.body)
+        end
     },
     sources = cmp.config.sources({
         { name = "nvim_lsp"},
