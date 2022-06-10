@@ -6,23 +6,6 @@ else
     alias flake8="$DOTFILES/.venv/bin/flake8"
 fi
 
-py () {
-    if [ "${VIRTUAL_ENV+x}" = "x" ];
-    then
-        command python "$@"
-    elif [ -d './.venv/Scripts' ];
-    then
-        ./.venv/Scripts/python.exe "$@"
-    elif [ -d './.venv/bin' ];
-    then
-        ./.venv/bin/python3 "$@"
-    elif [[ $(uname -s) == MINGW* ]];
-    then
-        winpty -Xallow-non-tty $HOME/AppData/Local/Microsoft/WindowsApps/python3.10.exe "$@"
-    else
-        python3 "$@"
-    fi
-}
 
 pyenv () {
     if [ -d "./.venv" ];
