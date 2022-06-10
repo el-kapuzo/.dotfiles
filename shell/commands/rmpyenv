@@ -1,0 +1,10 @@
+#! /bin/env bash
+
+if [ -d "./.venv" ];
+then
+    if [ "${VIRTUAL_ENV+x}" = "x" ];
+    then
+        deactivate
+    fi
+    rm -r ./.venv
+fi
