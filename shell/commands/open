@@ -1,0 +1,10 @@
+#! /bin/env bash
+
+url="$1"
+
+if [[ $(uname -s) == MINGW* ]];
+then
+    start "$url"
+else
+    xdg-open "$url"
+fi
