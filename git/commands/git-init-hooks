@@ -9,12 +9,12 @@ fi
 
 _init_hook(){
     name=$1
-    target={$2:-$1}
+    target=${2:-$1}
     cp $DOTFILES/git/hooks/$name $root_dir/.git/hooks/$target
     chmod +x $root_dir/.git/hooks/$target
 }
 
 _init_hook commit-msg
-_init_hook "pre-commit-$file_type" pre-commit
+_init_hook pre-commit-$file_type pre-commit
 _init_hook prepare-commit-msg
 
