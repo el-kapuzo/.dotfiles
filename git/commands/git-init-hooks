@@ -3,9 +3,14 @@
 file_type=${1:-python}
 root_dir=$(git root-dir)
 
-if [ "$file_type" = "py" ]; then
-    file_type="python"
-fi
+case "$file_type" in
+    py)
+        file_type="python"
+        ;;
+    rs)
+        file_type="rust"
+        ;;
+esac
 
 _init_hook(){
     name=$1
