@@ -8,6 +8,7 @@ packadd("cmp_luasnip")
 packadd("LuaSnip")
 
 local cmp = require'cmp'
+local luasnip = require'luasnip'
 
 
 cmp.setup({
@@ -25,7 +26,15 @@ cmp.setup({
         { name = "buffer"}
     }),
     mapping = cmp.mapping.preset.insert({
-        ['<Tab>'] = cmp.mapping.confirm({select = true })
+        ['<Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.confirm({select = true})
+            elseif luasnip.expand_or_jumpable() then
+                luasnip.expand_or_jump()
+            else
+                fallback()
+            end
+        end)
     }),
     -- window = {
     --     completion = cmp.config.window.bordered(),
