@@ -1,6 +1,9 @@
 [init]
     defaultBranch = main
 
+[fetch]
+    recurseSubmodules = false
+
 [diff]
     tool = nvimdiff
 
