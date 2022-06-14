@@ -5,11 +5,11 @@ packadd("gitsigns.nvim")
 
 require('gitsigns').setup{
     signs = {
-        add = { hl = "GitSignsAdd", text = '▐█', numhl="GitSignsAddNr", linehl="GitSignesAddLne"},
-        change = { hl = "GitSignsChange", text = '▐█'},
-        changedelete = { hl = "GitSignsChange", text = '▐█'},
-        delete = {hl = 'GitSignsDelete', text ='▀▀', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
-        topdelete = {hl = 'GitSignsDelete', text ='▄▄', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+        add = { hl = "GitSignsAdd", text = '▍', numhl="GitSignsAddNr", linehl="GitSignesAddLne"},
+        change = { hl = "GitSignsChange", text = '▍'},
+        changedelete = { hl = "GitSignsChange", text = '▍'},
+        delete = {hl = 'GitSignsDelete', text ='_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+        topdelete = {hl = 'GitSignsDelete', text ='_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
     }
 }
 
