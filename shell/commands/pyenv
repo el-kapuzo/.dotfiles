@@ -1,4 +1,4 @@
-#! /bin/sh bash
+#! /bin/env bash
 
 __activate_env () {
     if [ -d "./.venv/bin/" ];
