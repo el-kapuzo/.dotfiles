@@ -6,3 +6,30 @@ snippet dclass
 	@dataclasses.dataclass
 	class $1:
 	    $0
+
+snippet pclass
+	class $1(pydantic.BaseModel):
+	    $0
+
+
+snippet cdef
+	@classmethod
+	def $1(cls, $2):
+	    $0
+
+snippet pdef
+	@property
+	def $1(self):
+	    $0
+	    return self._$1
+
+snippet pdefs
+	@property
+	def $1(self):
+	    $0
+	    return self._$1
+
+	@$1.setter
+	def $1(self, value):
+		$2
+		self._$1 = value
