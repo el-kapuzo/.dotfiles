@@ -1,5 +1,6 @@
 #! /bin/sh
 
+git restore $(git root-dir)
 git checkout-default
 git branch | grep -v "master\|develop\|main" | xargs git branch -D
 git pull
