@@ -2,21 +2,13 @@
 
 set -e
 
-echo "\n"
-echo "----- GIT PREPARE COMMIT HOOK ------- "
-echo "\n"
 
 case $2 in
     merge)
-            sed -i 's/^Merge/chore(merge):' $1
+            sed -i 's/^Merge/chore(merge):/g' $1
             cat $1
             ;;
     *)
         cat $1
         ;;
 esac
-
-
-echo "\n"
-echo "----- GIT PREPARE COMMIT HOOK ------- "
-echo "\n"

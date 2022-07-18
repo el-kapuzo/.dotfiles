@@ -2,7 +2,8 @@
 
 git restore $(git root-dir)
 git checkout-default
-git branch | grep -v "master\|develop\|main" | xargs git branch -D
+git branch | grep -v "master\|develop\|main" | xargs -n 1 git branch -D
 git pull
 git fetch --all -Pp
+git clean -d -f
 git gc

@@ -13,6 +13,6 @@ if [ $__COUNT_OF_IMAGES -eq 0 ];
 then
     __build_jupyter_image $PYVERSION
 fi
-docker run -rm -d -p 8888:8888 jupyter:$PYVERSION
+docker run --rm -d -p 8888:8888 jupyter:$PYVERSION
 sleep 10
 open https://localhost:8888
