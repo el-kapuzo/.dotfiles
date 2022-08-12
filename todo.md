@@ -16,9 +16,9 @@
 
 ## Terminal Emulator
 + [ ] Kitty? 
++ [ ] alacritty?
 
 ## Nvim plugins to try
-+ [ ] nvim-fzf (lua) -> can use fzf or skim :-), does not work on windows :-(
 Not sure about those:
 + [ ] Comment.nvim
 + [ ] treesiter
