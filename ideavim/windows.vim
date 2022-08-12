@@ -1,5 +1,5 @@
-nnoremap <leader>wn    :action MoveEditorToOppositeTabGroup<CR>
-nnoremap <leader>wp    :action MoveEditorToOppositeTabGroup<CR>
+nnoremap <leader>wn    <Action>(MoveEditorToOppositeTabGroup)
+nnoremap <leader>wp    <Action>(MoveEditorToOppositeTabGroup)
 
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k

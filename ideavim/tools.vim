@@ -1,14 +1,14 @@
-nnoremap <leader>tP     :action ActivateProjectToolWindow<CR>
-vnoremap <leader>tP     :action ActivateProjectToolWindow<CR>
+nnoremap <leader>tP     <Action>(ActivateProjectToolWindow)
+vnoremap <leader>tP     <Action>(ActivateProjectToolWindow)
 
-nnoremap <leader>tT     :action ActivateTODOToolWindow<CR>
-vnoremap <leader>tT     :action ActivateTODOToolWindow<CR>
+nnoremap <leader>tT     <Action>(ActivateTODOToolWindow)
+vnoremap <leader>tT     <Action>(ActivateTODOToolWindow)
 
-nnoremap <leader>tt    :action ActivateTerminalToolWindow<CR>
-vnoremap <leader>tt    :action ActivateTerminalToolWindow<CR>
+nnoremap <leader>tt    <Action>(ActivateTerminalToolWindow)
+vnoremap <leader>tt    <Action>(ActivateTerminalToolWindow)
 
-nnoremap <leader>tp     :aciton ActivatePythonConsoleToolWindow<CR>
-vnoremap <leader>tp     :aciton ActivatePythonConsoleToolWindow<CR>
+nnoremap <leader>tp     <Aciton>(ActivatePythonConsoleToolWindow)
+vnoremap <leader>tp     <Aciton>(ActivatePythonConsoleToolWindow)
 
-nnoremap <leader>td     :action ActivateDatabaseToolWindow<CR>
-vnoremap <leader>td     :action ActivateDatabaseToolWindow<CR>
+nnoremap <leader>td     <Action>(ActivateDatabaseToolWindow)
+vnoremap <leader>td     <Action>(ActivateDatabaseToolWindow)

@@ -1,7 +1,7 @@
-nnoremap [m     :action MethodUp<CR>
-nnoremap ]m     :action MethodDown<CR>
+nnoremap [m     <Action>(MethodUp)
+nnoremap ]m     <Action>(MethodDown)
 
-nnoremap <leader><leader><space> :action GotoAction<CR>
+nnoremap <leader><leader><space> <Action>(GotoAction)
 
-nnoremap <leader>*    :action ShowUsages<CR>
-nnoremap gh   :action QuickJavaDoc<CR>
+nnoremap <leader>*    <Action>(ShowUsages)
+nnoremap gh   <Action>(QuickJavaDoc)

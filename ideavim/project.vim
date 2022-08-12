@@ -1,25 +1,25 @@
-nnoremap <leader>pp    :action ManageRecentProjects<CR>
+nnoremap <leader>pp    <Action>(ManageRecentProjects)
 
-nnoremap <leader>pi    :action CleanPyc<CR>
+nnoremap <leader>pi    <Action>(CleanPyc)
 
-nnoremap <leader>pt    :action RerunTests<CR>
+nnoremap <leader>pt    <Action>(RerunTests)
 
-nnoremap <leader>pT    :action GotoTest<CR>
+nnoremap <leader>pT    <Action>(GotoTest)
 
-nnoremap <leader>pd    :action Debug<CR>
-nnoremap <leader>pD    :action DebugClass<CR>
+nnoremap <leader>pd    <Action>(Debug)
+nnoremap <leader>pD    <Action>(DebugClass)
 
-nnoremap <leader>pr    :action Run<CR>
-nnoremap <leader>pR    :action RunClass<CR>
+nnoremap <leader>pr    <Action>(Run)
+nnoremap <leader>pR    <Action>(RunClass)
 
-nnoremap <leader>pc    :action ChooseRunConfiguration<CR>
+nnoremap <leader>pc    <Action>(ChooseRunConfiguration)
 
-nnoremap <leader>ps    :action Stop<CR>
+nnoremap <leader>ps    <Action>(Stop)
 
-nnoremap <leader>po    :action WelcomeScreen.OpenProject<CR>
+nnoremap <leader>po    <Action>(WelcomeScreen.OpenProject)
 
-nnoremap <leader>pq    :action CloseProject<CR>
+nnoremap <leader>pq    <Action>(CloseProject)
 
-nnoremap <leader>pQ    :action Exit<CR>
+nnoremap <leader>pQ    <Action>(Exit)
 
-nnoremap <leader>p<C-d>    :action Exit<CR>
+nnoremap <leader>p<C-d>    <Action>(Exit)

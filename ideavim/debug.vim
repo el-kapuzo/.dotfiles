@@ -1,19 +1,19 @@
-nnoremap <leader>dB    :action ViewBreakpoints<CR>
+nnoremap <leader>dB    <Action>(ViewBreakpoints)
 
-nnoremap <leader>db    :action ToggleLineBreakpoint<CR>
+nnoremap <leader>db    <Action>(ToggleLineBreakpoint)
 
-nnoremap <leader>dC    :action Debugger.RemoveAllBreakpointsInFile<CR>
+nnoremap <leader>dC    <Action>(Debugger.RemoveAllBreakpointsInFile)
 
-nnoremap <leader>dc    :action Resume<CR>
+nnoremap <leader>dc    <Action>(Resume)
 
-nnoremap <leader>dD    :action DebugClass<CR>
+nnoremap <leader>dD    <Action>(DebugClass)
 
-nnoremap <leader>dd    :action Debug<CR>
+nnoremap <leader>dd    <Action>(Debug)
 
-nnoremap <leader>dn    :action StepOver<CR>
+nnoremap <leader>dn    <Action>(StepOver)
 
-nnoremap <leader>do    :action StepOut<CR>
+nnoremap <leader>do    <Action>(StepOut)
 
-nnoremap <leader>dr    :action ChooseDebugConfiguration<CR>
+nnoremap <leader>dr    <Action>(ChooseDebugConfiguration)
 
-nnoremap <leader>ds    :action StepInto<CR>
+nnoremap <leader>ds    <Action>(StepInto)

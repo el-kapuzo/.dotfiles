@@ -1,21 +1,21 @@
-nnoremap <leader>gg :action Vcs.QuickListPopupAction<CR>
-nnoremap <leader>gc :action CheckinProject<CR> 
+nnoremap <leader>gg <Action>(Vcs.QuickListPopupAction)
+nnoremap <leader>gc <Action>(CheckinProject)
 
-nnoremap <leader>gp :action Vcs.Push<CR>
+nnoremap <leader>gp <Action>(Vcs.Push)
 
-nnoremap <leader>gf :action Git.Fetch<CR>
+nnoremap <leader>gf <Action>(Git.Fetch)
 
-nnoremap <leader>gm :action Git.Merge<CR>
+nnoremap <leader>gm <Action>(Git.Merge)
 
-nnoremap <leader>gS :action Git.Stash<CR>
+nnoremap <leader>gS <Action>(Git.Stash)
 
-nnoremap <leader>gU :action Git.Unstash<CR>
+nnoremap <leader>gU <Action>(Git.Unstash)
 
-nnoremap <leader>gn :action Vcs.Checkout<CR>
+nnoremap <leader>gn <Action>(Vcs.Checkout)
 
-nnoremap <leader>gb :action Git.Branches<CR>
+nnoremap <leader>gb <Action>(Git.Branches)
 
 
 " Git status
-nnoremap <leader>gs    :action Vcs.Show.Local.Changes<CR>
-vnoremap <leader>gs    :action Vcs.Show.Local.Changes<CR>
+nnoremap <leader>gs    <Action>(Vcs.Show.Local.Changes)
+vnoremap <leader>gs    <Action>(Vcs.Show.Local.Changes)
