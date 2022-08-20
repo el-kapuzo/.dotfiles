@@ -210,7 +210,7 @@ robotomono: _build_dir (install "git")
     chmod +x {{scipts_dir}}/robotomono.sh
     {{scipts_dir}}/robotomono.sh {{build_directory}}
 
-private: _fritz_nas 
+private: _fritz_nas packinit nvim zsh bash wezterm tex rust robotomono cli_tools pyenv && _rm_build_dir packupdate
 
 setup: packinit git (python "3.8") nvim zsh bash wezterm tex rust robotomono private cli_tools pyenv neomutt && _rm_build_dir packupdate
 
