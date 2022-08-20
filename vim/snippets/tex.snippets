@@ -1,0 +1,82 @@
+snippet letter
+	\documentclass[
+		fontsize=10pt,
+		paper=a4,
+		parskip=half,
+		enlargefirstpage=on,    % More space on first page
+		fromalign=right,        % PLacement of name in letter head
+		fromphone=false,           % Turn on phone number of sender
+		fromrule=aftername,     % Rule after sender name in letter head
+		addrfield=on,           % Adress field for envelope with window
+		backaddress=on,         % Sender address in this window
+		subject=beforeopening,  % Placement of subject
+		locfield=narrow,        % Additional field for sender
+		foldmarks=on,           % Print foldmarks
+		%fromemail=true,
+	]{scrlttr2}
+
+	%%%%%%%%%%%%%%%%%%%%%%%%  PACKAGES  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	%--- Spracheeinstellung
+
+	\usepackage[T1]{fontenc}              %8-bit zeichenkodierung
+	\usepackage[german]{babel}            % sprache festlegen
+	\usepackage[utf8]{inputenc}           % Zeichensatzkodierung
+
+	\usepackage[
+		paper=a4paper,
+		top=0.5cm,
+		vmarginratio=1:1,
+		right=2cm, 
+		hmarginratio=1:1,
+		includefoot,
+		includehead
+	]{geometry} 
+
+	%%%%%%%%%%%%%%%%%%% DOCUMENT OPTIONEN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+	%--- Absaender
+
+	\setkomafont{fromname}{\sffamily \LARGE}
+	\setkomafont{fromaddress}{\sffamily}%% statt \small
+	\setkomafont{pagenumber}{\sffamily}
+	\setkomafont{subject}{\bfseries}
+	\setkomafont{backaddress}{\mdseries}
+
+	\LoadLetterOption{DIN}
+	\setkomavar{fromname}{Daniel Pohl}
+	\setkomavar{fromaddress}{Johannisstrasse 22 \\ 92637 Weiden i.d.OPf.}
+	%\setkomavar{fromphone}{+49 0000 0\,00\,00\,00}
+	\setkomavar{fromemail}{daniel$_$pohl@mailbox.org}
+	\setkomavar{backaddressseparator}{\enspace\textperiodcentered\enspace}
+	\setkomavar{signature}{Daniel Pohl}
+	\setkomavar{place}{Weiden i.d.OPf.}
+	\setkomavar{date}{\today}
+	\setkomavar{enclseparator}{: }
+	%--- Zeilenabstaende
+
+	%\linespread{1.1}
+
+	%--- Absaetze Formatieren
+
+	\setlength{\parindent}{0pt}     % Absaetze nicht einruecken
+	%\setlength{\parskip}{}         % Abstand zwichen den Absaetzen setzen
+
+	\pagestyle{empty}
+
+	\begin{document}
+	\begin{letter}{EMPFAENGER}
+	\setkomavar{subject}{Bewerbung fuer...}
+
+	\opening{Sehr geehrte ...,}
+	%
+
+	\closing{Mit freundlichen Gr\"ussen,}
+
+	\encl{
+	   \begin{enumerate}
+		   \item Something
+	   \end{enumerate}
+	}
+	\end{letter}
+	\end{document}

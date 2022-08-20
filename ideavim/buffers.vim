@@ -1,15 +1,15 @@
-nnoremap <leader>bb    :action RecentFiles<CR>
+nnoremap <leader>bb    <Action>(RecentFiles)
 
-nnoremap <leader>bd    :action CloseContent<CR>
+nnoremap <leader>bd    <Action>(CloseContent)
 
-nnoremap <leader>bD    :action CloseAllEditorsButActive<CR>
+nnoremap <leader>bD    <Action>(CloseAllEditorsButActive)
 
-nnoremap <leader>b<C-d>    :action CloseAllEditorsButActive<CR>
+nnoremap <leader>b<C-d>    <Action>(CloseAllEditorsButActive)
 
-nnoremap <leader>bu    :action ReopenClosedTab<CR>
+nnoremap <leader>bu    <Action>(ReopenClosedTab)
 
-nnoremap <leader>bn    :action NextTab<CR>
+nnoremap <leader>bn    <Action>(NextTab)
 
-nnoremap <leader>bp    :action PreviousTab<CR>
+nnoremap <leader>bp    <Action>(PreviousTab)
 
-nnoremap <leader>bs    :action NewScratchBuffer<CR>
+nnoremap <leader>bs    <Action>(NewScratchBuffer)

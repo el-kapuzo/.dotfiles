@@ -1,32 +1,32 @@
-nnoremap <leader>ra    :action ShowIntentionActions<CR>
-nnoremap <leader>rf   :action ReformatCode<CR>
+nnoremap <leader>ra    <Action>(ShowIntentionActions)
+nnoremap <leader>rf   <Action>(ReformatCode)
 
-nnoremap <leader>rC      :action CodeCleanup<CR>
-nnoremap <leader>rc      :action GenerateConstructor<CR>
+nnoremap <leader>rC      <Action>(CodeCleanup)
+nnoremap <leader>rc      <Action>(GenerateConstructor)
 
-nnoremap <leader>rem    :action ExtractMethod<CR>
-vnoremap <leader>rem    :action ExtractMethod<CR>
+nnoremap <leader>rem    <Action>(ExtractMethod)
+vnoremap <leader>rem    <Action>(ExtractMethod)
 
-nnoremap <leader>rev    :action IntroduceVariable<CR>
-vnoremap <leader>rev    :action IntroduceVariable<CR>
+nnoremap <leader>rev    <Action>(IntroduceVariable)
+vnoremap <leader>rev    <Action>(IntroduceVariable)
 
-nnoremap <leader>rec    :action ExtractClass<CR>
-vnoremap <leader>rec    :action ExtractClass<CR>
+nnoremap <leader>rec    <Action>(ExtractClass)
+vnoremap <leader>rec    <Action>(ExtractClass)
 
-nnoremap <leader>res    :action ExtractSuperclass<CR>
-vnoremap <leader>res    :action ExtractSuperclass<CR>
+nnoremap <leader>res    <Action>(ExtractSuperclass)
+vnoremap <leader>res    <Action>(ExtractSuperclass)
 
-nnoremap <leader>rg      :action Generate<CR>
+nnoremap <leader>rg      <Action>(Generate)
 
-nnoremap <leader>ri      :action ImplementMethods<CR>
+nnoremap <leader>ri      <Action>(ImplementMethods)
 
-nnoremap <leader>ro      :action OptimizeImports<CR>
+nnoremap <leader>ro      <Action>(OptimizeImports)
 
-nnoremap <leader>rN      :action NewElement<CR>
+nnoremap <leader>rN      <Action>(NewElement)
 
-nnoremap <leader>rl      :action Refactorings.QuickListPopupAction<CR>
-vnoremap <leader>rl      :action Refactorings.QuickListPopupAction<CR>
+nnoremap <leader>rl      <Action>(Refactorings.QuickListPopupAction)
+vnoremap <leader>rl      <Action>(Refactorings.QuickListPopupAction)
 
-nnoremap <leader>rr      :action RenameElement<CR>
+nnoremap <leader>rr      <Action>(RenameElement)
 
-nnoremap <leader>rm      :action Move<CR>
+nnoremap <leader>rm      <Action>(Move)
