@@ -30,7 +30,10 @@ git_autcrf_option := if os_family() == "unix" { "input" } else { "true" }
 # ------ DOTFILES ---------------------------------------
 # Add a (n)vim package as git submodule
 packadd url dir="opt":
-    git submodule add --name {{file_stem(url)}} -- {{url}} ./vim/pack/bundle/{{dir}}/{{file_stem(url)}}
+    git submodule add --depth 1 --name {{file_stem(url)}} -- {{url}} ./vim/pack/bundle/{{dir}}/{{file_stem(url)}}
+    git config -f .gitmodule submodule.{{file_stem(url)}}.shallow true
+    git config -f .gitmodule submodule.{{file_stem(url)}}.ignore dirty
+
 
 # Update all git submodules
 packupdate:
