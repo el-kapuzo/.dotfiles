@@ -107,7 +107,7 @@ zsh: (install "zsh")
 # Setup the bashrc file.
 bash:
     rm -rf $HOME/.bashrc
-    echo "source {{justfile_directory()}}/bash/bashrc > $HOME/.bashrc
+    echo "source {{justfile_directory()}}/bash/bashrc" > $HOME/.bashrc
 
 # SETUP GIT ----------------------------------------------------------------------------
 # Install git, and setup the global config file
@@ -147,7 +147,7 @@ cli_tools: (cargo_install "ripgrep") (cargo_install "skim") (cargo_install "bat"
 # Wezterm -------------------------------------------------------------
 wezterm_url := "https://github.com/wez/wezterm/releases/download/nightly/wezterm-nightly.Ubuntu20.04.deb"
 
-wezterm: 
+wezterm:
     #!/usr/bin/env sh
     if [ {{os}} == "macos" ]; then
         brew tab wez/wezterm
@@ -173,7 +173,7 @@ texlive: _build_dir rust
     mkdir {{texlive_dir}}
     curl -L -o {{texlive_dir}}/install.tar.gz https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
     tar -xvzf {{texlive_dir}}/install.tar.gz -C {{texlive_dir}}
-    perl {{texlive_dir}}/install-tl*/install-tl
+    {{maybe_sudo}} perl {{texlive_dir}}/install-tl*/install-tl
     rm -rf {{texlive_dir}}
 
 texlab: rustc
@@ -198,16 +198,16 @@ _fritz_nas: (install "samba cifs-utils")
     mkdir -p {{home}}/nas
     bash -c 'read -p "Enter Fritz-NAS user name: " user_name && echo "username=${user_name}" >> {{home}}/.smbcredentials'
     bash -c 'read -s -p "Enter Fritz-NAS password: " password && echo "password=${password}" >> {{home}}/.smbcredentials'
-    {{maybe_sudo}} sh -c 'echo "//192.168.42.1/FRITZ.NAS/TOSHIBA-ExternalUSB3-0-01/⋅{{home}}/nas cifs noserverino,credentials={{home}}/.smbcredentials,vers=3.0,uid={{user_id}},gid={{user_guid}},x-systemd.automount,x-systemd.requires=network-online.target 0 0" >> /etc/fstab'
+    {{maybe_sudo}} sh -c 'echo "//192.168.42.1/FRITZ.NAS/TOSHIBA-ExternalUSB3-0-01/ {{home}}/nas cifs noserverino,credentials={{home}}/.smbcredentials,vers=3.0,uid={{user_id}},gid={{user_guid}},x-systemd.automount,x-systemd.requires=network-online.target 0 0" >> /etc/fstab'
 
 _no_sudo_shutdown:
     {{maybe_sudo}} echo "%sudo ALL=(ALL) NOPASSWD: /sbin/poweroff, /sbin/shutdown, /sbin/reboot" >> /etc/sudoers
 
 robotomono: _build_dir (install "git")
     chmod +x {{scipts_dir}}/robotomono.sh
-    {{maybe_sudo}} {{scipts_dir}}/robotomono.sh {{build_directory}}
+    {{scipts_dir}}/robotomono.sh {{build_directory}}
 
-private: _fritz_nas _no_sudo_shutdown
+private: _fritz_nas 
 
 setup: packinit git (python "3.8") nvim zsh bash wezterm tex rust robotomono private cli_tools pyenv neomutt && _rm_build_dir packupdate
 
