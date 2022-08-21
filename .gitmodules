@@ -2,107 +2,134 @@
 	path = vim/pack/bundle/opt/vim-surround
 	url = https://github.com/tpope/vim-surround
     ignore = dirty
+	shallow = true
 [submodule "vim-commentary"]
 	path = vim/pack/bundle/opt/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
     ignore = dirty
+	shallow = true
 [submodule "vim-rooter"]
 	path = vim/pack/bundle/opt/vim-rooter
 	url = https://github.com/airblade/vim-rooter.git
     ignore = dirty
+	shallow = true
 [submodule "vim-just"]
 	path = vim/pack/bundle/opt/vim-just
 	url = https://github.com/NoahTheDuke/vim-just.git
     ignore = dirty
+	shallow = true
 [submodule "python-syntax"]
 	path = vim/pack/bundle/opt/python-syntax
 	url = https://github.com/vim-python/python-syntax.git
     ignore = dirty
+	shallow = true
 [submodule "rust.vim"]
 	path = vim/pack/bundle/opt/rust.vim
 	url = https://github.com/rust-lang/rust.vim.git
     ignore = dirty
+	shallow = true
 [submodule "vim-fugitive"]
 	path = vim/pack/bundle/opt/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
     ignore = dirty
+	shallow = true
 [submodule "gv.vim"]
 	path = vim/pack/bundle/opt/gv.vim
 	url = https://github.com/junegunn/gv.vim.git
     ignore = dirty
+	shallow = true
 [submodule "nvim-compe"]
 	path = vim/pack/bundle/opt/nvim-compe
 	url = https://github.com/hrsh7th/nvim-compe.git
     ignore = dirty
+	shallow = true
 [submodule "vim-indent-object"]
 	path = vim/pack/bundle/opt/vim-indent-object
 	url = https://github.com/michaeljsmith/vim-indent-object
     ignore = dirty
+	shallow = true
 [submodule "nvim-lspconfig"]
 	path = vim/pack/bundle/opt/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig.git
     ignore = dirty
+	shallow = true
 [submodule "nvim-colorizer.lua"]
 	path = vim/pack/bundle/opt/nvim-colorizer.lua
 	url = https://github.com/norcalli/nvim-colorizer.lua.git
     ignore = dirty
+	shallow = true
 [submodule "nvim-autopairs"]
 	path = vim/pack/bundle/opt/nvim-autopairs
 	url = https://github.com/windwp/nvim-autopairs.git
     ignore = dirty
+	shallow = true
 [submodule "plenary.nvim"]
 	path = vim/pack/bundle/opt/plenary.nvim
 	url = https://github.com/nvim-lua/plenary.nvim.git
+	shallow = true
 [submodule "lightline"]
 	path = vim/pack/bundle/opt/lightline
 	url = https://github.com/itchyny/lightline.vim
     ignore =dirty
+	shallow = true
 [submodule "null-ls.nvim"]
 	path = vim/pack/bundle/opt/null-ls.nvim
 	url = https://github.com/jose-elias-alvarez/null-ls.nvim.git
 	branch = main
+	shallow = true
 [submodule "nvim-tree"]
 	path = vim/pack/bundle/opt/nvim-tree
 	url = https://github.com/kyazdani42/nvim-tree.lua
+	shallow = true
 [submodule "nvim-cmp"]
 	path = vim/pack/bundle/opt/nvim-cmp
 	url = https://github.com/hrsh7th/nvim-cmp
 	branch = main
+	shallow = true
 [submodule "cmp-nvim-lsp"]
 	path = vim/pack/bundle/opt/cmp-nvim-lsp
 	url = https://github.com/hrsh7th/cmp-nvim-lsp
 	branch = main
     ignore = dirty
+	shallow = true
 [submodule "cmp-path"]
 	path = vim/pack/bundle/opt/cmp-path
 	url = https://github.com/hrsh7th/cmp-path
 	branch = main
     ignore = dirty
+	shallow = true
 [submodule "cmp-buffer"]
 	path = vim/pack/bundle/opt/cmp-buffer
 	url = https://github.com/hrsh7th/cmp-buffer
 	branch = main
     ignore = dirty
+	shallow = true
 [submodule "cmp-nvim-lua"]
 	path = vim/pack/bundle/opt/cmp-nvim-lua
 	url = https://github.com/hrsh7th/cmp-nvim-lua
 	branch = main
     ignore = dirty
+	shallow = true
 [submodule "gitsigns.nvim"]
 	path = vim/pack/bundle/opt/gitsigns.nvim
 	url = https://github.com/lewis6991/gitsigns.nvim.git
 	branch = main
     ignore = dirty
+	shallow = true
 [submodule "vim-exchange"]
 	path = vim/pack/bundle/opt/vim-exchange
 	url = https://github.com/tommcdo/vim-exchange.git
     ignore = dirty
+	shallow = true
 [submodule "LuaSnip"]
 	path = vim/pack/bundle/opt/LuaSnip
 	url = https://github.com/L3MON4D3/LuaSnip.git
+	shallow = true
 [submodule "cmp_luasnip"]
 	path = vim/pack/bundle/opt/cmp_luasnip
 	url = https://github.com/saadparwaiz1/cmp_luasnip.git
+	shallow = true
 [submodule "telescope.nvim"]
 	path = vim/pack/bundle/opt/telescope.nvim
 	url = https://github.com/nvim-telescope/telescope.nvim.git
+	shallow = true
