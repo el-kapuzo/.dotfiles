@@ -163,6 +163,8 @@ wezterm:
     fi
     rm -rf {{home}}/.config/wezterm/wezterm.lua
     ln -s {{justfile_directory()}}/term/wezterm.lua {{home}}/.config/wezterm/wezterm.lua
+    mkdir {{home}}/.config/wezterm/colors
+    cp {{justfile_directory()}}/term/el_light.toml {{home}}/.config/wezterm/colors/el_light.toml
 
 # NEOMUTT ----------------------------------------------------
 neomutt branch="main": (install "pass")
