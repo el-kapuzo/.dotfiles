@@ -1,0 +1,7 @@
+[colors]
+foreground = "#121212"
+background = "#fffff0"
+selection_fg = "#121212"
+selection_bg = "#d5c4a1"
+ansi = ["#121212", "#af0000", "#07962a", "#dfa000", "#1665b5", "#5f0087", "#00875f", "#f7f4e0"]
+brights = ["#121212", "#af0000", "#07962a", "#dfa000", "#1665b5", "#5f0087", "#00875f", "#f7f4e0"]
