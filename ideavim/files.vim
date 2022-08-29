@@ -1,15 +1,15 @@
-nnoremap <leader>fs    <Action>(SaveDocument)
+map <leader>fs    <Action>(SaveDocument)
 
-nnoremap <leader>fS    <Action>(SaveAll)
+map <leader>fS    <Action>(SaveAll)
 
-nnoremap <leader>fy    <Action>(CopyAbsolutePath)
+map <leader>fy    <Action>(CopyAbsolutePath)
 
-nnoremap <leader>ff    <Action>(GotoFile)
+map <leader>ff    <Action>(GotoFile)
 
-nnoremap <leader>fR    <Action>(RenameFile)
+map <leader>fR    <Action>(RenameFile)
 
-nnoremap <leader>fg    <Action>(FindInPath)
+map <leader>fg    <Action>(FindInPath)
 
-nnoremap <leader>fe    <Action>(ShowSettings)
+map <leader>fe    <Action>(ShowSettings)
 
-nnoremap <leader>fE    :source ~/.ideavimrc<CR>
+map <leader>fE    :source ~/.ideavimrc<CR>

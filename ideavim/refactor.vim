@@ -1,32 +1,32 @@
-nnoremap <leader>ra    <Action>(ShowIntentionActions)
-nnoremap <leader>rf   <Action>(ReformatCode)
+map <leader>ra    <Action>(ShowIntentionActions)
+map <leader>rf   <Action>(ReformatCode)
 
-nnoremap <leader>rC      <Action>(CodeCleanup)
-nnoremap <leader>rc      <Action>(GenerateConstructor)
+map <leader>rC      <Action>(CodeCleanup)
+map <leader>rc      <Action>(GenerateConstructor)
 
-nnoremap <leader>rem    <Action>(ExtractMethod)
+map <leader>rem    <Action>(ExtractMethod)
 vnoremap <leader>rem    <Action>(ExtractMethod)
 
-nnoremap <leader>rev    <Action>(IntroduceVariable)
+map <leader>rev    <Action>(IntroduceVariable)
 vnoremap <leader>rev    <Action>(IntroduceVariable)
 
-nnoremap <leader>rec    <Action>(ExtractClass)
+map <leader>rec    <Action>(ExtractClass)
 vnoremap <leader>rec    <Action>(ExtractClass)
 
-nnoremap <leader>res    <Action>(ExtractSuperclass)
+map <leader>res    <Action>(ExtractSuperclass)
 vnoremap <leader>res    <Action>(ExtractSuperclass)
 
-nnoremap <leader>rg      <Action>(Generate)
+map <leader>rg      <Action>(Generate)
 
-nnoremap <leader>ri      <Action>(ImplementMethods)
+map <leader>ri      <Action>(ImplementMethods)
 
-nnoremap <leader>ro      <Action>(OptimizeImports)
+map <leader>ro      <Action>(OptimizeImports)
 
-nnoremap <leader>rN      <Action>(NewElement)
+map <leader>rN      <Action>(NewElement)
 
-nnoremap <leader>rl      <Action>(Refactorings.QuickListPopupAction)
+map <leader>rl      <Action>(Refactorings.QuickListPopupAction)
 vnoremap <leader>rl      <Action>(Refactorings.QuickListPopupAction)
 
-nnoremap <leader>rr      <Action>(RenameElement)
+map <leader>rr      <Action>(RenameElement)
 
-nnoremap <leader>rm      <Action>(Move)
+map <leader>rm      <Action>(Move)
