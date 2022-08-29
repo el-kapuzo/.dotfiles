@@ -15,4 +15,4 @@ then
 fi
 docker run --rm -d -p 8888:8888 jupyter:$PYVERSION
 sleep 10
-open https://localhost:8888
+open localhost:8888/tree?
