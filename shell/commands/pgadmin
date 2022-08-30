@@ -1,5 +1,5 @@
 #! /bin/env sh
 
-docker run -rm -p 9999:9999 -e 'PGADMIN_DEFAULT_EMAIL=el.kapuzo@mailbox.org' -e 'PGADMIN_DEFAULT_PASSWORD=password' dpage/pgadmin4
-sleep 10
+docker run --rm -p 9999:9999 -e 'PGADMIN_DEFAULT_EMAIL=el.kapuzo@mailbox.org' -e 'PGADMIN_DEFAULT_PASSWORD=password' dpage/pgadmin4
+sleep 5
 open localhost
