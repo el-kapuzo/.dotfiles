@@ -35,9 +35,13 @@ packadd url dir="opt":
     git config -f .gitmodule submodule.{{file_stem(url)}}.ignore dirty
 
 
+pack_update_commit_message := "chore(vim): update plugins"
+
 # Update all git submodules
 packupdate:
     git submodule update --remote --depth=1
+    cd {{justfile_directory()}} && git add vim/pack/
+    cd {{justfile_directory()}} && git commit -m "{{pack_update_commit_message}}"
 
 packinit:
     git submodule init
