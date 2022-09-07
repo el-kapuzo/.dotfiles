@@ -1,5 +1,7 @@
 #! /bin/env sh
 
+set -e
+
 __build_jupyter_image () {
     __CURENT_DIR=$(pwd)
     cd $DOTFILES
@@ -15,4 +17,4 @@ then
 fi
 docker run --rm -d -p 8888:8888 jupyter:$PYVERSION
 sleep 10
-open localhost:8888/tree?
+open http://localhost:8888/tree/home/jupyter?
