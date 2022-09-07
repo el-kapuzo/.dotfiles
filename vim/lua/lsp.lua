@@ -1,4 +1,4 @@
-packadd = require'utils'.packadd
+local packadd = require'utils'.packadd
 packadd("nvim-lspconfig")
 packadd("plenary.nvim")
 packadd("null-ls.nvim")
@@ -36,6 +36,10 @@ nvim_lsp.rust_analyzer.setup{
 }
 
 nvim_lsp.texlab.setup{
+    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+}
+
+nvim_lsp.sumneko_lua.setup{
     capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 }
 
