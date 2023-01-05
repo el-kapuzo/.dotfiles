@@ -19,6 +19,7 @@ python_build_deps := "build-essential gdb lcov libbz2-dev libffi-dev libgdbm-dev
 
 rust_build_deps := "curl build-essential"
 
+alacritty_build_deps := "cmake libfreetype6-dev libfontconfig1-dev xclip"
 
 # Git option which should be different on windows and unix like systems
 git_autcrf_option := if os_family() == "unix" { "input" } else { "true" }
@@ -137,11 +138,12 @@ rust_analyzer_target := if os() == "linux" {
 } else { "apple-darwin"}
 
 rust_analyzer:
+    rustup update
     rustup component add rust-src
-    curl -L https://github.com/rust-analyzer/rust-analyzer/releases/latest/download/rust-analyzer-{{arch()}}-{{rust_analyzer_target}}.gz |gzip -c - > ~/.local/bin/rust-analyzer
-    chmod +x ~/.local/bin/rust-analyzer
+    rustup component add rust-analyzer
 
 rust: rustc rust_analyzer
+
 # Cargo install a program. If run as root, install to /usr/local/bin
 cargo_args := if user_id == "0" {"--root /usr/local"} else { "" }
 
@@ -150,6 +152,13 @@ cargo_install programm:
 
 # Rust CLI-Tools
 cli_tools: (cargo_install "ripgrep") (cargo_install "skim") (cargo_install "bat")
+
+# alacritty
+alacritty: (install alacritty_build_deps) (cargo_install "alacritty")
+    rm -rf $HOME/.alacritty.yml
+    echo "import:" > $HOME/.alacritty.yml
+    echo "  - {{justfile_directory()}}/term/alacritty.yml" >> $HOME/.alacritty.yml
+    echo "  - {{justfile_directory()}}/term/el_light.yml" >> $HOME/.alacritty.yml
 
 # Wezterm -------------------------------------------------------------
 wezterm_url := "https://github.com/wez/wezterm/releases/download/nightly/wezterm-nightly.Ubuntu20.04.deb"
@@ -178,7 +187,7 @@ neomutt branch="main": (install "pass")
 # TEX-LIVE ---------------------------------------------------
 texlive_dir := build_directory + "/texlive"
 
-texlive: _build_dir rust 
+texlive: _build_dir
     mkdir {{texlive_dir}}
     curl -L -o {{texlive_dir}}/install.tar.gz https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
     tar -xvzf {{texlive_dir}}/install.tar.gz -C {{texlive_dir}}
@@ -190,18 +199,16 @@ texlab: rustc
 
 tex: texlive texlab
 
-# DEV-DOCKER ---------------------------------------------------------------------------------------------
-_docker_cleanup: _rm_build_dir (uninstall nvim_build_deps) (uninstall rust_build_deps) (uninstall python_build_deps) (uninstall "git") clean
-    rm -rf /var/lib/apt/lists/*
+# Fonts
+robotomono: _build_dir (install "git")
+    chmod +x {{scipts_dir}}/robotomono.sh
+    {{scipts_dir}}/robotomono.sh {{build_directory}}
 
-# install the python version in docker
+private: _fritz_nas packinit nvim zsh bash wezterm tex rust robotomono cli_tools pyenv && _rm_build_dir packupdate
 
-#install_py_docker username: update (install_python  "3.9") install_nvim install_rust install_zsh (install "sudo") (install "fzf") (cargo_install "ripgrep") && _docker_cleanup
-#    useradd {{username}} --shell /usr/bin/zsh -G sudo
-#    echo "{{username}}:password" | chpasswd
+setup: packinit git (python "3.8") nvim zsh bash wezterm tex rust robotomono private cli_tools pyenv neomutt && _rm_build_dir packupdate
 
-# PRIVATE ------------------------------------------------------------------------------------------------
-# setup the machine for private use
+# Helper for private setup
 _fritz_nas: (install "samba cifs-utils")
     rm -f {{home}}/.smbcredentials
     mkdir -p {{home}}/nas
@@ -211,12 +218,3 @@ _fritz_nas: (install "samba cifs-utils")
 
 _no_sudo_shutdown:
     {{maybe_sudo}} echo "%sudo ALL=(ALL) NOPASSWD: /sbin/poweroff, /sbin/shutdown, /sbin/reboot" >> /etc/sudoers
-
-robotomono: _build_dir (install "git")
-    chmod +x {{scipts_dir}}/robotomono.sh
-    {{scipts_dir}}/robotomono.sh {{build_directory}}
-
-private: _fritz_nas packinit nvim zsh bash wezterm tex rust robotomono cli_tools pyenv && _rm_build_dir packupdate
-
-setup: packinit git (python "3.8") nvim zsh bash wezterm tex rust robotomono private cli_tools pyenv neomutt && _rm_build_dir packupdate
-
