@@ -28,20 +28,20 @@ null_ls.setup({
 
 nvim_lsp.jedi_language_server.setup{
     cmd = { vim.g.py_binary_path .. "/jedi-language-server" },
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+    capabilities = require('cmp_nvim_lsp').default_capabilities(),
 }
 
 nvim_lsp.rust_analyzer.setup{
     cmd = {"rustup","run", "stable", "rust-analyzer"},
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+    capabilities = require('cmp_nvim_lsp').default_capabilities(),
 }
 
 nvim_lsp.texlab.setup{
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+    capabilities = require('cmp_nvim_lsp').default_capabilities(),
 }
 
 nvim_lsp.sumneko_lua.setup{
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+    capabilities = require('cmp_nvim_lsp').default_capabilities(),
 }
 
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {silent=true,noremap=true})
