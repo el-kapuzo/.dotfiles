@@ -27,5 +27,10 @@
     root-dir = rev-parse --show-toplevel
 
 [credential "https://github.com"]
-    helper ="!pass show dev/github_api_token"
+    username = el-kapuzo
+    helper = pass dev/github_api_token
+
+[credential "https://codeberg.org"]
+    username = dapo
+    helper = pass dev/codeberg
 
