@@ -51,7 +51,7 @@ vim.keymap.set('n', 'gr', vim.lsp.buf.references, {silent=true,noremap=true})
 vim.keymap.set('n', '<leader>rr', vim.lsp.buf.rename, {silent=true,noremap=true})
 vim.keymap.set('n', '<leader>ra', vim.lsp.buf.code_action, {silent=true,noremap=true})
 vim.keymap.set('v', '<leader>ra', vim.lsp.buf.code_action, {silent=true,noremap=true})
-vim.keymap.set('n', '<leader>rf', vim.lsp.buf.formatting, {silent=true,noremap=true})
+vim.keymap.set('n', '<leader>rf', vim.lsp.buf.format, {silent=true,noremap=true})
 -- vim.keymap.set('n', '<C-n>', vim.lsp.buf.goto_next, {silent=true,noremap=true})
 -- vim.keymap.set('n', '<C-p>', vim.lsp.buf.goto_next, {silent=true,noremap=true})
 
