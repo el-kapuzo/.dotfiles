@@ -5,8 +5,9 @@
   + [ ] just recipe
 + [ ] (partly) migrate nvim-config to lua
 + [ ] add _toggle background_ command to vim
-+ [ ] make _nvim-tree_ and _ideavim nerdtree_ behave as similar as possible
 + [ ] makefile (bootstrap and run just)
+  + [ ] implement bootstrap script
+  + [ ] implement make file
 
 # Things to Try
 ## Cli-Tools
@@ -15,11 +16,9 @@
 + [ ] broot
 
 ## Terminal Emulator
-+ [ ] Kitty? 
 + [ ] alacritty?
 
 ## Nvim plugins to try
 Not sure about those:
 + [ ] Comment.nvim
 + [ ] treesiter
-+ [ ] matchit (buildin)
