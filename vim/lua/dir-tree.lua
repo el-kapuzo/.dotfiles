@@ -24,6 +24,12 @@ require"nvim-tree".setup{
         highlight_git= true,
         highlight_opened_files = "none",
         icons = {
+            show = {
+                file = false,
+                folder = true,
+                folder_arrow = false,
+                git = false,
+            },
             glyphs = {
                 default= " ",
                 symlink= "~",
