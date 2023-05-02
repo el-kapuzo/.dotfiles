@@ -7,15 +7,14 @@ packadd("cmp-nvim-lsp")
 
 local nvim_lsp = require'lspconfig'
 local null_ls = require'null-ls'
-local flake8_executable = vim.g.py_binary_path .. '/flake8'
+local ruff_executable = vim.g.py_binary_path .. '/ruff'
 local black_executable = vim.g.py_binary_path .. '/black'
 local python_executable = vim.g.py_binary_path .. '/python'
 
 null_ls.setup({
     sources = {
-        null_ls.builtins.diagnostics.flake8.with({
-            command =  flake8_executable,
-            extra_args=  { '--max-line-lengt', '88' }
+        null_ls.builtins.diagnostics.ruff.with({
+            command =  ruff_executable,
         }),
         null_ls.builtins.formatting.black.with({
             command = black_executable
