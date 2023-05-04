@@ -61,4 +61,4 @@ vim.cmd('sign define LspDiagnosticsSignHint text=-- texthl=LspDiagnisticsDefault
 
 vim.api.nvim_set_var("diagnostic_show_sign", 1)
 
-vim.cmd("au BufWritePre *.rs,*.py lua vim.lsp.buf.formatting_sync()")
+vim.cmd("au BufWritePre *.rs,*.py lua vim.lsp.buf.format({async=false})")
