@@ -13,7 +13,7 @@ build_directory := if user_id == "0" { "/build" } else { "~/build"}
 
 # List of build dependencies, for the different recipes
 nvim_build_deps := "ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl"
-py_packages := "black flake8 flake8-bandit flake8-bugbear flake8-implicit-str-concat flake8-eradicate flake8-debugger flake8-commas flake8-broken-line isort jedi-language-server pynvim rope"
+py_packages := "black ruff isort jedi-language-server pynvim rope"
 
 python_build_deps := "build-essential gdb lcov libbz2-dev libffi-dev libgdbm-dev liblzma-dev libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev lzma lzma-dev tk-dev uuid-dev zlib1g-dev"
 
@@ -89,12 +89,12 @@ nvim branch="stable": _build_dir (python "3.8") (install "git") (install nvim_bu
 # BUILD PYTHON --------------------------------------------------------------------------------------------------------------
 
 # Maybe install python 3 from source with specified version. But only if no python3 binary is found.
-python version="3.8": (install python_build_deps) _build_dir (install "git")
+python version="3.10": (install python_build_deps) _build_dir (install "git")
     {{maybe_sudo}} chmod +x {{justfile_directory()}}/scripts/python.sh
     {{scipts_dir}}/python.sh {{version}} {{build_directory}} install true {{maybe_sudo}}
 
 # Install python version alongside existing python versions
-altinstall_python version="3.8": (install python_build_deps) _build_dir
+altinstall_python version="3.10": (install python_build_deps) _build_dir
     {{maybe_sudo}} chmod +x {{justfile_directory()}}/scripts/python.sh
     {{scipts_dir}}/python.sh {{version}} {{build_directory}} altinstall false {{maybe_sudo}}
 
@@ -121,7 +121,7 @@ bash:
 # Install git, and setup the global config file
 git: (install "git") (install "pass")
     echo "[include]" > $HOME/.gitconfig
-    echo "path = {{justfile_directory()}}/git/gitconfig" >> $HOME/.gitconfig
+    echo "    path = {{justfile_directory()}}/git/gitconfig" >> $HOME/.gitconfig
     git config --global core.autocrlf {{git_autcrf_option}}
     read -p "Enter git user name: " git_user && git config --global user.name "$git_user"
     read -p "Enter git email: " git_email && git config --global user.email "$git_email"
@@ -130,12 +130,6 @@ git: (install "git") (install "pass")
 # Install the specified rust-toolchain.
 rustc profile="default": (install rust_build_deps)
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --no-modify-path --profile {{profile}}
-
-rust_analyzer_target := if os() == "linux" {
-"unknown-linux-gnu"
-} else if os() == "windows" {
-"pc-windows-msvc"
-} else { "apple-darwin"}
 
 rust_analyzer:
     rustup update
