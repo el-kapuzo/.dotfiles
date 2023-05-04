@@ -14,8 +14,8 @@ local luasnip = require'luasnip'
 cmp.setup({
     preselect = nil,
     snippet = {
-        function(args)
-            require'luasnip'.lsp_expand(args.body)
+        expand = function(args)
+            luasnip.lsp_expand(args.body)
         end
     },
     sources = cmp.config.sources({
@@ -26,15 +26,7 @@ cmp.setup({
         { name = "buffer"}
     }),
     mapping = cmp.mapping.preset.insert({
-        ['<Tab>'] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.confirm({select = true})
-            elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
-            else
-                fallback()
-            end
-        end)
+        ['<Tab>'] = cmp.mapping.confirm(),
     }),
     -- window = {
     --     completion = cmp.config.window.bordered(),
@@ -55,29 +47,3 @@ cmp.setup({
     }
 })
 
--- vim.cmd("packadd! nvim-compe")
-
--- require'compe'.setup {
---     enabled=true;
---     autocomplete=true;
---     min_length=1;
---     preselect='enable';
---     throttle_time=80;
---     source_timeout=200;
---     incomplete_delay=200;
---     max_abbr_width=88;
---     max_kind_width=88;
---     max_menu_width=88;
---     documentation=true;
-
---     source = {
---         path = true;
---         buffer = true;
---         calc = true;
---         nvim_lsp = true;
---         nvim_lua = true;
---         ultisnips = true;
---     };
--- }
-
--- vim.api.nvim_set_keymap("i", "<Tab>", "compe#confirm('<Tab>')", {expr = true})
