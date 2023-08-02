@@ -6,8 +6,8 @@
 + [ ] (partly) migrate nvim-config to lua
 + [ ] add _toggle background_ command to vim
 + [ ] makefile (bootstrap and run just)
-  + [ ] implement bootstrap script
-  + [ ] implement make file
+  + [x] implement bootstrap script
+  + [ ] implement makefile
 
 # Things to Try
 ## Cli-Tools
