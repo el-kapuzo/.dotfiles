@@ -133,3 +133,13 @@
 	path = vim/pack/bundle/opt/telescope.nvim
 	url = https://github.com/nvim-telescope/telescope.nvim.git
 	shallow = true
+[submodule "carbon-nvim"]
+	path = vim/pack/bundle/opt/carbon-nvim
+	url = https://codeberg.org/dapo/carbon-nvim
+	branch = main
+	shallow = true
+[submodule "spectrum-nvim"]
+	path = vim/pack/bundle/opt/spectrum-nvim
+	url = https://codeberg.org/dapo/spectrum-nvim
+	branch = main
+	shallow = true
