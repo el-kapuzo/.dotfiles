@@ -18,6 +18,8 @@
     s = status
     p = push
     f = fetch
+    spu = stash push --all
+    spo = stash pop
     l = pull
     c = commit
     cm = commit -m
