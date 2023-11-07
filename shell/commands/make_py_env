@@ -1,18 +1,7 @@
 #! /bin/env bash
 
-__activate_env () {
-    if [ -d "./.venv/bin/" ];
-    then
-        . ./.venv/bin/activate
-    else
-        . ./.venv/Scripts/activate
-    fi
-}
-
-if [ -d "./.venv" ];
+if [ ! -d "./.venv" ];
 then
-    __activate_env
-else
     py -m venv ./.venv
     if [ -d "./.venv/bin/" ];
     then
@@ -20,5 +9,4 @@ else
     else
         ./.venv/Scripts/python.exe -m pip install --upgrade pip setuptools
     fi
-    __activate_env
 fi

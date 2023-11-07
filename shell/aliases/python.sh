@@ -1,8 +1,7 @@
+
 if [[ $(uname -s) == MINGW* ]]; then
-    alias black="$DOTFILES/.venv/Scripts/black.exe"
-    alias flake8="$DOTFILES/.venv/Scripts/flake8.exe"
+    alias pyenv="make_py_env && . ./.venv/Scripts/activate"
 else
-    alias black="$DOTFILES/.venv/bin/black"
-    alias flake8="$DOTFILES/.venv/bin/flake8"
+    alias pyenv="make_py_env && . ./.venv/bin/activate"
 fi
 
