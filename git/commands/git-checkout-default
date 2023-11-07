@@ -1,23 +1,20 @@
 #! /bin/bash
 
-TRUE="true"
-FAlSE="false"
+BRANCHES="develop master main"
+ROOT=$(git root-dir)
 
-__has_branch() {
-    git rev-parse --verify $1 &> /dev/null; 
-}
-
-__has_branch develop
-
-if __has_branch develop;
-then
-    git checkout develop
-elif __has_branch master;
-then
-    git checkout master
-else
-    git checkout main
-fi
-
+for branch in $BRANCHES
+do
+    git rev-parse --verify $branch &> /dev/null
+    if [ $? -eq 0 ];
+    then 
+        git stash push ${ROOT} &> /dev/null
+        git checkout $branch &> /dev/null
+        git stash pop &> /dev/null
+        echo "Switched to $branch"
+        exit 0
+    fi
+done
+exit 1
 
 
