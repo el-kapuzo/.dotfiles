@@ -13,7 +13,7 @@ build_directory := if user_id == "0" { "/build" } else { "~/build"}
 
 # List of build dependencies, for the different recipes
 nvim_build_deps := "ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl"
-py_packages := "black ruff isort jedi-language-server pynvim rope"
+py_packages := "ruff jedi-language-server pynvim rope ruff-lsp"
 
 python_build_deps := "build-essential gdb lcov libbz2-dev libffi-dev libgdbm-dev liblzma-dev libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev lzma lzma-dev tk-dev uuid-dev zlib1g-dev"
 

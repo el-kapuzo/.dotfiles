@@ -7,18 +7,10 @@ packadd("cmp-nvim-lsp")
 
 local nvim_lsp = require 'lspconfig'
 local null_ls = require 'null-ls'
-local ruff_executable = vim.g.py_binary_path .. '/ruff'
-local black_executable = vim.g.py_binary_path .. '/black'
 local python_executable = vim.g.py_binary_path .. '/python'
 
 null_ls.setup({
     sources = {
-        null_ls.builtins.diagnostics.ruff.with({
-            command = ruff_executable,
-        }),
-        null_ls.builtins.formatting.black.with({
-            command = black_executable
-        }),
         null_ls.builtins.formatting.json_tool.with({
             command = python_executable
         }),
@@ -27,6 +19,11 @@ null_ls.setup({
 
 nvim_lsp.jedi_language_server.setup {
     cmd = { vim.g.py_binary_path .. "/jedi-language-server" },
+    capabilities = require('cmp_nvim_lsp').default_capabilities(),
+}
+
+nvim_lsp.ruff_lsp.setup {
+    cmd = { vim.g.py_binary_path .. "/ruff-lsp" },
     capabilities = require('cmp_nvim_lsp').default_capabilities(),
 }
 
