@@ -31,6 +31,10 @@ execute 'source ' . s:vimrc_path . '/mappings.vim'
 
 if has('nvim')
 lua <<EOF
+    if vim.loader then
+        vim.loader.enable()
+    end
+
     require'colorscheme-config'
     require'autopairs'
     require'dir-tree'
