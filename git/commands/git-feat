@@ -1,8 +1,5 @@
 #! /bin/bash
 
-__branch_name="feat/dpohl/$1"
+BRANCH="feat/dpohl/$1"
 
-git checkout-default
-git pull
-git checkout -b $__branch_name
-git push -u origin $__branch_name
+git create $BRANCH

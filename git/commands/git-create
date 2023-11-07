@@ -1,0 +1,11 @@
+#! /bin/bash
+
+BRANCH=$1
+ROOT=$(git root-dir)
+
+git checkout-default
+git stash push ${ROOT}
+git pull
+git checkout -b $BRANCH
+git push -u origin $BRANCH
+git stash pop
