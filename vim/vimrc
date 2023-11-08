@@ -23,7 +23,7 @@ endif
 
 " --- MAPPING --------------------
 " mappings must be definde here, for maleader=<space>
-execute 'source ' . s:vimrc_path . '/mappings.vim'
+" execute 'source ' . s:vimrc_path . '/mappings.vim'
 
 
 " " --- MAKE IT LOOK NICE ---------------
@@ -35,6 +35,7 @@ lua <<EOF
         vim.loader.enable()
     end
 
+    require'key-mappings'
     require'colorscheme-config'
     require'autopairs'
     require'dir-tree'
