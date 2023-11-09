@@ -7,4 +7,4 @@ vim.opt.termguicolors = true
 packadd('spectrum-nvim')
 packadd('carbon-nvim')
 
-vim.cmd('colorscheme spectrum')
+vim.cmd('colorscheme carbon')
