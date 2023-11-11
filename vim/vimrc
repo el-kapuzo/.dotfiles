@@ -40,11 +40,6 @@ lua <<EOF
     require'statusline'
     require'plugins'
     require'huble'
+    require'settings'
 EOF
 endif
-" 
-
-" --- MY SETTINGS ---------------------
-" load the settings after adding packages
-
-execute 'source ' . s:vimrc_path . '/settings.vim'
