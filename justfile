@@ -7,6 +7,8 @@ os := os()
 os_family := os_family()
 scipts_dir := justfile_directory() + "/scripts"
 
+set windows-shell := ["powershell"]
+
 # Some variables and options, which depend on running as root or not
 maybe_sudo := if user_id == "0" { "" } else { "sudo"}
 build_directory := if user_id == "0" { "/build" } else { "~/build"}
