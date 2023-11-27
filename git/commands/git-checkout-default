@@ -3,18 +3,38 @@
 BRANCHES="develop master main"
 ROOT=$(git root-dir)
 
+CWD=$(pwd)
+
+cd $ROOT
+git update-index --really-refresh
+
+if git diff-index --quiet HEAD
+then
+    SHOULD_STASH=0
+else
+    SHOULD_STASH=1
+fi
+
 for branch in $BRANCHES
 do
-    git rev-parse --verify $branch &> /dev/null
-    if [ $? -eq 0 ];
+    if git rev-parse --verify $branch &> /dev/null
     then 
-        git stash push ${ROOT} &> /dev/null
-        git checkout $branch &> /dev/null
-        git stash pop &> /dev/null
-        echo "Switched to $branch"
+        if [[ $SHOULD_STASH -eq 1 ]]
+        then
+            git stash push ${ROOT}
+        fi
+        git checkout $branch
+
+        if [[ $SHOULD_STASH -eq 1 ]]
+        then
+            git stash pop
+        fi
+        cd $CWD
         exit 0
     fi
 done
+
+cd $CWD
 exit 1
 
 

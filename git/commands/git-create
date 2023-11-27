@@ -2,10 +2,32 @@
 
 BRANCH=$1
 ROOT=$(git root-dir)
+CWD=$(pwd)
+
+cd $ROOT
+
+git update-index --really-refresh
+
+if git diff-index --quiet HEAD
+then
+    SHOULD_STASH=0
+else
+    SHOULD_STASH=1
+fi
+
+if [[ $SHOULD_STASH -eq 1 ]]
+then
+    git stash push .
+fi
 
 git checkout-default
-git stash push ${ROOT}
 git pull
 git checkout -b $BRANCH
 git push -u origin $BRANCH
-git stash pop
+
+if [[ $SHOULD_STASH -eq 1 ]]
+then
+    git stash pop
+fi
+
+cd $CWD
