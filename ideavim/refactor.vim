@@ -1,5 +1,5 @@
 map <leader>ra    <Action>(ShowIntentionActions)
-map <leader>rf   <Action>(ReformatCode)
+map <leader>rf    <Action>(ReformatCode)
 
 map <leader>rC      <Action>(CodeCleanup)
 map <leader>rc      <Action>(GenerateConstructor)
@@ -9,6 +9,8 @@ map <leader>rem    <Action>(ExtractMethod)
 map <leader>rev    <Action>(IntroduceVariable)
 
 map <leader>rec    <Action>(ExtractClass)
+
+map <leader>reC    <Action>(IntroduceConstant)
 
 map <leader>res    <Action>(ExtractSuperclass)
 
