@@ -11,8 +11,7 @@ then
     ./.venv/bin/python3 "$@"
 elif [[ $(uname -s) == MINGW* ]];
 then
-    # the windows-store installed version of python is utterly, completely broken
-    winpty -Xallow-non-tty $HOME/.venv/Scripts/python.exe "$@"
+    winpty -Xallow-non-tty python.exe "$@"
 else
     python3 "$@"
 fi
