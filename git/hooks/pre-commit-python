@@ -12,5 +12,5 @@ else
     python_bin=$root_dir/.venv/bin/python
 fi
 
-$python_bin -m ruff $root_dir
+$python_bin -m ruff check $root_dir
 $python_bin -m ruff format --check $root_dir
