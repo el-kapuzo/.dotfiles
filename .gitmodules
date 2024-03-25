@@ -16,6 +16,7 @@
 [submodule "vim-just"]
 	path = vim/pack/bundle/opt/vim-just
 	url = https://github.com/NoahTheDuke/vim-just.git
+    branch = main
     ignore = dirty
 	shallow = true
 [submodule "python-syntax"]
