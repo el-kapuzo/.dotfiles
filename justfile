@@ -113,11 +113,13 @@ pyenv:
 # Install zsh, and setup the zshrc file
 zsh: (install "zsh")
     chsh -s /bin/zsh
+    echo "export DOTFILES={{justfile_directory()}}" > $HOME/.zshrc
     echo "source {{justfile_directory()}}/zsh/zshrc" > $HOME/.zshrc
 
 # Setup the bashrc file.
 bash:
     rm -rf $HOME/.bashrc
+    echo "export DOTFILES={{justfile_directory()}}" > $HOME/.zshrc
     echo "source {{justfile_directory()}}/bash/bashrc" > $HOME/.bashrc
 
 # SETUP GIT ----------------------------------------------------------------------------
