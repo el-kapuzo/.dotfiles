@@ -1,8 +1,6 @@
 autoload -U colors
 colors
 
-export DOTFILES="${HOME}/.dotfiles"
-
 source $DOTFILES/shell/default_rc
 source $DOTFILES/zsh/completion.zsh
 source $DOTFILES/zsh/prompt.zsh
