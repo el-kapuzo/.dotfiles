@@ -1,7 +1,7 @@
 # The id of the user running just.
 # If it is 0, we are running as root, if not, we must run some commands with sudo
 user_id := `id -u`
-user_guid := `id -g`
+user_guid := `id -g` 
 home := env_var("HOME")
 os := os()
 os_family := os_family()
@@ -173,8 +173,8 @@ wezterm:
         mkdir -p {{home}}/.config/wezterm
         rm {{build_directory}}/wezterm.deb
     fi
-    rm -rf {{home}}/.config/wezterm/wezterm.lua
-    ln -s {{justfile_directory()}}/term/wezterm.lua {{home}}/.config/wezterm/wezterm.lua
+    echo "package.path = package.path .. ';{{justfile_directory()}}/term/wezterm/?.lua'" > {{home}}/.config/wezterm/wezterm.lua
+    cat {{justfile_directory()}}/term/wezterm.lua >> {{home}}/.config/wezterm/wezterm.lua
     mkdir {{home}}/.config/wezterm/colors
     cp {{justfile_directory()}}/term/el_light.toml {{home}}/.config/wezterm/colors/el_light.toml
 
