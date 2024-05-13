@@ -19,16 +19,16 @@ set NERDTree
 
 let g:highlightedyank_highlight_color = "rgba(213, 196, 161, 155)"
 
-source ~/.dotfiles/ideavim/pycharm.vim
-source ~/.dotfiles/ideavim/normal.vim
-source ~/.dotfiles/ideavim/visual.vim
-source ~/.dotfiles/ideavim/git.vim
-source ~/.dotfiles/ideavim/terminal.vim
-source ~/.dotfiles/ideavim/refactor.vim
-source ~/.dotfiles/ideavim/buffers.vim
-source ~/.dotfiles/ideavim/files.vim
-source ~/.dotfiles/ideavim/windows.vim
-source ~/.dotfiles/ideavim/debug.vim
-source ~/.dotfiles/ideavim/project.vim
-source ~/.dotfiles/ideavim/tools.vim
-source ~/.dotfiles/ideavim/nerdtree.vim
+execute "source " . g:config_dir . "pycharm.vim"
+execute "source " . g:config_dir . "normal.vim"
+execute "source " . g:config_dir . "visual.vim"
+execute "source " . g:config_dir . "git.vim"
+execute "source " . g:config_dir . "terminal.vim"
+execute "source " . g:config_dir . "refactor.vim"
+execute "source " . g:config_dir . "buffers.vim"
+execute "source " . g:config_dir . "files.vim"
+execute "source " . g:config_dir . "windows.vim"
+execute "source " . g:config_dir . "debug.vim"
+execute "source " . g:config_dir . "project.vim"
+execute "source " . g:config_dir . "tools.vim"
+execute "source " . g:config_dir . "nerdtree.vim"

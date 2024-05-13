@@ -81,13 +81,17 @@ _rm_build_dir:
 
 # BUILD NEOVIM --------------------------------------------------------------------------------------------------------------
 
-
 # Build and install neovim from the specified branch
 nvim branch="stable": _build_dir (python "3.8") (install "git") (install nvim_build_deps) pyenv
     {{maybe_sudo}} chmod +x {{justfile_directory()}}/scripts/nvim.sh
     {{scipts_dir}}/nvim.sh {{branch}} {{build_directory}} {{maybe_sudo}}
     mkdir -p $HOME/.config/nvim
     echo "vim.cmd(':source {{justfile_directory()}}/vim/init.lua')" > $HOME/.config/nvim/init.lua
+
+# Configure Ideavim
+ideavim:
+    echo 'let g:config_dir = "{{justfile_directory()}}/ideavim/"' > $HOME/.ideavimrc
+    echo 'execute "source " . g:config_dir . "ideavimrc"' >> $HOME/.ideavimrc
 
 # BUILD PYTHON --------------------------------------------------------------------------------------------------------------
 
