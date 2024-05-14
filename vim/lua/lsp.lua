@@ -9,24 +9,19 @@ packadd("cmp-nvim-lsp")
 
 local nvim_lsp = require 'lspconfig'
 local null_ls = require 'null-ls'
-local python_executable = vim.g.py_binary_path .. '/python'
 
 
 null_ls.setup({
     sources = {
-        null_ls.builtins.formatting.json_tool.with({
-            command = python_executable
-        }),
+        null_ls.builtins.formatting.json_tool,
     }
 })
 
-nvim_lsp.jedi_language_server.setup {
-    cmd = { vim.g.py_binary_path .. "/jedi-language-server" },
+nvim_lsp.pylsp.setup {
     capabilities = require('cmp_nvim_lsp').default_capabilities(),
 }
 
 nvim_lsp.ruff_lsp.setup {
-    cmd = { vim.g.py_binary_path .. "/ruff-lsp" },
     capabilities = require('cmp_nvim_lsp').default_capabilities(),
 }
 
@@ -62,10 +57,12 @@ vim.cmd('sign define LspDiagnosticsSignHint text=-- texthl=LspDiagnisticsDefault
 vim.api.nvim_set_var("diagnostic_show_sign", 1)
 
 vim.api.nvim_create_autocmd("BufWritePre",
-    { pattern = { "*.rs", "*.py", "*.lua" },
+    {
+        pattern = { "*.rs", "*.py", "*.lua" },
         callback = function(args)
             vim.lsp.buf.format({ async = false })
-        end })
+        end
+    })
 vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(args)
         local client = vim.lsp.get_client_by_id(args.data.client_id)
