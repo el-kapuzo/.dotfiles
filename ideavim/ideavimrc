@@ -2,14 +2,11 @@ noremap <space> <Nop>
 let mapleader=" "
 
 set showmode
-
 set incsearch
 set hlsearch
 set ignorecase
 set smartcase
-
 set ideajoin
-
 set surround
 set commentary
 set textobj-indent
@@ -19,6 +16,8 @@ set NERDTree
 
 let g:highlightedyank_highlight_color = "rgba(213, 196, 161, 155)"
 
+" The g:config_dir will allways be /path/to/dotfiles/ideavim/
+" This will be done by running just ideavim in the dotfile root dir
 execute "source " . g:config_dir . "pycharm.vim"
 execute "source " . g:config_dir . "normal.vim"
 execute "source " . g:config_dir . "visual.vim"
