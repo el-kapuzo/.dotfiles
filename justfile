@@ -105,13 +105,9 @@ altinstall_python version="3.10": (install python_build_deps) _build_dir
     {{maybe_sudo}} chmod +x {{justfile_directory()}}/scripts/python.sh
     {{scipts_dir}}/python.sh {{version}} {{build_directory}} altinstall false {{maybe_sudo}}
 
-relative_py_env_bin := if os_family() == "windows" { ".venv/Scripts/python.exe"} else { ".venv/bin/python" }
-py_env_bin := justfile_directory() + "/" + relative_py_env_bin
-
-pyenv:
-    python3 -m venv {{justfile_directory()}}/.venv
-    {{py_env_bin}} -m pip install --upgrade pip setuptools
-    {{py_env_bin}} -m pip install {{py_packages}}
+pip_conf:
+    echo "[global]" >> $HOME/.config/pip/pip.conf
+    echo "require-venv = true" >> $HOME/.config/pip/pip.conf
 
 # SETUP SHELL ----------------------------------------------------------------------------
 # Install zsh, and setup the zshrc file
