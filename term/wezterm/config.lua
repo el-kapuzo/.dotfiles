@@ -8,7 +8,7 @@ key_tables.apply_to_config(config)
 key_mapping.apply_to_config(config)
 
 -- Window configuration
-config.hide_tab_bar_if_only_one_tab = true
+config.hide_tab_bar_if_only_one_tab = false
 config.automatically_reload_config = false
 config.window_padding = { left = 4, right = 0, top = 0, bottom = 0 }
 config.initial_cols = 90
@@ -21,7 +21,7 @@ config.force_reverse_video_cursor = true
 config.font_size = 14
 config.line_height = 1.2
 config.adjust_window_size_when_changing_font_size = false
-config.font = wezterm.font { family = "Fira Code", harfbuzz_features = { "liga=0" } }
+config.font = wezterm.font { family = "Fira Code", harfbuzz_features = { "calt=0", "clig=0", "liga=0" } }
 
 -- Color related settings
 config.color_scheme = 'el_light'
