@@ -1,22 +1,25 @@
 local wezterm    = require 'wezterm'
+local act        = wezterm.action
+
 local M          = {}
+
 local key_tables = {
     pane = {
         {
             key = "s",
-            action = wezterm.action {
+            action = act {
                 SplitVertical = { domain = "CurrentPaneDomain" }
             }
         },
         {
             key = "v",
-            action = wezterm.action {
+            action = act {
                 SplitHorizontal = { domain = "CurrentPaneDomain" }
             }
         },
         {
             key = "d",
-            action = wezterm.action {
+            action = act {
                 CloseCurrentPane = { confirm = false }
             }
         },
@@ -26,74 +29,100 @@ local key_tables = {
         },
         {
             key = "h",
-            action = wezterm.action { ActivatePaneDirection = "Left" }
+            action = act.ActivatePaneDirection "Left",
         },
         {
             key = "j",
-            action = wezterm.action { ActivatePaneDirection = "Down" }
+            action = act.ActivatePaneDirection "Down",
         },
         {
             key = "k",
-            action = wezterm.action { ActivatePaneDirection = "Up" }
+            action = act.ActivatePaneDirection "Up",
         },
         {
             key = "l",
-            action = wezterm.action { ActivatePaneDirection = "Right" }
+            action = act.ActivatePaneDirection "Right",
         },
         {
             key = "h",
             mods = "CTRL",
-            action = wezterm.action { AdjustPaneSize = { "Left", 5 } }
+            action = act.AdjustPaneSize { "Left", 5 },
         },
         {
             key = "j",
             mods = "CTRL",
-            action = wezterm.action { AdjustPaneSize = { "Down", 5 } }
+            action = act.AdjustPaneSize { "Down", 5 },
         },
         {
             key = "k",
             mods = "CTRL",
-            action = wezterm.action { AdjustPaneSize = { "Up", 5 } }
+            action = act.AdjustPaneSize { "Up", 5 }
         },
         {
             key = "l",
             mods = "CTRL",
-            action = wezterm.action { AdjustPaneSize = { "Right", 5 } }
+            action = act.AdjustPaneSize { "Right", 5 },
+        },
+        {
+            key = "q",
+            action = act.CloseCurrentPane { confirm = false },
         },
         {
             key = "Escape",
-            action = "PopKeyTable"
+            action = "PopKeyTable",
         },
     },
     application = {
         {
             key = "q",
-            action = "QuitApplication"
+            action = "QuitApplication",
         },
         {
             key = "f",
-            action = "ToggleFullScreen"
+            action = "ToggleFullScreen",
         },
         {
             key = "r",
-            action = "ReloadConfiguration"
+            action = "ReloadConfiguration",
         },
         {
             key = "0",
-            action = "ResetFontSize"
+            action = "ResetFontSize",
         },
         {
             key = "+",
-            action = "IncreaseFontSize"
+            action = "IncreaseFontSize",
         },
         {
             key = "-",
-            action = "DecreaseFontSize"
+            action = "DecreaseFontSize",
         },
         {
             key = "Escape",
-            action = "PopKeyTable"
+            action = "PopKeyTable",
         },
+    },
+    tabs = {
+        {
+            key = "n",
+            action = act.SpawnTab 'CurrentPaneDomain',
+        },
+        {
+            key = "l",
+            action = act.ActivateTabRelative(1),
+        },
+        {
+            key = "h",
+            action = act.ActivateTabRelative(-1)
+        },
+        {
+            key = "q",
+            action = act.CloseCurrentTab { confirm = false },
+        },
+        {
+            key = "Escape",
+            action = "PopKeyTable",
+        }
     }
 }
 
